@@ -4,6 +4,8 @@ import { Hero } from "@/components/Hero";
 import { ProblemSolution } from "@/components/ProblemSolution";
 import { WhyUpgrade } from "@/components/WhyUpgrade";
 import { FAQ } from "@/components/FAQ";
+import { HowItWorks } from "@/components/HowItWorks";
+import { CtaSection } from "@/components/CtaSection";
 
 export default function HomePage() {
   return (
@@ -20,7 +22,8 @@ export default function HomePage() {
         <ProblemSolution />
         <WhyUpgrade />
         <FAQ />
-        
+        <HowItWorks />
+        <CtaSection />
         
       </main>
 
