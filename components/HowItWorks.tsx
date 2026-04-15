@@ -1,4 +1,5 @@
-import { CalendarCheck, ClipboardEdit, ShieldCheck } from "lucide-react";
+import { CalendarCheck, ClipboardEdit, FileCheck, ShieldCheck, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export function HowItWorks() {
   const steps = [
@@ -11,6 +12,11 @@ export function HowItWorks() {
       icon: ClipboardEdit,
       title: "Get a customized plan",
       description: "We'll design coverage that protects you while you're living.",
+    },
+    {
+      icon: FileCheck,
+      title: "Get pre-approved for Living Benefits",
+      description: "Complete the straightforward application with our expert guidance.",
     },
     {
       icon: ShieldCheck,
@@ -28,15 +34,15 @@ export function HowItWorks() {
             How It Works
           </h2>
           <p className="text-lg text-muted-foreground mt-4 max-w-2xl mx-auto">
-            Securing your future shouldn't be complicated. Our three-step process makes getting the right coverage simple and stress-free.
+            Securing your future shouldn't be complicated. Our four-step process makes getting the right coverage simple and stress-free.
           </p>
         </div>
 
-        {/* 3-Step Process Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+        {/* 4-Step Process Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative mb-16">
           
-          {/* Subtle connecting line for desktop view */}
-          <div className="hidden md:block absolute top-12 left-[15%] right-[15%] h-[2px] bg-border -z-10" />
+          {/* Subtle connecting line for desktop view (Updated to fit 4 columns) */}
+          <div className="hidden lg:block absolute top-12 left-[12.5%] right-[12.5%] h-[2px] bg-border -z-10" />
 
           {steps.map((step, index) => (
             <div key={index} className="flex flex-col items-center text-center relative group">
@@ -55,6 +61,17 @@ export function HowItWorks() {
               <p className="text-muted-foreground leading-relaxed px-4">{step.description}</p>
             </div>
           ))}
+        </div>
+
+        {/* Action-Oriented CTA Button */}
+        <div className="flex justify-center mt-12">
+          <Link 
+            href="/contact" 
+            className="group flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-bold rounded-full shadow-lg shadow-primary/20 hover:scale-105 hover:shadow-primary/30 transition-all active:scale-95 text-lg"
+          >
+            Start Step 1 Today
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
 
       </div>

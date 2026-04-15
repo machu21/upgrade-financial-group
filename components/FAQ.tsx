@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Accordion,
   AccordionContent,
@@ -13,60 +15,79 @@ export function FAQ() {
     },
     {
       question: "Do living benefits cost extra?",
-      answer: "With many carriers, living benefits riders are included at no additional cost. We'll help you find policies with built-in living benefits.",
+      answer: "Some carriers include them at no cost, while others may charge. The earlier you get coverage, the better your options.",
     },
     {
       question: "Will using living benefits reduce my death benefit?",
-      answer: "Yes—any amount you access early is deducted from the death benefit your beneficiaries receive. However, it's your money, and it's there to help you when you need it.",
+      answer: "Yes—any amount accessed early is deducted from the death benefit your beneficiaries receive.",
     },
     {
       question: "What illnesses qualify?",
-      answer: "Qualifying conditions vary by carrier but typically include heart attack, stroke, cancer, major organ failure, ALS, and others. Chronic illness qualification usually requires inability to perform two or more activities of daily living.",
+      answer: "Typically includes heart attack, stroke, cancer, major organ failure, ALS, and chronic conditions requiring assistance with daily living.",
     },
     {
-      question: "Can I still get living benefits if I have a pre-existing condition?",
-      answer: "It depends on the condition and carrier. Many people with health histories still qualify. Let's talk through your situation.",
-    },
-    {
-      question: "How much can I access?",
-      answer: "Typically up to 90% of your death benefit, depending on the policy and diagnosis. Exact amounts depend on your carrier and policy terms.",
+      question: "Can I qualify with pre-existing conditions?",
+      answer: "It depends on the condition and carrier. Many individuals still qualify depending on their situation.",
     },
     {
       question: "Is the money taxable?",
-      answer: "In most cases, living benefits are received tax-free. Consult a tax professional for your specific situation.",
+      answer: "In most cases, living benefits are received tax-free. Always consult a tax professional.",
     },
   ];
 
   return (
-    <section className="py-24 relative z-10 bg-background">
-      <div className="max-w-3xl mx-auto px-6">
-        
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">
-            Frequently Asked Questions
+    <section className="relative py-28 overflow-hidden">
+
+      {/* 🌌 Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/images/question-mark-bg.jpg"
+          alt="FAQ Background"
+          className="w-full h-full object-cover opacity-20 scale-105"
+        />
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/85 to-background/95" />
+      </div>
+
+      {/* ✨ Glow Effects */}
+      <div className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/20 blur-[120px] opacity-30 pointer-events-none" />
+
+      {/* Content */}
+      <div className="relative z-10 max-w-4xl mx-auto px-6">
+
+        {/* Header */}
+        <div className="text-center mb-16">
+          <p className="text-sm uppercase tracking-widest text-primary font-semibold mb-3">
+            FAQ
+          </p>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
+            Everything you need to know
           </h2>
-          <p className="text-lg text-muted-foreground mt-4">
-            Everything you need to know about protecting your future with living benefits.
+          <p className="text-lg text-muted-foreground mt-4 max-w-2xl mx-auto">
+            Clear answers to help you understand how living benefits protect you and your future.
           </p>
         </div>
 
-        <Accordion type="single" collapsible className="w-full space-y-4">
+        {/* Accordion */}
+        <Accordion type="single" collapsible className="space-y-4">
+
           {faqs.map((faq, index) => (
-            <AccordionItem 
-              key={index} 
-              value={`item-${index}`} 
-              className="bg-accent/10 border border-border rounded-xl px-6 data-[state=open]:border-primary/50 data-[state=open]:bg-primary/5 transition-colors"
+            <AccordionItem
+              key={index}
+              value={`item-${index}`}
+              className="group rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl px-6 transition-all duration-300 hover:border-primary/40 hover:bg-white/10 data-[state=open]:border-primary/60 data-[state=open]:bg-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.12)]"
             >
-              <AccordionTrigger className="text-left text-lg font-semibold text-foreground hover:text-primary hover:no-underline py-6">
+              <AccordionTrigger className="text-left text-lg font-semibold text-foreground py-6 transition-colors duration-200 group-hover:text-primary">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed text-base pb-6">
+
+              <AccordionContent className="text-muted-foreground leading-relaxed text-base pb-6 pr-4 animate-in fade-in-0 slide-in-from-top-2 duration-300">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>
           ))}
-        </Accordion>
 
+        </Accordion>
       </div>
     </section>
   );

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export function ServiceHero() {
   return (
-    <section className="max-w-4xl mx-auto px-6 text-center space-y-8 mb-24">
+    <section className="pt-24 md:pt-24 max-w-4xl mx-auto px-6 text-center space-y-8 mb-24">
       <p className="inline-block text-primary text-sm font-semibold tracking-wider uppercase bg-primary/10 px-4 py-1.5 rounded-full border border-primary/20">
         Our Services
       </p>

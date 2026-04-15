@@ -5,38 +5,38 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Deep Black Background */
-  --background: 0 0% 5%;
+  /* Rich Dark Gray / Black Background (approx #171717) */
+  --background: 0 0% 9%;
   --foreground: 0 0% 98%;
   
   /* Solid Gold */
   --primary: 43 74% 66%; 
   --primary-foreground: 0 0% 0%; 
 
-  /* Dark grays */
-  --accent: 0 0% 12%;
+  /* Dark grays for cards and hover states */
+  --accent: 0 0% 15%;
   --accent-foreground: 0 0% 98%;
-  --muted: 0 0% 15%;
+  --muted: 0 0% 18%;
   --muted-foreground: 0 0% 65%;
   
-  --border: 0 0% 20%;
-  --input: 0 0% 20%;
+  --border: 0 0% 22%;
+  --input: 0 0% 22%;
   --ring: 43 74% 66%;
   --radius: 0.5rem;
 }
 
 /* We force the dark mode variables to be identical */
 .dark {
-  --background: 0 0% 5%;
+  --background: 0 0% 9%;
   --foreground: 0 0% 98%;
   --primary: 43 74% 66%; 
   --primary-foreground: 0 0% 0%; 
-  --accent: 0 0% 12%;
+  --accent: 0 0% 15%;
   --accent-foreground: 0 0% 98%;
-  --muted: 0 0% 15%;
+  --muted: 0 0% 18%;
   --muted-foreground: 0 0% 65%;
-  --border: 0 0% 20%;
-  --input: 0 0% 20%;
+  --border: 0 0% 22%;
+  --input: 0 0% 22%;
   --ring: 43 74% 66%;
 }
 

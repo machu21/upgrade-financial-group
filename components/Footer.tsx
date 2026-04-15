@@ -4,7 +4,8 @@ import { Mail, MapPin, Phone } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="relative z-10 bg-accent/5 pt-20 pb-10 border-t border-border mt-12 md:mt-24">
+    
+    <footer className="relative z-10 bg-accent/5 pt-16 pb-10 border-t border-border">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Top Grid Section */}
@@ -16,9 +17,8 @@ export function Footer() {
               <Image 
                 src="/images/ufgroup-logo.png" 
                 alt="Upgrade Financial Group" 
-                width={300} // Bumped up base width
-                height={80} // Bumped up base height
-                // Changed from h-10 to h-16 (mobile) and h-20 (desktop) to make it much larger
+                width={300} 
+                height={80} 
                 className="object-contain h-16 md:h-20 w-auto"
               />
             </Link>
@@ -89,7 +89,6 @@ export function Footer() {
             <Link href="/privacy-policy" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
               Privacy Policy
             </Link>
-            {/* Added Terms of Service just in case you need it later. You can delete this Link if you don't! */}
             <Link href="/terms" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
               Terms of Service
             </Link>

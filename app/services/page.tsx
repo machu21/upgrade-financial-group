@@ -14,16 +14,15 @@ export default function ServicesPage() {
 
       <Navbar />
 
-      <main className="flex-grow w-full relative z-10 pt-24 md:pt-32">
+      <main className="flex-grow w-full relative z-10 pt-20 md:pt-32">
         <ServiceHero />
-        <LivingBenefits />
         <ProductsOffered />
+        <LivingBenefits />
+        
         <WhoItsFor />
         <HowWeWork />
 
       </main>
-
-      <Footer />
     </div>
   );
 }

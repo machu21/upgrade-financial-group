@@ -1,4 +1,5 @@
-import { AlertCircle, CheckCircle2, ShieldAlert, ShieldCheck, XCircle } from "lucide-react";
+import { CheckCircle2, ShieldAlert, ShieldCheck, XCircle, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export function ProblemSolution() {
   return (
@@ -95,6 +96,18 @@ export function ProblemSolution() {
                 </li>
               </ul>
             </div>
+
+            {/* ADDED CTA BUTTON HERE */}
+            <div className="pt-6 mt-auto relative z-10">
+              <Link 
+                href="/contact" 
+                className="group flex items-center justify-center gap-2 w-full py-4 px-6 bg-primary text-primary-foreground font-bold rounded-xl shadow-lg shadow-primary/20 hover:scale-[1.02] hover:shadow-primary/30 transition-all active:scale-95"
+              >
+                Get Protected Today
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
           </div>
 
         </div>
