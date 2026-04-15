@@ -7,7 +7,7 @@ export function FounderStory() {
         {/* Founder Story */}
         <div className="space-y-10">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground text-center mb-4">
-            Meet Benjamin Angeles III
+            Meet Benjamin Michael Angeles III
           </h2>
           
           <div className="space-y-6 text-lg text-muted-foreground leading-relaxed relative bg-background p-8 md:p-12 rounded-3xl border border-border shadow-sm">
