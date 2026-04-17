@@ -4,7 +4,6 @@ import { useState } from "react";
 import {
   ArrowRight,
   ShieldCheck,
-  TrendingUp,
   HeartPulse,
   MapPin,
   UserCheck,
@@ -31,8 +30,7 @@ export function Hero() {
   ];
 
   return (
-    <div className="relative w-full py-12 md:py-20 lg:py-24 overflow-hidden">
-      {/* Removed rounded-3xl so the video sits flush against the screen edges */}
+    <div className="relative w-full pb-16 md:pb-24 lg:pb-32 overflow-hidden">
 
       {/* 1. BACKGROUND VIDEO */}
       <video
@@ -45,21 +43,19 @@ export function Hero() {
         <source src="/videos/hero-bg.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
+      
       {/* 2. OPACITY OVERLAY */}
       <div className="absolute inset-0 bg-background/85 backdrop-blur-[2px] -z-10" />
 
-      {/* 3. WRAPPER FOR CONTENT - This keeps your text safely centered! */}
-      <div className="relative z-10 space-y-20 px-6 max-w-7xl mx-auto">
+      {/* 3. WRAPPER FOR CONTENT */}
+      {/* Change it to this: */}
+<div className="relative z-10 space-y-20 px-6 max-w-7xl mx-auto pt-32 lg:pt-48">
 
         {/* Top Hero Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
           {/* Text Content */}
           <div className="lg:col-span-7 space-y-8">
-            <p className="inline-block text-primary text-sm font-semibold tracking-wider uppercase bg-primary/10 px-4 py-1.5 rounded-full border border-primary/20 backdrop-blur-md">
-              Comprehensive Wealth & Health Protection
-            </p>
-
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground leading-[1.1] drop-shadow-xl">
               Smart Protection and <span className="text-primary">Investment Solutions</span> for Life Today and Tomorrow
             </h1>
@@ -70,10 +66,12 @@ export function Hero() {
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Link
-                href="/contact"
+                href="https://docs.google.com/forms/d/1FmI-dOFrM8LJMSAwMmo4bCN_C3LeVDEWqMhekmNIIbU/edit"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-2 text-lg px-8 py-3.5 rounded-xl bg-primary text-primary-foreground font-bold hover:opacity-90 transition-all shadow-lg shadow-primary/20"
               >
-                How to be an agent
+                Get Started
                 <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
@@ -83,7 +81,7 @@ export function Hero() {
           <div className="lg:col-span-5 flex justify-center items-center w-full">
 
             {!isUnlocked ? (
-              /* LOCKED STATE */
+              /* LOCKED STATE (Dark/Themed) */
               <div className="w-full aspect-square max-w-[420px] border-[3px] border-border/50 rounded-3xl p-6 bg-accent/30 shadow-2xl flex flex-col justify-between overflow-hidden relative backdrop-blur-md animate-in fade-in zoom-in-95 duration-500 hover:border-primary/50 transition-colors">
 
                 {/* Top Card - Traditional */}
@@ -113,15 +111,16 @@ export function Hero() {
                 </div>
               </div>
             ) : (
-              /* UNLOCKED STATE (Comparison) */
-              <div className="w-full max-w-[450px] border-[3px] border-primary/30 rounded-3xl p-5 sm:p-6 bg-background/95 backdrop-blur-xl shadow-2xl relative animate-in fade-in flip-in-y duration-700">
+              /* UNLOCKED STATE (Forced Light Mode) */
+              /* Changed background to white, text to slate-900, borders to gray-200 */
+              <div className="w-full max-w-[450px] border-[3px] border-primary/30 rounded-3xl p-5 sm:p-6 bg-white shadow-2xl relative animate-in fade-in flip-in-y duration-700">
 
                 {/* Header & Relock */}
-                <div className="flex justify-between items-center mb-6 border-b border-border/50 pb-4">
-                  <h3 className="font-bold text-lg text-foreground">Coverage Comparison</h3>
+                <div className="flex justify-between items-center mb-6 border-b border-gray-200 pb-4">
+                  <h3 className="font-bold text-lg text-slate-900">Coverage Comparison</h3>
                   <button
                     onClick={() => setIsUnlocked(false)}
-                    className="text-xs font-semibold flex items-center gap-1 text-muted-foreground hover:text-primary transition-colors bg-accent/50 px-3 py-1.5 rounded-full"
+                    className="text-xs font-semibold flex items-center gap-1 text-slate-500 hover:text-primary transition-colors bg-gray-100 px-3 py-1.5 rounded-full"
                   >
                     <Unlock className="w-3 h-3" /> Relock
                   </button>
@@ -130,7 +129,7 @@ export function Hero() {
                 {/* Comparison List */}
                 <div className="space-y-4">
                   {/* Column Headers */}
-                  <div className="flex justify-between text-[10px] sm:text-xs font-bold uppercase tracking-wider text-muted-foreground px-2">
+                  <div className="flex justify-between text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-500 px-2">
                     <span className="w-1/2">Feature</span>
                     <div className="w-1/2 flex justify-between text-center">
                       <span className="w-1/2">Traditional</span>
@@ -140,11 +139,11 @@ export function Hero() {
 
                   {/* Data Rows */}
                   {features.map((feature, idx) => (
-                    <div key={idx} className="flex justify-between items-center py-2 px-2 rounded-lg hover:bg-accent/30 transition-colors">
+                    <div key={idx} className="flex justify-between items-center py-2 px-2 rounded-lg hover:bg-gray-50 transition-colors">
 
                       {/* Feature Name */}
                       <div className="w-1/2 pr-2">
-                        <p className="text-xs sm:text-sm font-semibold text-foreground leading-tight">{feature.name}</p>
+                        <p className="text-xs sm:text-sm font-bold text-slate-900 leading-tight">{feature.name}</p>
                       </div>
 
                       {/* Checkmarks */}
@@ -154,9 +153,9 @@ export function Hero() {
                           {feature.trad ? (
                             <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                           ) : (
-                            <XCircle className="w-4 h-4 text-red-500/40" />
+                            <XCircle className="w-4 h-4 text-gray-300" />
                           )}
-                          {feature.noteTrad && <span className="text-[9px] text-muted-foreground/70 mt-1 leading-none">{feature.noteTrad}</span>}
+                          {feature.noteTrad && <span className="text-[9px] text-slate-400 mt-1 leading-none">{feature.noteTrad}</span>}
                         </div>
 
                         {/* Living Benefits Column */}
@@ -164,7 +163,7 @@ export function Hero() {
                           {feature.living ? (
                             <CheckCircle2 className="w-4 h-4 text-primary drop-shadow-md" />
                           ) : (
-                            <XCircle className="w-4 h-4 text-red-500/40" />
+                            <XCircle className="w-4 h-4 text-gray-300" />
                           )}
                           {feature.noteLiving && <span className="text-[9px] text-primary/80 mt-1 leading-none">{feature.noteLiving}</span>}
                         </div>

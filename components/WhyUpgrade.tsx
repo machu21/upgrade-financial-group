@@ -64,7 +64,9 @@ export function WhyUpgrade() {
                 Now he's on a mission to make sure no family has to choose between their health and their financial security.
               </p>
             <Link
-              href="/contact"
+              href="https://docs.google.com/forms/d/1FmI-dOFrM8LJMSAwMmo4bCN_C3LeVDEWqMhekmNIIbU/edit"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-primary font-semibold hover:underline"
             >
               Join him in his crusade.
@@ -111,7 +113,7 @@ export function WhyUpgrade() {
                 {item.isCta && (
                   <div className="mt-8 pt-6 border-t border-primary/20 relative z-10">
                     <Link
-                      href="/contact"
+                      href="https://docs.google.com/forms/d/1FmI-dOFrM8LJMSAwMmo4bCN_C3LeVDEWqMhekmNIIbU/edit" rel="noopener noreferrer" target="_blank"
                       className="group/btn flex items-center justify-center gap-2 w-full py-3 px-4 bg-primary text-primary-foreground font-bold rounded-xl shadow-md hover:scale-[1.02] transition-transform active:scale-95"
                     >
                       {item.ctaText}

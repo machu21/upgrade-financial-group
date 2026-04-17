@@ -11,15 +11,15 @@ export function FAQ() {
   const faqs = [
     {
       question: "What are living benefits?",
-      answer: "Living benefits let you access a portion of your life insurance death benefit while you're still alive if you're diagnosed with a qualifying critical, chronic, or terminal illness.",
+      answer: "Living benefits allow you to access up to 80%–100% of your life insurance policy while you’re still living—if you experience a qualifying condition such as terminal illness, chronic illness (including long-term care needs with 2 ADLs), critical illness, injury, or Alzheimer’s.",
     },
     {
       question: "Do living benefits cost extra?",
-      answer: "Some carriers include them at no cost, while others may charge. The earlier you get coverage, the better your options.",
+      answer: "Some plans include living benefits at no additional cost, while others may have a small fee depending on the coverage. What matters most is getting started early, when you’re younger and healthier…so you can secure better options and more affordable rates.",
     },
     {
       question: "Will using living benefits reduce my death benefit?",
-      answer: "Yes—any amount accessed early is deducted from the death benefit your beneficiaries receive.",
+      answer: "With living benefits, the death benefit may be fully exhausted, allowing you to access 80%–100% of your policy’s value while you’re alive.",
     },
     {
       question: "What illnesses qualify?",
@@ -33,6 +33,10 @@ export function FAQ() {
       question: "Is the money taxable?",
       answer: "In most cases, living benefits are received tax-free. Always consult a tax professional.",
     },
+    {
+      question: "Do you do medical assessment? ",
+      answer: "NO,  it depends on the carrier if you do not have medical record there is a chance they will ask you to get one",
+    }
   ];
 
   return (
@@ -49,7 +53,7 @@ export function FAQ() {
         <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/85 to-background/95" />
       </div>
 
-      {/* ✨ Glow Effects */}
+      {/* 💫 Glow Effects */}
       <div className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/20 blur-[120px] opacity-30 pointer-events-none" />
 
       {/* Content */}
@@ -75,15 +79,23 @@ export function FAQ() {
             <AccordionItem
               key={index}
               value={`item-${index}`}
-              className="group rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl px-6 transition-all duration-300 hover:border-primary/40 hover:bg-white/10 data-[state=open]:border-primary/60 data-[state=open]:bg-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.12)]"
+              /* CHANGED: 
+                 1. Normal State: bg-white/5, text-foreground (dark theme)
+                 2. Open State: bg-white, border-white, shadow-xl (light theme)
+              */
+              className="group rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl px-6 transition-all duration-300 hover:border-primary/40 hover:bg-white/10 data-[state=open]:border-white data-[state=open]:bg-white data-[state=open]:shadow-2xl"
             >
-              <AccordionTrigger className="text-left text-lg font-semibold text-foreground py-6 transition-colors duration-200 group-hover:text-primary">
+              
+              {/* CHANGED: Added data-[state=open]:text-slate-900 so the question turns dark when open */}
+              <AccordionTrigger className="text-left text-lg font-semibold text-foreground py-6 transition-colors duration-200 group-hover:text-primary data-[state=open]:text-slate-900 data-[state=open]:hover:text-primary">
                 {faq.question}
               </AccordionTrigger>
 
-              <AccordionContent className="text-muted-foreground leading-relaxed text-base pb-6 pr-4 animate-in fade-in-0 slide-in-from-top-2 duration-300">
+              {/* CHANGED: Changed text-muted-foreground to text-slate-600 so the answer is dark gray against the white background */}
+              <AccordionContent className="text-slate-600 leading-relaxed text-base pb-6 pr-4 animate-in fade-in-0 slide-in-from-top-2 duration-300 font-medium">
                 {faq.answer}
               </AccordionContent>
+            
             </AccordionItem>
           ))}
 

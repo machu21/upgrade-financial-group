@@ -21,7 +21,7 @@ export function CtaSection() {
             
             <div className="pt-6">
               <Link
-                href="/contact"
+                href="https://docs.google.com/forms/d/1FmI-dOFrM8LJMSAwMmo4bCN_C3LeVDEWqMhekmNIIbU/edit" target="_blank" rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-2 text-lg px-8 py-4 rounded-xl bg-primary text-primary-foreground font-bold hover:scale-105 transition-all shadow-xl shadow-primary/20"
               >
                 Get Your Free Consultation
