@@ -98,17 +98,18 @@ export function Footer() {
               </li>
             </ul>
           </div>
+ 
 
-          {/* Column 4: Multi-Step Form */}
+          {/* Column 4: Multi-Step Form 
           <div className="lg:col-span-4 h-full">
             <div className="bg-white border border-stone-200 rounded-3xl p-6 lg:p-8 shadow-sm relative overflow-hidden h-full flex flex-col min-h-[340px]">
 
-              {/* Ambient glow */}
+              Ambient glow
               <div className="absolute top-0 right-0 w-48 h-48 bg-stone-100 rounded-full blur-[60px] opacity-60 pointer-events-none -z-0" />
 
               <div className="relative z-10 flex-grow flex flex-col w-full h-full">
 
-                {/* Progress Pills */}
+                Progress Pills
                 {!isSubmitted && (
                   <div className="flex gap-1.5 mb-5">
                     <div className="h-1 flex-1 rounded-full bg-stone-800 transition-all duration-300" />
@@ -116,7 +117,7 @@ export function Footer() {
                   </div>
                 )}
 
-                {/* --- STEP 1: ADDRESS --- */}
+                --- STEP 1: ADDRESS ---
                 {!isSubmitted && step === 1 && (
                   <div className="flex flex-col h-full animate-in fade-in slide-in-from-left-4 duration-500">
                     <h4 className="text-[17px] font-semibold text-stone-900 tracking-tight mb-1.5">
@@ -173,7 +174,7 @@ export function Footer() {
                   </div>
                 )}
 
-                {/* --- STEP 2: CONTACT INFO --- */}
+                --- STEP 2: CONTACT INFO ---
                 {!isSubmitted && step === 2 && (
                   <div className="flex flex-col h-full animate-in fade-in slide-in-from-right-4 duration-500">
                     <button
@@ -216,7 +217,7 @@ export function Footer() {
                   </div>
                 )}
 
-                {/* --- STEP 3: SUCCESS STATE --- */}
+                --- STEP 3: SUCCESS STATE ---
                 {isSubmitted && (
                   <div className="flex flex-col items-center justify-center h-full text-center animate-in zoom-in-95 fade-in duration-500 py-6">
                     <div className="w-14 h-14 bg-emerald-50 border border-emerald-100 rounded-full flex items-center justify-center mb-4">
@@ -233,6 +234,7 @@ export function Footer() {
               </div>
             </div>
           </div>
+          */}
         </div>
 
         {/* Separator */}

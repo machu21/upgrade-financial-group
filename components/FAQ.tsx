@@ -10,6 +10,10 @@ import {
 export function FAQ() {
   const faqs = [
     {
+     question: "Why UPFinancial group",
+     answer: "We concentrate on upgrading the traditional life benefits to the new and evolving living benefits. ",
+    },
+    {
       question: "What are living benefits?",
       answer: "Living benefits allow you to access up to 80%–100% of your life insurance policy while you’re still living—if you experience a qualifying condition such as terminal illness, chronic illness (including long-term care needs with 2 ADLs), critical illness, injury, or Alzheimer’s.",
     },

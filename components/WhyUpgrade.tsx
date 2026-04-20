@@ -15,8 +15,8 @@ export function WhyUpgrade() {
     },
     {
       icon: Briefcase,
-      title: "Small business owners",
-      description: "Keep your business running even when you can't.",
+      title: "Small Business Owners",
+      description: "As the driving force behind your business, your absence could put everything at risk. Ensure your operations, employees, and legacy are protected if the unexpected happens.",
     },
     {
       icon: ShieldHalf,
@@ -38,7 +38,9 @@ export function WhyUpgrade() {
   ];
 
   return (
-    <section className="py-24 bg-accent/10 border-y border-border relative z-10">
+    <section className="py-24 bg-accent/10 border-y border-border relative z-10 overflow-hidden">
+      {/* Dot Pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--color-primary)_1.5px,_transparent_1.5px)] bg-[size:24px_24px] opacity-20 pointer-events-none" />
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Why Upgrade / Founder Story Section */}
@@ -47,7 +49,7 @@ export function WhyUpgrade() {
             Why Upgrade Financial Services?
           </h2>
 
-          <div className="bg-background p-8 md:p-12 rounded-3xl border border-border shadow-sm relative overflow-hidden">
+          <div className="bg-background/60 p-8 md:p-12 rounded-3xl border border-border shadow-sm relative overflow-hidden">
             {/* Subtle Gold Glow Effect */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
 
@@ -63,14 +65,14 @@ export function WhyUpgrade() {
               <p className="font-medium text-foreground">
                 Now he's on a mission to make sure no family has to choose between their health and their financial security.
               </p>
-            <Link
-              href="https://docs.google.com/forms/d/1FmI-dOFrM8LJMSAwMmo4bCN_C3LeVDEWqMhekmNIIbU/edit"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary font-semibold hover:underline"
-            >
-              Join him in his crusade.
-            </Link>
+              <Link
+                href="https://docs.google.com/forms/d/1FmI-dOFrM8LJMSAwMmo4bCN_C3LeVDEWqMhekmNIIbU/edit"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary font-semibold hover:underline"
+              >
+                Join him in his crusade.
+              </Link>
             </div>
           </div>
         </div>
@@ -89,8 +91,8 @@ export function WhyUpgrade() {
               <div
                 key={index}
                 className={`p-8 rounded-2xl transition-all shadow-sm group flex flex-col ${item.isCta
-                    ? "bg-primary/5 border-2 border-primary/50 relative overflow-hidden hover:shadow-primary/10 hover:shadow-lg"
-                    : "bg-background border border-border hover:border-primary/50"
+                  ? "bg-primary/5 border-2 border-primary/50 relative overflow-hidden hover:shadow-primary/10 hover:shadow-lg"
+                  : "bg-background border border-border hover:border-primary/50"
                   }`}
               >
                 {/* Add a subtle glow inside the CTA card */}

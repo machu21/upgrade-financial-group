@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.className} min-h-screen flex flex-col bg-gradient-to-b from-zinc-900 to-black text-foreground`}>
+      <body className={`${inter.className} min-h-screen flex flex-col bg-background text-foreground`}>
         
         <Navbar />
         

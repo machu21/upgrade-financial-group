@@ -7,29 +7,56 @@ export default function IULPage() {
   return (
     <div className="min-h-screen bg-background text-foreground pb-24">
       
-      {/* 1. HERO SECTION */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden border-b border-border/40">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-primary/10 rounded-full blur-[120px] pointer-events-none -z-10" />
-        
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <p className="inline-block text-primary text-sm font-bold tracking-widest uppercase bg-primary/10 px-4 py-1.5 rounded-full border border-primary/20 mb-6">
-            Complete Coverage Guide
-          </p>
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight mb-8">
-            Indexed Universal <br />
-            <span className="text-primary">Life Insurance (IUL)</span>
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto mb-10">
-            IUL is a type of permanent life insurance that offers lifelong family protection plus a cash value component. It credits interest based on market index performance—giving you growth potential with zero downside risk.
-          </p>
-          <Link 
-            href="/contact" 
-            className="inline-flex items-center justify-center gap-2 text-lg px-8 py-4 rounded-xl bg-primary text-primary-foreground font-bold hover:brightness-110 hover:scale-105 transition-all shadow-xl shadow-primary/20"
+{/* 1. HERO SECTION */}
+<section className="relative pt-32 md:pt-40 pb-16 overflow-hidden">
+  {/* Ambient glow */}
+  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-primary/10 rounded-full blur-[120px] pointer-events-none -z-10" />
+
+  <div className="max-w-7xl mx-auto px-6">
+    <div className="relative rounded-[2rem] overflow-hidden bg-primary/10 border border-primary/20 grid grid-cols-1 md:grid-cols-2 min-h-[420px]">
+      
+      {/* Dot pattern inside card */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--color-primary)_1.5px,_transparent_1.5px)] bg-[size:24px_24px] opacity-20 pointer-events-none [filter:blur(0.5px)]" />
+      
+      {/* Gold glow inside card */}
+      <div className="absolute top-0 left-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl -ml-10 -mt-10 pointer-events-none" />
+
+      {/* Left: Text Content */}
+      <div className="relative z-10 flex flex-col justify-center p-10 md:p-14 lg:p-16 space-y-6">
+        <p className="text-primary text-xs font-bold tracking-widest uppercase">
+          Complete Coverage Guide
+        </p>
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-foreground leading-tight">
+          Indexed Universal <br />
+          <span className="text-primary">Life Insurance</span>
+        </h1>
+        <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-md">
+          Permanent protection with market-linked growth and zero downside risk. Build cash value while keeping your family covered for life.
+        </p>
+        <div className="pt-2">
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-bold hover:brightness-110 hover:scale-105 transition-all shadow-lg shadow-primary/25 text-sm"
           >
-            Get Your Custom IUL Quote <ArrowRight className="w-5 h-5" />
+            Get Your Custom IUL Quote <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
-      </section>
+      </div>
+
+      {/* Right: Photo */}
+      <div className="relative hidden md:block">
+        <img
+          src="https://images.unsplash.com/photo-1591522810850-58128c5fb089?w=900&auto=format&fit=crop&q=80"
+          alt="Family protected by IUL"
+          className="absolute inset-0 w-full h-full object-cover object-center rounded-r-[2rem]"
+        />
+        {/* Fade from left to blend into card */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-transparent rounded-r-[2rem]" />
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* 2. KEY TAKEAWAYS */}
       <section className="py-20 bg-accent/5">

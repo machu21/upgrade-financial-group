@@ -8,7 +8,7 @@ import { CtaSection } from "@/components/CtaSection";
 export default function HomePage() {
   return (
     <div className="relative overflow-x-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--color-primary)_1px,_transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_at_center,black_10%,transparent_70%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--color-primary)_1px,_transparent_1px)] bg-[size:32px_32px] opacity-10 pointer-events-none" />
       
       <main className="flex-grow relative z-10 w-full flex flex-col">
         <div className="w-full pb-12 md:pb-16">

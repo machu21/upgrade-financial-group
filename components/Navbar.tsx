@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -8,11 +8,21 @@ import { Menu, X, ChevronDown } from "lucide-react";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false); 
-  const [isProductsOpen, setIsProductsOpen] = useState(false); 
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isProductsOpen, setIsProductsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <nav className="fixed w-full top-0 z-50 border-b border-border/50 bg-black/60 backdrop-blur-md">
+    <nav className={`fixed w-full top-0 z-50 border-b transition-all duration-300 ${scrolled
+        ? "border-border/50 bg-background/80 backdrop-blur-md"
+        : "border-transparent bg-transparent backdrop-blur-none"
+      }`}>
 
       <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:items-center relative">
 
@@ -44,7 +54,7 @@ export function Navbar() {
           className="flex justify-center items-center hover:opacity-80 transition-opacity mb-0 md:mb-4"
         >
           <Image
-            src="/images/ufgroup-logo.png"
+            src="/images/main-logo.png"
             alt="Upgrade Financial Group"
             width={500}
             height={120}
@@ -98,6 +108,7 @@ export function Navbar() {
                 <Link href="/ful" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Fixed Universal Life</Link>
                 <Link href="/whole" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Whole Life</Link>
                 <Link href="/products#term" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Term Life</Link>
+                <Link href="#" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Investments</Link>
               </div>
             </div>
           </div>

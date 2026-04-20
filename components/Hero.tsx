@@ -22,10 +22,10 @@ export function Hero() {
   const features = [
     { name: "Death Benefit", trad: true, living: true },
     { name: "Terminal Illness", trad: true, living: true },
-    { name: "LTC / Chronic Illness", trad: false, living: true, noteTrad: "(Requires 6 ADLs)", noteLiving: "(Requires 2 ADLs)" },
+    { name: "LTC / Chronic Illness", trad: true, living: true, noteTrad: "(Requires 6 ADLs)", noteLiving: "(Requires 2 ADLs)" },
     { name: "Critical Illness", trad: false, living: true },
     { name: "Critical Injury", trad: false, living: true },
-    { name: "Alzheimer’s", trad: false, living: true },
+    { name: "Alzheimer’s/Dementia", trad: false, living: true },
     { name: "Lifetime Retirement Plan", trad: false, living: true },
   ];
 
@@ -133,7 +133,7 @@ export function Hero() {
                     <span className="w-1/2">Feature</span>
                     <div className="w-1/2 flex justify-between text-center">
                       <span className="w-1/2">Traditional</span>
-                      <span className="w-1/2 text-primary">Living Ben.</span>
+                      <span className="w-1/2 text-primary">Upgrade Financial</span>
                     </div>
                   </div>
 

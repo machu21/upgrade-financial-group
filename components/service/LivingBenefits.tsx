@@ -27,7 +27,7 @@ export function LivingBenefits() {
             What Are Living Benefits?
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Living benefits are riders or features built into your life insurance policy that allow you to access a portion of your death benefit early if you experience:
+            Living benefits are riders or features built into your life insurance policy that allow you to access a portion of your death benefit early if you experience. verify to your agent if you are state qualified for this 
           </p>
         </div>
 
