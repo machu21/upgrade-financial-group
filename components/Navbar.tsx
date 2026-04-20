@@ -20,7 +20,7 @@ export function Navbar() {
 
   return (
     <nav className={`fixed w-full top-0 z-50 border-b transition-all duration-300 ${scrolled
-        ? "border-border/50 bg-background/80 backdrop-blur-md"
+        ? "border-border/50 bg-black/80 backdrop-blur-md"
         : "border-transparent bg-transparent backdrop-blur-none"
       }`}>
 
@@ -65,6 +65,9 @@ export function Navbar() {
 
         {/* Desktop Navigation Links */}
         <div className="hidden md:flex items-center gap-8">
+        <Link href="/" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+            Home
+          </Link>
 
           {/* DESKTOP DROPDOWN: Our Services */}
           <div className="relative group py-2">
