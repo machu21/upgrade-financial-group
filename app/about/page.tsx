@@ -17,8 +17,24 @@ export default function AboutPage() {
 
         {/* ── HERO ── */}
         <section className="relative pt-36 md:pt-48 pb-24 px-6 text-center overflow-hidden bg-white">
-          {/* Dot pattern */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#e2e8f0_1.5px,_transparent_1.5px)] bg-[size:24px_24px] opacity-60 pointer-events-none" />
+
+          {/* Background video */}
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+          >
+            <source src="/videos/about-hero.mp4" type="video/mp4" />
+          </video>
+
+          {/* White overlay to keep it subtle */}
+          <div className="absolute inset-0 bg-white/80 pointer-events-none" />
+
+          {/* Dot pattern on top */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#e2e8f0_1.5px,_transparent_1.5px)] bg-[size:24px_24px] opacity-40 pointer-events-none" />
+
           {/* Ambient glow */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
 
@@ -41,7 +57,7 @@ export default function AboutPage() {
                 { val: "A-Rated", label: "Carrier Partners" },
                 { val: "10–88", label: "Ages Covered" },
               ].map((s, i) => (
-                <div key={i} className="flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-full px-4 py-2">
+                <div key={i} className="flex items-center gap-2 bg-white/70 backdrop-blur-sm border border-slate-200 rounded-full px-4 py-2">
                   <span className="text-sm font-extrabold text-slate-900">{s.val}</span>
                   <span className="text-xs text-slate-400 font-medium">{s.label}</span>
                 </div>
