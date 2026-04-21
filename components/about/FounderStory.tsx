@@ -1,43 +1,73 @@
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+
 export function FounderStory() {
   return (
-    <section className="bg-accent/10 border-y border-border py-24">
-      {/* Changed to max-w-4xl and removed the grid layout for a clean, centered reading experience */}
-      <div className="max-w-4xl mx-auto px-6">
-        
-        {/* Founder Story */}
-        <div className="space-y-10">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground text-center mb-4">
+    <section className="bg-slate-50 border-t border-slate-100 py-24 px-6">
+      <div className="max-w-6xl mx-auto">
+
+        {/* Section label */}
+        <div className="text-center mb-16 space-y-3">
+          <span className="inline-block py-1.5 px-4 rounded-full bg-primary/10 text-primary font-bold text-xs tracking-widest uppercase border border-primary/20">
+            Our Founder
+          </span>
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900">
             Meet Benjamin Michael Angeles III
           </h2>
-          
-          <div className="space-y-6 text-lg text-muted-foreground leading-relaxed relative bg-background p-8 md:p-12 rounded-3xl border border-border shadow-sm">
-            {/* Adjusted the quote mark position slightly to fit the new card layout */}
-            <span className="absolute -top-6 left-6 text-7xl text-primary/20 font-serif leading-none select-none">"</span>
-            
-            <p className="text-foreground font-medium text-xl relative z-10">
-              I didn't start this business because I read about living benefits in a textbook. I lived it.
-            </p>
-            <p className="relative z-10">
-              As a kidney transplant recipient, I know what it's like to face a life-threatening illness while worrying about how to pay the bills. The financial strain was overwhelming—and I've seen too many families go through the same thing.
-            </p>
-            <p className="relative z-10">
-              Living benefits made a difference for me during that difficult time. It gave me breathing room when I needed it most. That experience changed my perspective on life insurance. I realized most people have no idea their policy could help them while they're still alive.
-            </p>
-            <p className="text-primary font-semibold text-xl relative z-10">
-              I'm on a mission to change that.
-            </p>
-            <p className="relative z-10">
-              Today, I help families, business owners, and hardworking people protect themselves the right way—with insurance that works when life throws its hardest punches.
-            </p>
+        </div>
+
+        {/* Split card */}
+        <div className="bg-white border border-slate-200 rounded-[2rem] overflow-hidden grid grid-cols-1 lg:grid-cols-2 shadow-sm">
+
+          {/* Image side */}
+          <div className="relative min-h-[380px]">
+            <img
+              src="https://images.unsplash.com/photo-1560250097-0dc05fcd0064?w=900&q=80"
+              alt="Benjamin Michael Angeles III"
+              className="absolute inset-0 w-full h-full object-cover object-top"
+            />
+            <div className="hidden lg:block absolute inset-y-0 right-0 w-28 bg-gradient-to-l from-white to-transparent" />
+            {/* Mission badge overlaid on image */}
+            <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm border border-white rounded-2xl px-5 py-3 shadow-lg max-w-[220px]">
+              <p className="text-[10px] font-bold text-primary uppercase tracking-widest mb-1">Our Mission</p>
+              <p className="text-xs font-semibold text-slate-800 leading-snug">
+                No family should choose between their health and financial security.
+              </p>
+            </div>
           </div>
 
-          {/* Mission Box */}
-          <div className="p-8 rounded-2xl border border-primary/30 bg-primary/5 text-center">
-            <p className="text-sm font-bold text-primary uppercase tracking-wider mb-2">Our Mission</p>
-            <p className="text-foreground font-medium text-lg">To ensure no family ever has to choose between their health and their financial security.</p>
+          {/* Text side */}
+          <div className="p-10 md:p-14 flex flex-col justify-center space-y-6 relative">
+            {/* Big quote mark */}
+            <span className="absolute top-6 right-8 text-8xl text-slate-100 font-serif leading-none select-none">"</span>
+
+            <p className="text-xl md:text-2xl font-bold text-slate-900 leading-snug relative z-10">
+              I didn't start this business because I read about living benefits in a textbook. I lived it.
+            </p>
+
+            <div className="space-y-4 text-slate-500 leading-relaxed text-base relative z-10">
+              <p>
+                As a kidney transplant recipient, I know what it's like to face a life-threatening illness while worrying about how to pay the bills. The financial strain was overwhelming — and I've seen too many families go through the same thing.
+              </p>
+              <p>
+                Living benefits gave me breathing room when I needed it most. That experience changed my perspective on life insurance forever. Most people have no idea their policy could help them while they're still alive.
+              </p>
+            </div>
+
+            <p className="text-primary font-bold text-lg relative z-10">
+              I'm on a mission to change that.
+            </p>
+
+            <Link
+              href="https://docs.google.com/forms/d/1FmI-dOFrM8LJMSAwMmo4bCN_C3LeVDEWqMhekmNIIbU/viewform?edit" target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-bold text-sm hover:brightness-110 hover:scale-105 transition-all shadow-lg shadow-primary/20 w-fit relative z-10"
+            >
+              Join the Mission <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
+
         </div>
-        
+
       </div>
     </section>
   );

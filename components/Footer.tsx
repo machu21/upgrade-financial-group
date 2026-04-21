@@ -41,7 +41,7 @@ export function Footer() {
           <div className="space-y-6 lg:col-span-3">
             <Link href="/" className="inline-block hover:opacity-80 transition-opacity">
               <Image
-                src="/images/ufgroup-logo.png"
+                src="/images/main-logo.png"
                 alt="Upgrade Financial Group"
                 width={300}
                 height={80}

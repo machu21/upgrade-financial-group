@@ -109,9 +109,9 @@ export function Navbar() {
               <div className="bg-black/90 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl p-2 w-64 flex flex-col">
                 <Link href="/iul" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Indexed Universal Life</Link>
                 <Link href="/ful" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Fixed Universal Life</Link>
-                <Link href="/whole" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Whole Life</Link>
-                <Link href="/products#term" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Term Life</Link>
-                <Link href="#" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Investments</Link>
+                <Link href="/whole-life" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Whole Life</Link>
+                <Link href="/term-life" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Term Life</Link>
+                <Link href="/investments" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Investments</Link>
               </div>
             </div>
           </div>
