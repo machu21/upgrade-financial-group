@@ -20,8 +20,8 @@ export function Navbar() {
 
   return (
     <nav className={`fixed w-full top-0 z-50 border-b transition-all duration-300 ${scrolled
-        ? "border-border/50 bg-black/80 backdrop-blur-md"
-        : "border-transparent bg-transparent backdrop-blur-none"
+      ? "border-border/50 bg-black/80 backdrop-blur-md"
+      : "border-transparent bg-transparent backdrop-blur-none"
       }`}>
 
       <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:items-center relative">
@@ -29,7 +29,10 @@ export function Navbar() {
         {/* Top Right Help Text */}
         <div className="absolute top-1 md:top-2 right-6 z-50">
           <span className="text-[10px] md:text-[11px] font-medium text-muted-foreground">
-            Need help? <a href="tel:7148543451" className="text-primary hover:underline ml-0.5">(714) 854-3451</a>
+            {"Need help? "}
+            <a href="tel:7148543451" className="text-primary hover:underline ml-0.5">
+              {"(714) 854-3451"}
+            </a>
           </span>
         </div>
 
@@ -65,7 +68,7 @@ export function Navbar() {
 
         {/* Desktop Navigation Links */}
         <div className="hidden md:flex items-center gap-8">
-        <Link href="/" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+          <Link href="/" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
             Home
           </Link>
 

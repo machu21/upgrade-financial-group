@@ -79,7 +79,9 @@ export function Footer() {
                   <div className="w-10 h-10 shrink-0 rounded-full bg-accent/30 border border-border/50 flex items-center justify-center group-hover:border-primary/50 group-hover:bg-primary/10 transition-all duration-300">
                     <Phone className="h-4 w-4 text-primary" />
                   </div>
-                  <span className="group-hover:translate-x-1 transition-transform duration-300">(714) 854-3451</span>
+                  <span className="group-hover:translate-x-1 transition-transform duration-300">
+                    {"(714) 854-3451"}
+                  </span>
                 </a>
               </li>
               <li>
@@ -98,7 +100,7 @@ export function Footer() {
               </li>
             </ul>
           </div>
- 
+
 
           {/* Column 4: Multi-Step Form 
           <div className="lg:col-span-4 h-full">
