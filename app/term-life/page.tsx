@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Clock, ShieldCheck, Banknote, HeartPulse, RefreshCw, AlertCircle, CheckCircle2 } from "lucide-react";
+import { ArrowRight, ShieldCheck, Banknote, HeartPulse, RefreshCw, AlertCircle, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 
 const steps = [
@@ -36,32 +36,32 @@ const benefits = [
     title: "Maximum Coverage, Lowest Cost",
     desc: "Term insurance is the most affordable way to get massive coverage — $500K or $1M — to protect mortgages and young children.",
     color: "text-primary",
-    bg: "bg-primary/5",
-    border: "border-primary/10",
+    bg: "bg-primary/10",
+    border: "border-primary/20",
   },
   {
     icon: RefreshCw,
     title: "Convertible to Permanent",
     desc: "Start affordable now. Convert to an IUL or Whole Life policy later without a new medical exam.",
-    color: "text-sky-600",
-    bg: "bg-sky-50",
-    border: "border-sky-100",
+    color: "text-sky-400",
+    bg: "bg-sky-500/10",
+    border: "border-sky-500/20",
   },
   {
     icon: ShieldCheck,
     title: "Guaranteed Death Benefit",
     desc: "Your beneficiaries are guaranteed a 100% tax-free lump sum to cover debts, income replacement, and costs.",
-    color: "text-emerald-600",
-    bg: "bg-emerald-50",
-    border: "border-emerald-100",
+    color: "text-emerald-400",
+    bg: "bg-emerald-500/10",
+    border: "border-emerald-500/20",
   },
   {
     icon: HeartPulse,
     title: "Living Benefits Included",
     desc: "Access cash while still alive if diagnosed with a critical or chronic illness. Most policies don't offer this.",
-    color: "text-rose-600",
-    bg: "bg-rose-50",
-    border: "border-rose-100",
+    color: "text-rose-400",
+    bg: "bg-rose-500/10",
+    border: "border-rose-500/20",
   },
 ];
 
@@ -88,22 +88,24 @@ const useCases = [
 
 export default function TermLifePage() {
   return (
-    <div className="min-h-screen bg-white text-slate-900 overflow-hidden">
+    <div className="min-h-screen bg-background text-foreground overflow-hidden">
+
+      {/* Global dot pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--color-primary)_1.5px,_transparent_1.5px)] bg-[size:24px_24px] opacity-[0.07] pointer-events-none [filter:blur(0.5px)]" />
 
       {/* ── HERO ── */}
-      <section className="relative pt-36 md:pt-48 pb-24 px-6 text-center overflow-hidden bg-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#e2e8f0_1.5px,_transparent_1.5px)] bg-[size:24px_24px] opacity-60 pointer-events-none" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+      <section className="relative pt-36 md:pt-48 pb-24 px-6 text-center overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="relative z-10 max-w-4xl mx-auto space-y-6">
           <span className="inline-block py-1.5 px-4 rounded-full bg-primary/10 text-primary font-bold text-xs tracking-widest uppercase border border-primary/20">
             Pure Protection
           </span>
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.05]">
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-foreground leading-[1.05]">
             Term Life<br />
             <span className="text-primary">Made Simple.</span>
           </h1>
-          <p className="text-lg md:text-xl text-slate-500 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
             Affordable, high-coverage protection for the years your family needs it most — with modern living benefits built right in.
           </p>
 
@@ -113,9 +115,9 @@ export default function TermLifePage() {
               { val: "Tax-Free", label: "Death Benefit" },
               { val: "No Exam", label: "Many Applicants" },
             ].map((s, i) => (
-              <div key={i} className="flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-full px-4 py-2">
-                <span className="text-sm font-extrabold text-slate-900">{s.val}</span>
-                <span className="text-xs text-slate-400 font-medium">{s.label}</span>
+              <div key={i} className="flex items-center gap-2 bg-accent/30 border border-border rounded-full px-4 py-2">
+                <span className="text-sm font-extrabold text-foreground">{s.val}</span>
+                <span className="text-xs text-muted-foreground font-medium">{s.label}</span>
               </div>
             ))}
           </div>
@@ -131,34 +133,35 @@ export default function TermLifePage() {
         </div>
       </section>
 
-      {/* ── HOW IT WORKS — 4 image cards ── */}
-      <section className="bg-slate-50 border-t border-slate-100 py-24 px-6">
+      {/* ── HOW IT WORKS ── */}
+      <section className="bg-accent/10 border-t border-border py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-3">
             <span className="inline-block py-1.5 px-4 rounded-full bg-primary/10 text-primary font-bold text-xs tracking-widest uppercase border border-primary/20">
               How It Works
             </span>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-foreground tracking-tight">
               Four Simple Steps
             </h2>
-            <p className="text-slate-500 max-w-xl mx-auto text-lg">
+            <p className="text-muted-foreground max-w-xl mx-auto text-lg">
               A straightforward journey from quote to coverage.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {steps.map((step, i) => (
-              <div key={i} className="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-300 flex flex-col">
+              <div key={i} className="bg-accent/20 border border-border rounded-3xl overflow-hidden hover:-translate-y-1 hover:border-primary/40 transition-all duration-300 flex flex-col">
                 <div className="relative h-44 overflow-hidden">
                   <img src={step.image} alt={step.title} className="absolute inset-0 w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-white/60 to-transparent" />
+                  {/* Fade to card background */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-accent/80 to-transparent" />
                   <span className="absolute top-4 left-4 text-4xl font-black text-white/90 drop-shadow-lg leading-none">
                     {step.number}
                   </span>
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-lg font-bold text-slate-900 mb-2">{step.title}</h3>
-                  <p className="text-sm text-slate-500 leading-relaxed flex-grow">{step.desc}</p>
+                  <h3 className="text-lg font-bold text-foreground mb-2">{step.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed flex-grow">{step.desc}</p>
                 </div>
               </div>
             ))}
@@ -166,27 +169,27 @@ export default function TermLifePage() {
         </div>
       </section>
 
-      {/* ── KEY BENEFITS — 2x2 card grid ── */}
-      <section className="bg-white border-t border-slate-100 py-24 px-6">
+      {/* ── KEY BENEFITS ── */}
+      <section className="border-t border-border py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-3">
-            <span className="inline-block py-1.5 px-4 rounded-full bg-slate-100 text-slate-600 font-bold text-xs tracking-widest uppercase border border-slate-200">
+            <span className="inline-block py-1.5 px-4 rounded-full bg-accent/30 text-muted-foreground font-bold text-xs tracking-widest uppercase border border-border">
               Why Term Life
             </span>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-foreground tracking-tight">
               Built for Real Life
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {benefits.map((b, i) => (
-              <div key={i} className={`${b.bg} border ${b.border} rounded-3xl p-8 flex gap-5 hover:shadow-sm transition-shadow`}>
-                <div className={`w-12 h-12 rounded-2xl bg-white border ${b.border} flex items-center justify-center shrink-0 shadow-sm`}>
+              <div key={i} className={`${b.bg} border ${b.border} rounded-3xl p-8 flex gap-5 hover:border-primary/40 transition-all`}>
+                <div className={`w-12 h-12 rounded-2xl bg-background border ${b.border} flex items-center justify-center shrink-0 shadow-sm`}>
                   <b.icon className={`w-6 h-6 ${b.color}`} />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-2">{b.title}</h3>
-                  <p className="text-slate-500 leading-relaxed text-sm">{b.desc}</p>
+                  <h3 className="text-lg font-bold text-foreground mb-2">{b.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed text-sm">{b.desc}</p>
                 </div>
               </div>
             ))}
@@ -194,39 +197,38 @@ export default function TermLifePage() {
         </div>
       </section>
 
-      {/* ── WHO IT'S FOR — image cards ── */}
-      <section className="bg-slate-50 border-t border-slate-100 py-24 px-6">
+      {/* ── WHO IT'S FOR ── */}
+      <section className="bg-accent/10 border-t border-border py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-3">
-            <span className="inline-block py-1.5 px-4 rounded-full bg-slate-100 text-slate-600 font-bold text-xs tracking-widest uppercase border border-slate-200">
+            <span className="inline-block py-1.5 px-4 rounded-full bg-accent/30 text-muted-foreground font-bold text-xs tracking-widest uppercase border border-border">
               Use Cases
             </span>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-foreground tracking-tight">
               Is Term Life Right For You?
             </h2>
-            <p className="text-slate-500 max-w-xl mx-auto text-lg">
+            <p className="text-muted-foreground max-w-xl mx-auto text-lg">
               Term life is typically the perfect fit for these common life stages.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {useCases.map((uc, i) => (
-              <div key={i} className="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-300 flex flex-col">
+              <div key={i} className="bg-accent/20 border border-border rounded-3xl overflow-hidden hover:-translate-y-1 hover:border-primary/40 transition-all duration-300 flex flex-col">
                 <div className="relative h-52 overflow-hidden">
                   <img src={uc.image} alt={uc.title} className="absolute inset-0 w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent" />
-                  {/* Stat badge */}
-                  <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm rounded-xl px-3 py-2 shadow">
-                    <p className="text-base font-extrabold text-slate-900 leading-none">{uc.stat}</p>
-                    <p className="text-[10px] text-slate-400 font-semibold uppercase tracking-wider mt-0.5">{uc.statLabel}</p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 bg-background/80 backdrop-blur-sm border border-border rounded-xl px-3 py-2">
+                    <p className="text-base font-extrabold text-foreground leading-none">{uc.stat}</p>
+                    <p className="text-[10px] text-muted-foreground font-semibold uppercase tracking-wider mt-0.5">{uc.statLabel}</p>
                   </div>
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
                   <div className="flex items-center gap-2 mb-3">
                     <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
-                    <h3 className="text-lg font-bold text-slate-900">{uc.title}</h3>
+                    <h3 className="text-lg font-bold text-foreground">{uc.title}</h3>
                   </div>
-                  <p className="text-sm text-slate-500 leading-relaxed flex-grow">{uc.desc}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed flex-grow">{uc.desc}</p>
                 </div>
               </div>
             ))}
@@ -234,27 +236,27 @@ export default function TermLifePage() {
         </div>
       </section>
 
-      {/* ── THE UPGRADE DIFFERENCE — split card ── */}
-      <section className="bg-white border-t border-slate-100 py-24 px-6">
+      {/* ── THE UPGRADE DIFFERENCE ── */}
+      <section className="border-t border-border py-24 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="bg-slate-50 border border-slate-200 rounded-[2rem] overflow-hidden grid grid-cols-1 lg:grid-cols-2 shadow-sm">
+          <div className="bg-accent/10 border border-border rounded-[2rem] overflow-hidden grid grid-cols-1 lg:grid-cols-2">
             <div className="relative min-h-[300px]">
               <img
                 src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=1000&q=80"
                 alt="Mother and child"
                 className="absolute inset-0 w-full h-full object-cover"
               />
-              <div className="hidden lg:block absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-slate-50 to-transparent" />
+              <div className="hidden lg:block absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-accent/40 to-transparent" />
             </div>
-            <div className="p-10 md:p-14 flex flex-col justify-center">
+            <div className="p-10 md:p-14 flex flex-col justify-center bg-accent/10">
               <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-6">
                 <HeartPulse className="w-6 h-6 text-primary" />
               </div>
-              <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-4">
+              <h2 className="text-2xl md:text-3xl font-extrabold text-foreground mb-4">
                 The Upgrade Difference
               </h2>
-              <p className="text-slate-500 leading-relaxed mb-6">
-                Most term policies only pay out if you die. Our term policies include <strong className="text-slate-900">Living Benefits</strong> — allowing you to access cash if you're critically or chronically ill, while you're still alive and fighting.
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Most term policies only pay out if you die. Our term policies include <strong className="text-foreground">Living Benefits</strong> — allowing you to access cash if you're critically or chronically ill, while you're still alive and fighting.
               </p>
               <Link
                 href="/contact"
@@ -268,24 +270,30 @@ export default function TermLifePage() {
       </section>
 
       {/* ── FINAL CTA ── */}
-      <section className="bg-slate-50 border-t border-slate-100 py-24 px-6 text-center">
-        <div className="max-w-3xl mx-auto space-y-6">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Protect What Matters Most
-          </h2>
-          <p className="text-lg text-slate-500 max-w-xl mx-auto">
-            Term life insurance is more affordable than you think. Find out how little it costs to secure your family's financial future.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 px-10 py-5 rounded-2xl bg-primary text-primary-foreground font-bold text-lg hover:brightness-110 hover:scale-105 hover:shadow-xl hover:shadow-primary/20 transition-all active:scale-95"
-          >
-            Get a Free Quote <ArrowRight className="w-5 h-5" />
-          </Link>
-          <p className="text-xs text-slate-400 flex items-center justify-center gap-1.5">
-            <AlertCircle className="w-3.5 h-3.5" />
-            No medical exam required for many healthy applicants.
-          </p>
+      <section className="border-t border-border py-24 px-6 text-center relative z-10">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-primary/5 border-2 border-primary/20 p-10 md:p-16 rounded-[2.5rem] relative overflow-hidden">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--color-primary)_1.5px,_transparent_1.5px)] bg-[size:24px_24px] opacity-20 pointer-events-none [filter:blur(0.5px)]" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30rem] h-[30rem] bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
+            <div className="relative z-10 space-y-6">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight">
+                Protect What Matters Most
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-xl mx-auto">
+                Term life insurance is more affordable than you think. Find out how little it costs to secure your family's financial future.
+              </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-primary text-primary-foreground font-bold text-lg hover:brightness-110 hover:scale-105 hover:shadow-xl hover:shadow-primary/20 transition-all active:scale-95"
+              >
+                Get a Free Quote <ArrowRight className="w-5 h-5" />
+              </Link>
+              <p className="text-xs text-muted-foreground flex items-center justify-center gap-1.5">
+                <AlertCircle className="w-3.5 h-3.5" />
+                No medical exam required for many healthy applicants.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 

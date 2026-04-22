@@ -3,21 +3,20 @@ import Link from "next/link";
 
 export function FounderStory() {
   return (
-    <section className="bg-slate-50 border-t border-slate-100 py-24 px-6">
+    <section className="bg-accent/10 border-t border-border py-24 px-6">
       <div className="max-w-6xl mx-auto">
 
-        {/* Section label */}
         <div className="text-center mb-16 space-y-3">
           <span className="inline-block py-1.5 px-4 rounded-full bg-primary/10 text-primary font-bold text-xs tracking-widest uppercase border border-primary/20">
             Our Founder
           </span>
-          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900">
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-foreground">
             Meet Benjamin Michael Angeles III
           </h2>
         </div>
 
         {/* Split card */}
-        <div className="bg-white border border-slate-200 rounded-[2rem] overflow-hidden grid grid-cols-1 lg:grid-cols-2 shadow-sm">
+        <div className="bg-accent/20 border border-border rounded-[2rem] overflow-hidden grid grid-cols-1 lg:grid-cols-2">
 
           {/* Image side */}
           <div className="relative min-h-[380px]">
@@ -26,26 +25,27 @@ export function FounderStory() {
               alt="Benjamin Michael Angeles III"
               className="absolute inset-0 w-full h-full object-cover object-top"
             />
-            <div className="hidden lg:block absolute inset-y-0 right-0 w-28 bg-gradient-to-l from-white to-transparent" />
-            {/* Mission badge overlaid on image */}
-            <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm border border-white rounded-2xl px-5 py-3 shadow-lg max-w-[220px]">
+            {/* Fade into card background */}
+            <div className="hidden lg:block absolute inset-y-0 right-0 w-28 bg-gradient-to-l from-accent/60 to-transparent" />
+            {/* Mission badge */}
+            <div className="absolute bottom-6 left-6 bg-background/80 backdrop-blur-sm border border-border rounded-2xl px-5 py-3 shadow-lg max-w-[220px]">
               <p className="text-[10px] font-bold text-primary uppercase tracking-widest mb-1">Our Mission</p>
-              <p className="text-xs font-semibold text-slate-800 leading-snug">
+              <p className="text-xs font-semibold text-foreground leading-snug">
                 No family should choose between their health and financial security.
               </p>
             </div>
           </div>
 
           {/* Text side */}
-          <div className="p-10 md:p-14 flex flex-col justify-center space-y-6 relative">
+          <div className="p-10 md:p-14 flex flex-col justify-center space-y-6 relative bg-accent/20">
             {/* Big quote mark */}
-            <span className="absolute top-6 right-8 text-8xl text-slate-100 font-serif leading-none select-none">"</span>
+            <span className="absolute top-6 right-8 text-8xl text-border font-serif leading-none select-none">"</span>
 
-            <p className="text-xl md:text-2xl font-bold text-slate-900 leading-snug relative z-10">
+            <p className="text-xl md:text-2xl font-bold text-foreground leading-snug relative z-10">
               I didn't start this business because I read about living benefits in a textbook. I lived it.
             </p>
 
-            <div className="space-y-4 text-slate-500 leading-relaxed text-base relative z-10">
+            <div className="space-y-4 text-muted-foreground leading-relaxed text-base relative z-10">
               <p>
                 As a kidney transplant recipient, I know what it's like to face a life-threatening illness while worrying about how to pay the bills. The financial strain was overwhelming — and I've seen too many families go through the same thing.
               </p>
@@ -59,7 +59,9 @@ export function FounderStory() {
             </p>
 
             <Link
-              href="https://docs.google.com/forms/d/1FmI-dOFrM8LJMSAwMmo4bCN_C3LeVDEWqMhekmNIIbU/viewform?edit" target="_blank" rel="noopener noreferrer"
+              href="https://docs.google.com/forms/d/1FmI-dOFrM8LJMSAwMmo4bCN_C3LeVDEWqMhekmNIIbU/viewform?edit"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-bold text-sm hover:brightness-110 hover:scale-105 transition-all shadow-lg shadow-primary/20 w-fit relative z-10"
             >
               Join the Mission <ArrowRight className="w-4 h-4" />
