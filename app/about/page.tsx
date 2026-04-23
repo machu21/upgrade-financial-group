@@ -26,7 +26,7 @@ export default function AboutPage() {
             playsInline
             className="absolute inset-0 w-full h-full object-cover pointer-events-none"
           >
-            <source src="/videos/about-hero.mp4" type="video/mp4" />
+            <source src="/videos/hero-bg.mp4" type="video/mp4" />
           </video>
 
           {/* Dark overlay — matches background color */}

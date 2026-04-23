@@ -226,7 +226,7 @@ export default function IULPage() {
               IUL isn't for everyone. It is best for those maxing out their 401(k)s, looking for tax-free retirement strategies, or wanting lifelong family protection with aggressive cash accumulation.
             </p>
             <Link 
-              href="/contact" 
+              href="https://docs.google.com/forms/u/0/d/1FmI-dOFrM8LJMSAwMmo4bCN_C3LeVDEWqMhekmNIIbU/viewform?edit_requested=true" target="_blank" rel="noopener noreferrer" 
               className="inline-flex items-center justify-center gap-2 text-lg px-8 py-4 rounded-xl bg-foreground text-background font-bold hover:opacity-90 transition-all"
             >
               Talk to an Expert <ArrowRight className="w-5 h-5" />

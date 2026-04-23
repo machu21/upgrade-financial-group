@@ -49,8 +49,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-background/85 backdrop-blur-[2px] -z-10" />
 
       {/* 3. WRAPPER FOR CONTENT */}
-      {/* Change it to this: */}
-<div className="relative z-10 space-y-20 px-6 max-w-7xl mx-auto pt-32 lg:pt-48">
+      <div className="relative z-10 space-y-20 px-6 max-w-7xl mx-auto pt-32 lg:pt-48">
 
         {/* Top Hero Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -62,7 +61,7 @@ export function Hero() {
             </h1>
 
             <p className="text-lg md:text-xl text-foreground/80 max-w-2xl leading-relaxed drop-shadow-md">
-              Protect your family, your income, your investments, and your future, without waiting until it’s too late. Our partners provide access to living benefits when you need them most, including coverage for critical illness, chronic illness, critical injury, and Alzheimer’s.
+              Protect your family, your income, your investments, and your future, without waiting until it’s too late. Our partners provide access to living benefits when you need them most, including coverage for Terminal Illness, Chronic Illness, Long-Term Care, Critical Illness, Critical Injury, Alzheimer’s/Dementia, and Lifetime Income Retirement.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -83,6 +82,7 @@ export function Hero() {
 
             {!isUnlocked ? (
               /* LOCKED STATE (Dark/Themed) */
+              // Keeping locked state width consistent for the flip animation
               <div className="w-full aspect-square max-w-[420px] border-[3px] border-border/50 rounded-3xl p-6 bg-accent/30 shadow-2xl flex flex-col justify-between overflow-hidden relative backdrop-blur-md animate-in fade-in zoom-in-95 duration-500 hover:border-primary/50 transition-colors">
 
                 {/* Top Card - Traditional */}
@@ -113,8 +113,8 @@ export function Hero() {
               </div>
             ) : (
               /* UNLOCKED STATE (Forced Light Mode) */
-              /* Changed background to white, text to slate-900, borders to gray-200 */
-              <div className="w-full max-w-[450px] border-[3px] border-primary/30 rounded-3xl p-5 sm:p-6 bg-white shadow-2xl relative animate-in fade-in flip-in-y duration-700">
+              /* CHANGED: max-w-[450px] is now max-w-[500px] */
+              <div className="w-full max-w-[500px] border-[3px] border-primary/30 rounded-3xl p-5 sm:p-6 bg-white shadow-2xl relative animate-in fade-in flip-in-y duration-700">
 
                 {/* Header & Relock */}
                 <div className="flex justify-between items-center mb-6 border-b border-gray-200 pb-4">
@@ -134,7 +134,7 @@ export function Hero() {
                     <span className="w-1/2">Feature</span>
                     <div className="w-1/2 flex justify-between text-center">
                       <span className="w-1/2">Traditional</span>
-                      <span className="w-1/2 text-primary">Living Benefits</span>
+                      <span className="w-1/2 text-amber-600 font-extrabold drop-shadow-sm">Living Benefits</span>
                     </div>
                   </div>
 
@@ -152,9 +152,9 @@ export function Hero() {
                         {/* Traditional Column */}
                         <div className="w-1/2 flex flex-col items-center justify-center">
                           {feature.trad ? (
-                            <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                            <CheckCircle2 className="w-5 h-5 text-emerald-700 " />
                           ) : (
-                            <XCircle className="w-4 h-4 text-gray-300" />
+                            <XCircle className="w-5 h-5 text-red-500" />
                           )}
                           {feature.noteTrad && <span className="text-[9px] text-slate-400 mt-1 leading-none">{feature.noteTrad}</span>}
                         </div>
@@ -162,11 +162,11 @@ export function Hero() {
                         {/* Living Benefits Column */}
                         <div className="w-1/2 flex flex-col items-center justify-center">
                           {feature.living ? (
-                            <CheckCircle2 className="w-4 h-4 text-primary drop-shadow-md" />
+                            <CheckCircle2 className="w-5 h-5 text-amber-600 stroke-[3px] scale-110 drop-shadow-md" />
                           ) : (
-                            <XCircle className="w-4 h-4 text-gray-300" />
+                            <XCircle className="w-5 h-5 text-red-300" />
                           )}
-                          {feature.noteLiving && <span className="text-[9px] text-primary/80 mt-1 leading-none">{feature.noteLiving}</span>}
+                          {feature.noteLiving && <span className="text-[9px] text-amber-700 font-bold mt-1 leading-none">{feature.noteLiving}</span>}
                         </div>
                       </div>
                     </div>

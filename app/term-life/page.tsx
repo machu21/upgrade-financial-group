@@ -124,7 +124,7 @@ export default function TermLifePage() {
 
           <div className="pt-4">
             <Link
-              href="/contact"
+              href="https://docs.google.com/forms/u/0/d/1FmI-dOFrM8LJMSAwMmo4bCN_C3LeVDEWqMhekmNIIbU/viewform?edit_requested=true" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-primary text-primary-foreground font-bold text-base hover:brightness-110 hover:scale-105 hover:shadow-xl hover:shadow-primary/20 transition-all active:scale-95"
             >
               Get a Free Term Quote <ArrowRight className="w-5 h-5" />
@@ -283,7 +283,7 @@ export default function TermLifePage() {
                 Term life insurance is more affordable than you think. Find out how little it costs to secure your family's financial future.
               </p>
               <Link
-                href="/contact"
+                href="https://docs.google.com/forms/u/0/d/1FmI-dOFrM8LJMSAwMmo4bCN_C3LeVDEWqMhekmNIIbU/viewform?edit_requested=true" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-primary text-primary-foreground font-bold text-lg hover:brightness-110 hover:scale-105 hover:shadow-xl hover:shadow-primary/20 transition-all active:scale-95"
               >
                 Get a Free Quote <ArrowRight className="w-5 h-5" />

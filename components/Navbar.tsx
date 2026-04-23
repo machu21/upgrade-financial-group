@@ -18,10 +18,18 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // NEW: Listener for the modal custom event
+  useEffect(() => {
+    const handleToggle = (e: any) => setIsOpen(e.detail);
+    window.addEventListener("toggle-navbar", handleToggle);
+    return () => window.removeEventListener("toggle-navbar", handleToggle);
+  }, []);
+
   return (
-    <nav className={`fixed w-full top-0 z-50 border-b transition-all duration-300 ${scrolled
-      ? "border-border/50 bg-black/80 backdrop-blur-md"
-      : "border-transparent bg-transparent backdrop-blur-none"
+    <nav className={`fixed w-full top-0 z-40 border-b transition-all duration-500 ease-in-out ${isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
+      } ${scrolled
+        ? "border-border/50 bg-black/80 backdrop-blur-md"
+        : "border-transparent bg-transparent backdrop-blur-none"
       }`}>
 
       <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:items-center relative">
