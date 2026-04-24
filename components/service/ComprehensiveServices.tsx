@@ -75,6 +75,7 @@ const services = [
       "FLEXIBILITY — NOT LOCKED INTO ONE PURPOSE — The cash value in a life insurance policy can be used for any purpose — tuition, a business, a home, or retirement. You stay in control of your money at every stage of life.",
     ],
   },
+
   {
     id: "child",
     title: "Child Protection",
@@ -82,13 +83,14 @@ const services = [
       "No parent wants to think about worst-case scenarios — but the greatest act of love is making sure your children are protected no matter what happens. We help families put lifelong financial protection in place, starting as early as possible.",
     image: "https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=1000&q=80",
     details: [
-      "LOCK IN COVERAGE WHILE THEY'RE YOUNG & HEALTHY — Insuring a child while they're young locks in the lowest possible premiums and guarantees their insurability for life — regardless of any health conditions that may develop as they grow.",
-      "CASH VALUE THEY CAN USE AS ADULTS — Permanent life insurance policies for children accumulate cash value over time. By adulthood, that built-up value can fund college tuition, a first home, a business, or any major life milestone.",
-      "PROTECTION FOR THE WHOLE FAMILY — Child life insurance provides a death benefit that helps grieving families cover immediate expenses — medical bills, funeral costs, and time away from work.",
-      "LIVING BENEFITS FOR CHILDHOOD ILLNESS — Our policies include Living Benefits that allow access to a portion of the coverage if a child is diagnosed with a qualifying critical or chronic illness, ensuring families don't have to choose between care and financial stability.",
-      "PARENT PROTECTION — THE FOUNDATION OF IT ALL — Making sure you have the right coverage in place means your family's income, home, and lifestyle are protected if something happens to you. A comprehensive family protection plan covers both parent and child.",
+      "TAX-FREE WEALTH TRANSFER TO BENEFICIARIES — Life insurance death benefits are generally received income tax-free by your named beneficiaries — bypassing probate entirely. Your loved ones receive their inheritance quickly and in full, without waiting months for court proceedings or losing a portion to unnecessary taxation.",
+      "PROBATE AVOIDANCE — Assets that go through probate can be tied up in court for months or even years, draining your estate through legal fees and delays. A life insurance-based estate plan transfers assets directly to beneficiaries outside of probate — giving your family immediate access when they need it most.",
+      "ESTATE LIQUIDITY — Many estates — especially those that include a home, business, or investment property — lack the liquid cash needed to cover estate taxes and settlement costs. A life insurance policy provides an immediate cash infusion so your heirs don't have to sell valuable assets at a loss just to settle the estate.",
+      "LIVING BENEFITS — Our policies with Living Benefits allow you to access a portion of your benefit if diagnosed with a qualifying critical, chronic, or terminal illness — covering care costs without depleting savings or liquidating assets, preserving more of your estate for the people you love.",
+      "EQUALIZING INHERITANCE AMONG HEIRS — When an estate includes illiquid assets like a business or property that one heir will inherit, life insurance can be used to provide an equivalent financial benefit to other heirs — eliminating conflict, ensuring fairness, and keeping family relationships intact.",
     ],
   },
+
   {
     id: "estate",
     title: "Estate Planning",
@@ -106,13 +108,14 @@ const services = [
     id: "credit",
     title: "Credit Repair",
     description:
-      "Actionable steps to restore your credit score and improve your financial standing — because your credit affects every major financial decision you'll ever make.",
+      "Your credit score affects everything — your ability to buy a home, qualify for better rates, and secure your financial future. At Upgrade Financial Group, we connect you with trusted credit restoration specialists who take a hands-on approach to cleaning up your credit and rebuilding your financial standing.",
     image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1000&q=80",
     details: [
-      "Comprehensive credit report analysis across all three bureaus to identify every item impacting your score.",
-      "Dispute resolution for inaccurate or unverified negative items — we help you challenge what shouldn't be there.",
-      "Debt consolidation and payoff prioritization advice to accelerate your path to a healthier credit profile.",
-      "Ongoing credit monitoring and score optimization strategies so you stay on track and never fall behind again.",
+      "CREDIT ANALYSIS & DISPUTE SERVICES — Our partners conduct a thorough review of your credit reports across all three major bureaus. Inaccurate, outdated, or unverifiable negative items are identified and formally disputed on your behalf — a process that can lead to significant score improvements over time.",
+      "PERSONALIZED RESTORATION PLAN — No two credit situations are the same. You'll receive a customized action plan based on your specific credit profile — including guidance on paying down balances, managing credit utilization, and establishing positive credit history that lenders actually want to see.",
+      "ONGOING MONITORING & SUPPORT — Credit repair isn't a one-time event. Our partners provide continuous monitoring and dedicated support so you always know where your score stands, what's changing, and what steps to take next to keep building momentum.",
+      "BETTER CREDIT = BETTER FINANCIAL OPTIONS — Improving your credit score directly impacts the rates you qualify for on mortgages, auto loans, and even life insurance premiums. Clients who work on their credit alongside their financial plan consistently access better products and save significantly more over time.",
+      "A TRUSTED REFERRAL — NOT A SIDE SERVICE — Upgrade Financial Group partners with vetted credit restoration professionals to make sure our clients have access to every tool they need for total financial wellness. From protection and wealth building to credit health — we're committed to your complete financial picture.",
     ],
   },
 ];
@@ -120,7 +123,7 @@ const services = [
 export function ComprehensiveServices() {
   const [selectedService, setSelectedService] = useState<(typeof services)[0] | null>(null);
 
-// Prevent background scrolling and hide Navbar when modal is open
+  // Prevent background scrolling and hide Navbar when modal is open
   useEffect(() => {
     if (selectedService) {
       document.body.style.overflow = "hidden";
@@ -131,7 +134,7 @@ export function ComprehensiveServices() {
       // Broadcast signal to show Navbar
       window.dispatchEvent(new CustomEvent("toggle-navbar", { detail: true }));
     }
-    
+
     // Safety cleanup
     return () => {
       document.body.style.overflow = "unset";
@@ -257,7 +260,7 @@ export function ComprehensiveServices() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex w-full sm:w-auto items-center justify-center gap-2 text-base px-8 py-4 rounded-xl bg-slate-900 text-white font-bold hover:bg-slate-800 transition-all shadow-lg"
-                  onClick={() => setSelectedService(null)}
+                  //onClick={() => setSelectedService(null)}
                 >
                   Schedule Consultation <ArrowRight className="w-5 h-5" />
                 </Link>
