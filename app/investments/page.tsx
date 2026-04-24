@@ -37,7 +37,7 @@ const strategies = [
     color: "text-emerald-400",
     bg: "bg-emerald-500/10",
     border: "border-emerald-500/20",
-    href: "/whole",
+    href: "/whole-life",
     stat: "Tax-Free", statLabel: "Cash Access",
   },
   {

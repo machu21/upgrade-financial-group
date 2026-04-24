@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, TrendingUp, ShieldCheck, HeartPulse, PiggyBank, Anchor } from "lucide-react";
+import { ArrowRight, TrendingUp, ShieldCheck, HeartPulse, PiggyBank, Anchor, Lock } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -10,19 +10,19 @@ export default function FULPage() {
 
   const steps = [
     {
-      icon: ShieldCheck,
-      title: "Permanent Security",
-      desc: "Provides a guaranteed death benefit to protect your family's future, ensuring they are financially secure for your entire lifetime.",
+      icon: Anchor,
+      title: "Guaranteed Fixed Interest Rate",
+      desc: "Unlike indexed or variable products, a Fixed Universal Life policy credits your cash value at a guaranteed interest rate set by the policy. You always know exactly how your money is growing — making it one of the most predictable and stress-free wealth accumulation tools available.",
       color: "text-primary",
       bg: "bg-primary/10",
       border: "border-primary/20",
       image: "https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?w=1600&q=80",
-      stat: "Lifetime", statLabel: "Coverage"
+      stat: "4%+", statLabel: "Guaranteed Rate"
     },
     {
-      icon: Anchor,
-      title: "Guaranteed Growth",
-      desc: "Your cash value grows at a declared, fixed interest rate — completely shielded from market volatility. You never lose a dime to market crashes.",
+      icon: Lock,
+      title: "Zero Market Risk — Ever",
+      desc: "Your cash value is completely insulated from market volatility. Whether markets are booming or crashing, your policy continues to grow at its guaranteed rate without interruption. For clients who've worked hard to build their wealth, this level of certainty is invaluable.",
       color: "text-sky-400",
       bg: "bg-sky-500/10",
       border: "border-sky-500/20",
@@ -30,19 +30,9 @@ export default function FULPage() {
       stat: "0%", statLabel: "Market Risk"
     },
     {
-      icon: TrendingUp,
-      title: "Flexible Payments",
-      desc: "Adjust your premium payments and death benefit amount over time as your life, income, and financial needs evolve.",
-      color: "text-indigo-400",
-      bg: "bg-indigo-500/10",
-      border: "border-indigo-500/20",
-      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1600&q=80",
-      stat: "100%", statLabel: "Adjustable"
-    },
-    {
       icon: PiggyBank,
-      title: "Tax-Advantaged Income",
-      desc: "Borrow against your guaranteed cash value tax-free to fund retirement, pay for college, or handle unexpected emergencies.",
+      title: "Tax-Deferred Cash Value Growth",
+      desc: "The cash value inside your Fixed Universal Life policy accumulates on a tax-deferred basis — meaning you won't owe taxes on the growth until you access it. When structured properly, withdrawals and loans in retirement can be taken income tax-free, making it an excellent complement to any retirement plan.",
       color: "text-violet-400",
       bg: "bg-violet-500/10",
       border: "border-violet-500/20",
@@ -51,13 +41,23 @@ export default function FULPage() {
     },
     {
       icon: HeartPulse,
-      title: "Living Benefits",
-      desc: "Access your death benefit while you're still alive if diagnosed with a critical, chronic, or terminal illness — money when you need it most.",
+      title: "Living Benefits Included",
+      desc: "Our Fixed Universal Life policies include Living Benefits that allow you to access a portion of your death benefit if you're diagnosed with a qualifying critical, chronic, or terminal illness. Your policy isn't just a safety net for your family — it's a financial lifeline for you too.",
       color: "text-rose-400",
       bg: "bg-rose-500/10",
       border: "border-rose-500/20",
       image: "https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=1600&q=80",
       stat: "Early", statLabel: "Access"
+    },
+    {
+      icon: TrendingUp,
+      title: "Permanent Coverage with Flexible Premiums",
+      desc: "As a universal life policy, you have the ability to adjust your premium payments within certain limits to accommodate changes in your income or expenses. Your coverage stays in force permanently — so your family is always protected regardless of what life brings your way.",
+      color: "text-indigo-400",
+      bg: "bg-indigo-500/10",
+      border: "border-indigo-500/20",
+      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1600&q=80",
+      stat: "Lifetime", statLabel: "Coverage"
     },
   ];
 
@@ -82,7 +82,7 @@ export default function FULPage() {
             <span className="text-primary">Life Insurance</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            For those who value absolute certainty. Permanent protection with a guaranteed, predictable interest rate on your cash value — no market risk, ever.
+            For those who value stability above all else — permanent protection with predictable, guaranteed growth. No market exposure, no surprises. Just steady, reliable accumulation you can count on year after year.
           </p>
 
           <div className="flex flex-wrap justify-center gap-3 pt-2">
@@ -125,7 +125,6 @@ export default function FULPage() {
                   alt={step.title}
                   className="absolute inset-0 w-full h-full object-cover object-center"
                 />
-                {/* Fade into background color */}
                 <div className={`absolute inset-0 ${isEven
                   ? "bg-gradient-to-l from-transparent to-background/60"
                   : "bg-gradient-to-r from-transparent to-background/60"
@@ -239,10 +238,10 @@ export default function FULPage() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30rem] h-[30rem] bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
             <div className="relative z-10 space-y-6">
               <h2 className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight">
-                Ready to secure your guarantees?
+                Want the peace of mind that comes with guaranteed growth?
               </h2>
               <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-                Our experts will design a custom FUL illustration for your unique goals — completely free of charge.
+                A Fixed Universal Life policy may be exactly what your financial plan needs. Talk to one of our licensed agents today — we'll design a custom FUL illustration for your unique goals, completely free of charge.
               </p>
               <Link
                 href="https://docs.google.com/forms/u/0/d/1FmI-dOFrM8LJMSAwMmo4bCN_C3LeVDEWqMhekmNIIbU/viewform?edit_requested=true" target="_blank" rel="noopener noreferrer"

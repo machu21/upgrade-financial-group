@@ -4,7 +4,8 @@ import {
   ClipboardList, 
   FileText, 
   HeartHandshake, 
-  ShieldCheck 
+  ShieldCheck,
+  HeartPlus 
 } from "lucide-react";
 import Link from "next/link";
 
@@ -34,6 +35,11 @@ export function HowWeWork() {
       icon: HeartHandshake,
       title: "Ongoing Support",
       description: "We're here when you need us, not just at the sale. We grow with your family.",
+    },
+    {
+      icon: HeartPlus,
+      title: "Enjoy the benefits",
+      description: "Once your policy is in place, you can enjoy the peace of mind that comes with comprehensive protection.",
     },
   ];
 
@@ -80,7 +86,7 @@ export function HowWeWork() {
               Ready to Upgrade Your Coverage?
             </h2>
             <p className="text-lg md:text-xl text-primary-foreground/90 font-medium">
-             Get life insurance that actually works for you—while you're still living.
+             Upgrade your life insurance with modern, evolving coverage that includes living benefits, designed to support you while you’re still here with your loved ones.
             </p>
             <div className="pt-4">
               <Link 

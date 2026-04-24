@@ -95,6 +95,10 @@ export function ProblemSolution() {
                   <CheckCircle2 className="w-6 h-6 text-primary shrink-0 mt-0.5" />
                   <span className="text-foreground font-medium">Peace of mind for you and your family.</span>
                 </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-primary shrink-0 mt-0.5" />
+                  <span className="text-foreground font-medium">Income replacement.</span>
+                </li>
               </ul>
             </div>
 

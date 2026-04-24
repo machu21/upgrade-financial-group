@@ -3,9 +3,9 @@ import { Activity, Hourglass, Stethoscope } from "lucide-react";
 export function LivingBenefits() {
   const benefits = [
     {
-      icon: Activity,
-      title: "Critical Illness",
-      description: "Diagnosed with a covered condition like heart attack, stroke, cancer, or major organ failure? Access funds to cover treatment, lost income, or whatever you need.",
+      icon: Hourglass,
+      title: "Terminal Illness",
+      description: "Facing a terminal diagnosis? Access your benefit to spend time with loved ones, check off your bucket list, or simply reduce financial stress during a difficult time.",
     },
     {
       icon: Stethoscope,
@@ -13,9 +13,9 @@ export function LivingBenefits() {
       description: "Unable to perform two or more activities of daily living (bathing, dressing, eating, etc.)? Your policy can help cover long-term care costs and daily expenses.",
     },
     {
-      icon: Hourglass,
-      title: "Terminal Illness",
-      description: "Facing a terminal diagnosis? Access your benefit to spend time with loved ones, check off your bucket list, or simply reduce financial stress during a difficult time.",
+      icon: Activity,
+      title: "Critical Illness",
+      description: "Diagnosed with a covered condition like heart attack, stroke, cancer, or major organ failure? Access funds to cover treatment, lost income, or whatever you need.",
     },
   ];
 
@@ -27,7 +27,7 @@ export function LivingBenefits() {
             What Are Living Benefits?
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Living benefits are riders or features built into your life insurance policy that allow you to access a portion of your death benefit early if you experience. verify to your agent if you are state qualified for this 
+            Living benefits are riders or features built into your life insurance policy that allow you to access a portion of your death benefit early if you experience. verify to your agent if you are state qualified for this
           </p>
         </div>
 

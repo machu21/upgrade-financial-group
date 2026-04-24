@@ -120,6 +120,7 @@ export function Navbar() {
                 <Link href="/ful" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Fixed Universal Life</Link>
                 <Link href="/whole-life" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Whole Life</Link>
                 <Link href="/term-life" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Term Life</Link>
+                <Link href="/term-life-with-living-benefits" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Term Life With Living Benefits</Link>
                 <Link href="/investments" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Investments</Link>
               </div>
             </div>
