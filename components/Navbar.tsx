@@ -7,10 +7,11 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 
 export function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [navVisible, setNavVisible] = useState(true);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -20,17 +21,14 @@ export function Navbar() {
 
   // NEW: Listener for the modal custom event
   useEffect(() => {
-    const handleToggle = (e: any) => setIsOpen(e.detail);
+    const handleToggle = (e: any) => setNavVisible(e.detail);
     window.addEventListener("toggle-navbar", handleToggle);
     return () => window.removeEventListener("toggle-navbar", handleToggle);
   }, []);
 
   return (
-    <nav className={`fixed w-full top-0 z-40 border-b transition-all duration-500 ease-in-out ${isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
-      } ${scrolled
-        ? "border-border/50 bg-black/80 backdrop-blur-md"
-        : "border-transparent bg-transparent backdrop-blur-none"
-      }`}>
+    <nav className={`fixed w-full top-0 z-40 border-b transition-all duration-500 ease-in-out ${navVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
+      } ${scrolled ? "border-border/50 bg-black/80 backdrop-blur-md" : "border-transparent bg-transparent backdrop-blur-none"}`}>
 
       <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:items-center relative">
 
@@ -46,10 +44,10 @@ export function Navbar() {
 
         {/* Mobile Menu Toggle Button */}
         <button
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className="md:hidden absolute left-6 top-1/2 -translate-y-1/2 text-foreground hover:text-primary transition-colors z-50"
         >
-          {isOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
+          {mobileMenuOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
         </button>
 
         {/* Desktop CTA Button */}
@@ -141,7 +139,7 @@ export function Navbar() {
       </div>
 
       {/* Mobile Menu Dropdown */}
-      {isOpen && (
+      {mobileMenuOpen && (
         <div className="md:hidden border-t border-border/50 bg-background/95 backdrop-blur-xl absolute w-full left-0 flex flex-col items-center py-6 gap-6 shadow-2xl animate-in slide-in-from-top-2 h-screen overflow-y-auto pb-32">
 
           {/* MOBILE DROPDOWN: Our Services */}
@@ -157,14 +155,14 @@ export function Navbar() {
             {/* Mobile Expandable Panel (Services) */}
             {isServicesOpen && (
               <div className="flex flex-col items-center gap-4 mt-4 bg-white/5 w-full py-4 rounded-2xl animate-in fade-in slide-in-from-top-2">
-                <Link href="/services#retirement" onClick={() => setIsOpen(false)} className="text-base text-muted-foreground hover:text-primary">Retirement Plans</Link>
-                <Link href="/services#tax-free" onClick={() => setIsOpen(false)} className="text-base text-muted-foreground hover:text-primary">Tax-Free Retirement</Link>
-                <Link href="/services#wealth" onClick={() => setIsOpen(false)} className="text-base text-muted-foreground hover:text-primary">Wealth Management</Link>
-                <Link href="/services#legacy" onClick={() => setIsOpen(false)} className="text-base text-muted-foreground hover:text-primary">Legacy Creation</Link>
-                <Link href="/services#college" onClick={() => setIsOpen(false)} className="text-base text-muted-foreground hover:text-primary">College Funding</Link>
-                <Link href="/services#child" onClick={() => setIsOpen(false)} className="text-base text-muted-foreground hover:text-primary">Child Protection</Link>
-                <Link href="/services#estate" onClick={() => setIsOpen(false)} className="text-base text-muted-foreground hover:text-primary">Estate Planning</Link>
-                <Link href="/services#credit" onClick={() => setIsOpen(false)} className="text-base text-muted-foreground hover:text-primary">Credit Repair</Link>
+                <Link href="/services#retirement" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">Retirement Plans</Link>
+                <Link href="/services#tax-free" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">Tax-Free Retirement</Link>
+                <Link href="/services#wealth" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">Wealth Management</Link>
+                <Link href="/services#legacy" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">Legacy Creation</Link>
+                <Link href="/services#college" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">College Funding</Link>
+                <Link href="/services#child" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">Child Protection</Link>
+                <Link href="/services#estate" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">Estate Planning</Link>
+                <Link href="/services#credit" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">Credit Repair</Link>
               </div>
             )}
           </div>
@@ -182,26 +180,26 @@ export function Navbar() {
             {/* Mobile Expandable Panel (Products) */}
             {isProductsOpen && (
               <div className="flex flex-col items-center gap-4 mt-4 bg-white/5 w-full py-4 rounded-2xl animate-in fade-in slide-in-from-top-2">
-                <Link href="/iul" onClick={() => setIsOpen(false)} className="text-base text-muted-foreground hover:text-primary">Indexed Universal Life</Link>
-                <Link href="/ful" onClick={() => setIsOpen(false)} className="text-base text-muted-foreground hover:text-primary">Fixed Universal Life</Link>
-                <Link href="/whole-life" onClick={() => setIsOpen(false)} className="text-base text-muted-foreground hover:text-primary">Whole Life</Link>
-                <Link href="/term-life" onClick={() => setIsOpen(false)} className="text-base text-muted-foreground hover:text-primary">Term Life</Link>
+                <Link href="/iul" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">Indexed Universal Life</Link>
+                <Link href="/ful" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">Fixed Universal Life</Link>
+                <Link href="/whole-life" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">Whole Life</Link>
+                <Link href="/term-life" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">Term Life</Link>
               </div>
             )}
           </div>
 
-          <Link href="/about" onClick={() => setIsOpen(false)} className="text-lg font-medium text-foreground hover:text-primary transition-colors">
+          <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground hover:text-primary transition-colors">
             About Us
           </Link>
-          <Link href="/partners" onClick={() => setIsOpen(false)} className="text-lg font-medium text-foreground hover:text-primary transition-colors">
+          <Link href="/partners" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground hover:text-primary transition-colors">
             Be Part of the Team
           </Link>
-          <Link href="/services" onClick={() => setIsOpen(false)} className="text-lg font-medium text-foreground hover:text-primary transition-colors italic">
+          <Link href="/services" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground hover:text-primary transition-colors italic">
             and more
           </Link>
 
           <Button asChild className="w-[80%] max-w-sm mt-4 shadow-lg shadow-primary/20 rounded-xl font-bold bg-primary text-primary-foreground py-6 text-lg">
-            <Link href="/contact" onClick={() => setIsOpen(false)}>How to be an agent</Link>
+            <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>How to be an agent</Link>
           </Button>
         </div>
       )}
