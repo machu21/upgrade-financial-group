@@ -45,7 +45,7 @@ export function WhyUpgrade() {
     {
       icon: Star,
       title: "What Sets Us Apart",
-      description: "We are the only company that can insure anyone from a 10-month-old baby to an 88-year-old senior.",
+      description: "We are the only company that can insure anyone from a 10-day-old baby to an 88-year-old senior.",
       isCta: true,
       ctaText: "Start Today"
     },

@@ -98,7 +98,7 @@ export default function PartnersPage() {
                     <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-16 text-center">
                         <div>
                             <p className="text-xs text-muted-foreground uppercase tracking-widest mb-1">Carrier Partners</p>
-                            <p className="text-2xl font-extrabold text-foreground">6+</p>
+                            <p className="text-2xl font-extrabold text-foreground">4+</p>
                         </div>
                         <div className="hidden sm:block w-px h-10 bg-border" />
                         <div>
