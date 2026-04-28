@@ -7,23 +7,23 @@ import { Mail, MapPin, Phone } from "lucide-react";
 export function Footer() {
   return (
     <footer className="relative z-10 bg-background pt-20 pb-8 border-t border-border/40 overflow-hidden">
-      
+
       {/* Subtle background ambient glow */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-6">
-        
+
         {/* Top Grid Section (Now exactly 3 columns) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-8 mb-20">
-          
+
           {/* Column 1: Brand */}
           <div className="space-y-6">
             <Link href="/" className="inline-block hover:opacity-80 transition-opacity">
-              <Image 
-                src="/images/main-logo.png" 
-                alt="Upgrade Financial Group" 
-                width={300} 
-                height={80} 
+              <Image
+                src="/images/main-logo.png"
+                alt="Upgrade Financial Group"
+                width={300}
+                height={80}
                 className="object-contain h-14 md:h-16 w-auto"
               />
             </Link>
@@ -36,16 +36,26 @@ export function Footer() {
           <div className="space-y-6 lg:pl-12">
             <h4 className="text-sm font-bold text-foreground uppercase tracking-widest">Navigation</h4>
             <ul className="space-y-4">
-              {["Home", "Our Services", "About Us", "Free Consultation"].map((item, i) => (
-                <li key={i}>
-                  <Link 
-                    href={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "-")}`} 
-                    className="text-sm text-muted-foreground hover:text-primary transition-all duration-300 inline-block hover:translate-x-1"
-                  >
-                    {item}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li>
+              <Link href="/services" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                Our Services
+              </Link>
+              </li>
+              <li>
+              <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                About Us
+              </Link>
+              </li>
+              <li>
+              <Link href="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                Free Consultation
+              </Link>
+              </li>
             </ul>
           </div>
 
@@ -66,14 +76,14 @@ export function Footer() {
                   <div className="w-10 h-10 shrink-0 rounded-full bg-accent/30 border border-border/50 flex items-center justify-center group-hover:border-primary/50 group-hover:bg-primary/10 transition-all duration-300">
                     <Mail className="h-4 w-4 text-primary" />
                   </div>
-                  <span className="break-all group-hover:translate-x-1 transition-transform duration-300">founder@upgrade<br/>financialgroup.com</span>
+                  <span className="break-all group-hover:translate-x-1 transition-transform duration-300">founder@upgrade<br />financialgroup.com</span>
                 </a>
               </li>
               <li className="flex items-center gap-4 text-sm text-muted-foreground">
                 <div className="w-10 h-10 shrink-0 rounded-full bg-accent/30 border border-border/50 flex items-center justify-center">
                   <MapPin className="h-4 w-4 text-primary" />
                 </div>
-                Serving Families <br/>Across USA
+                Serving Families <br />Across USA
               </li>
             </ul>
           </div>
@@ -89,10 +99,10 @@ export function Footer() {
             © {new Date().getFullYear()} Upgrade Financial Group. All Rights Reserved.
           </p>
           <div className="flex items-center gap-8">
-            <Link href="/privacy-policy" className="text-xs font-medium text-muted-foreground hover:text-primary transition-colors">
+            <Link href="#" className="text-xs font-medium text-muted-foreground hover:text-primary transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-xs font-medium text-muted-foreground hover:text-primary transition-colors">
+            <Link href="#" className="text-xs font-medium text-muted-foreground hover:text-primary transition-colors">
               Terms of Service
             </Link>
           </div>
