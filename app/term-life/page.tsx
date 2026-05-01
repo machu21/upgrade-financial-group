@@ -69,7 +69,7 @@ const useCases = [
   {
     title: "Young Families",
     desc: "Replace your income so your spouse and children maintain their lifestyle, cover childcare, and fund future college tuitions.",
-    image: "https://images.unsplash.com/photo-1511895426328-dc8714191011?w=800&q=80",
+    image: "https://thumbs.dreamstime.com/b/young-family-two-toddler-children-outdoors-river-summer-playing-paper-boats-142951569.jpg",
     stat: "20–30 yr", statLabel: "Recommended Term",
   },
   {
@@ -106,7 +106,7 @@ export default function TermLifePage() {
             <span className="text-primary">Made Simple.</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            Affordable, high-coverage protection for the years your family needs it most — with modern living benefits built right in.
+            Protect your family when they need it most — with modern living benefits built right in.
           </p>
 
           <div className="flex flex-wrap justify-center gap-3 pt-2">

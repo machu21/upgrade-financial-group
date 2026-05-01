@@ -16,7 +16,7 @@ export default function FULPage() {
       color: "text-primary",
       bg: "bg-primary/10",
       border: "border-primary/20",
-      image: "https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?w=1600&q=80",
+      image: "https://www.investopedia.com/thmb/oIfTckfPLQjuYMtQCROIssl557Y=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/FixedInterestRateDefinitionProsConsvs.VariableRate-f6b6175af4af47b7a9d3b86cbf2983b2.jpg",
       stat: "4%+", statLabel: "Guaranteed Rate"
     },
     {

@@ -35,7 +35,7 @@ export default function IULPage() {
               </p>
               <div className="pt-2">
                 <Link
-                  href="/contact"
+                  href="https://docs.google.com/forms/u/0/d/1FmI-dOFrM8LJMSAwMmo4bCN_C3LeVDEWqMhekmNIIbU/viewform?edit_requested=true" target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-bold hover:brightness-110 hover:scale-105 transition-all shadow-lg shadow-primary/25 text-sm"
                 >
                   Get Your Custom IUL Quote <ArrowRight className="w-4 h-4" />
@@ -120,6 +120,25 @@ export default function IULPage() {
               <p className="text-muted-foreground text-sm leading-relaxed">
                 Leave behind more than memories. Your death benefit is paid to your named beneficiaries income tax-free — bypassing probate and delivering an immediate financial legacy that spans generations.
               </p>
+            </div>
+
+            {/* Benefit 6 - Highlighted CTA Card */}
+            <div className="bg-primary border border-primary p-8 rounded-3xl shadow-lg shadow-primary/30 flex flex-col justify-between">
+              <div>
+                <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-6">
+                  <ArrowRight className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-lg font-bold mb-2 text-white">Ready to Build Your Tax-Free Future?</h3>
+                <p className="text-white/75 text-sm leading-relaxed">
+                  An IUL isn't just life insurance — it's a complete financial strategy. Our licensed agents will walk you through a custom illustration at no cost, no pressure.
+                </p>
+              </div>
+              <Link
+                href="https://docs.google.com/forms/d/1FmI-dOFrM8LJMSAwMmo4bCN_C3LeVDEWqMhekmNIIbU/viewform?edit_requested=true" target="_blank" rel="noopener noreferrer"
+                className="mt-8 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white text-primary font-bold text-sm hover:brightness-95 hover:scale-105 transition-all shadow-lg"
+              >
+                Start Now <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
 
           </div>
