@@ -30,7 +30,7 @@ export function Navbar() {
     <nav className={`fixed w-full top-0 z-40 border-b transition-all duration-500 ease-in-out ${navVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
       } ${scrolled ? "border-border/50 bg-black/80 backdrop-blur-md" : "border-transparent bg-transparent backdrop-blur-none"}`}>
 
-      <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:items-center relative">
+      <div className="max-w-full mx-auto px-6 py-4 flex flex-col md:items-center relative">
 
         {/* Top Right Help Text */}
         <div className="absolute top-1 md:top-2 right-6 z-50">
