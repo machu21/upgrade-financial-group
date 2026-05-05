@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { ArrowRight, X, CheckCircle2 } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { ArrowRight, X, CheckCircle2, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
 const CONSULTATION_LINK = "https://docs.google.com/forms/u/0/d/1FmI-dOFrM8LJMSAwMmo4bCN_C3LeVDEWqMhekmNIIbU/viewform?edit_requested=true";
@@ -122,6 +122,23 @@ const services = [
 
 export function ComprehensiveServices() {
   const [selectedService, setSelectedService] = useState<(typeof services)[0] | null>(null);
+  const sliderRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: "left" | "right") => {
+    if (!sliderRef.current) return;
+    const container = sliderRef.current;
+    const card = container.querySelector("[data-card]");
+    if (!card) return;
+
+    const gap = 24; // Tailwind gap-6 is 24px
+    const scrollAmount = (card as HTMLElement).offsetWidth + gap;
+
+    if (direction === "right") {
+      container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    } else {
+      container.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    }
+  };
 
   // Prevent background scrolling and hide Navbar when modal is open
   useEffect(() => {
@@ -143,53 +160,77 @@ export function ComprehensiveServices() {
   }, [selectedService]);
 
   return (
-    <section className="py-24 bg-background relative">
-      <div className="max-w-7xl mx-auto px-6">
-
-        {/* Header */}
-        <div className="text-center mb-16 max-w-3xl mx-auto">
+    <section className="py-24 bg-accent/5 relative w-full overflow-hidden">
+      {/* Header */}
+      <div className="max-w-7xl mx-auto px-6 mb-16">
+        <div className="text-center max-w-3xl mx-auto">
           <p className="text-sm font-bold uppercase tracking-widest text-primary mb-3">Planning for the Future</p>
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground mb-6">
-            Comprehensive Services
+            Our Services
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
             Beyond life insurance, we provide full-spectrum financial planning to protect your assets, grow your wealth, and secure your family's legacy.
           </p>
         </div>
+      </div>
 
-        {/* 2-Column Premium Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+      {/* Carousel */}
+      <div className="relative w-full group">
+        {/* Floating Desktop Controls */}
+        <div className="hidden md:flex absolute inset-y-0 left-4 lg:left-8 z-30 items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+          <button
+            onClick={(e) => { e.stopPropagation(); scroll("left"); }}
+            className="w-14 h-14 rounded-full bg-background/90 backdrop-blur-md border border-border flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all text-foreground shadow-xl hover:scale-105 pointer-events-auto"
+            aria-label="Previous service"
+          >
+            <ChevronLeft className="w-7 h-7" />
+          </button>
+        </div>
+
+        <div className="hidden md:flex absolute inset-y-0 right-4 lg:right-8 z-30 items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+          <button
+            onClick={(e) => { e.stopPropagation(); scroll("right"); }}
+            className="w-14 h-14 rounded-full bg-background/90 backdrop-blur-md border border-border flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all text-foreground shadow-xl hover:scale-105 pointer-events-auto"
+            aria-label="Next service"
+          >
+            <ChevronRight className="w-7 h-7" />
+          </button>
+        </div>
+
+        {/* Scroll Container */}
+        <div
+          ref={sliderRef}
+          className="flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 md:px-[5vw] pb-12 pt-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+        >
           {services.map((service, index) => (
             <div
               key={index}
               id={service.id}
-              className="group relative h-[400px] md:h-[450px] w-full rounded-3xl overflow-hidden border border-border/50 shadow-lg hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 bg-black"
+              data-card
+              className="group shrink-0 snap-center w-[90vw] md:w-[600px] lg:w-[800px] flex flex-col bg-background rounded-[2rem] overflow-hidden border border-border shadow-sm hover:shadow-xl hover:border-primary/30 hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+              onClick={() => setSelectedService(service)}
             >
-              {/* Background Image */}
-              <img
-                src={service.image}
-                alt={service.title}
-                className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700 ease-out"
-              />
+              {/* Top: Image */}
+              <div className="relative h-72 md:h-[400px] overflow-hidden shrink-0">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+              </div>
 
-              {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-10" />
-
-              {/* Card Content */}
-              <div className="absolute inset-0 z-20 flex flex-col justify-end p-8 md:p-10">
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 tracking-tight">
+              {/* Bottom: Content */}
+              <div className="p-8 md:p-10 flex flex-col flex-grow">
+                <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3 tracking-tight">
                   {service.title}
                 </h3>
-                <p className="text-white/80 text-base md:text-lg leading-relaxed max-w-md mb-6 line-clamp-2">
+                <p className="text-muted-foreground text-base md:text-lg leading-relaxed line-clamp-3 mb-6">
                   {service.description}
                 </p>
-                <button
-                  onClick={() => setSelectedService(service)}
-                  className="inline-flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-wider group/link w-fit hover:brightness-110 transition-all"
-                >
+                <div className="mt-auto flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-wider">
                   Learn More
-                  <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-                </button>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </div>
               </div>
             </div>
           ))}
@@ -230,7 +271,7 @@ export function ComprehensiveServices() {
             {/* Content */}
             <div className="w-full md:w-3/5 p-8 md:p-12 overflow-y-auto flex flex-col bg-white">
 
-              <p className="text-sm font-bold uppercase tracking-widest text-amber-600 mb-2">Service Details</p>
+              <p className="text-sm font-bold uppercase tracking-widest text-primary mb-2">Service Details</p>
               <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">
                 {selectedService.title}
               </h3>
@@ -244,14 +285,14 @@ export function ComprehensiveServices() {
                 <ul className="space-y-4">
                   {selectedService.details.map((detail, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-6 h-6 text-amber-600 shrink-0 mt-0.5" />
-                      <span className="text-slate-700 leading-relaxed font-medium">{detail}</span>
+                      <CheckCircle2 className="w-6 h-6 text-primary shrink-0 mt-0.5" />
+                      <span className="text-slate-600 leading-relaxed font-medium">{detail}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="pt-6 border-t border-slate-100">
+              <div className="pt-6 border-t border-slate-200">
                 <p className="text-sm text-slate-500 mb-4">
                   Not sure which plan is right for you? Our licensed agents will walk you through your options at no cost — no pressure, no obligation.
                 </p>
@@ -259,8 +300,7 @@ export function ComprehensiveServices() {
                   href={CONSULTATION_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 text-base px-8 py-4 rounded-xl bg-slate-900 text-white font-bold hover:bg-slate-800 transition-all shadow-lg"
-                  //onClick={() => setSelectedService(null)}
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 text-base px-8 py-4 rounded-xl bg-primary text-primary-foreground font-bold hover:brightness-110 transition-all shadow-lg"
                 >
                   Schedule Consultation <ArrowRight className="w-5 h-5" />
                 </Link>

@@ -106,7 +106,7 @@ export default function TermLifePage() {
             <span className="text-primary">Made Simple.</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            Protect your family when they need it most — with modern living benefits built right in.
+            Affordable protection with meaningful coverage for the moments that matter most.
           </p>
 
           <div className="flex flex-wrap justify-center gap-3 pt-2">

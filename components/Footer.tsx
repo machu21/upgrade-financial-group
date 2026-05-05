@@ -72,11 +72,11 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:founder@upgradefinancialgroup.com" className="flex items-center gap-4 text-sm text-muted-foreground hover:text-foreground transition-colors group">
+                <a href="mailto:info@upgradefinancialgroup.com" className="flex items-center gap-4 text-sm text-muted-foreground hover:text-foreground transition-colors group">
                   <div className="w-10 h-10 shrink-0 rounded-full bg-accent/30 border border-border/50 flex items-center justify-center group-hover:border-primary/50 group-hover:bg-primary/10 transition-all duration-300">
                     <Mail className="h-4 w-4 text-primary" />
                   </div>
-                  <span className="break-all group-hover:translate-x-1 transition-transform duration-300">founder@upgrade<br />financialgroup.com</span>
+                  <span className="break-all group-hover:translate-x-1 transition-transform duration-300">info@upgradefinancialgroup.com</span>
                 </a>
               </li>
               <li className="flex items-center gap-4 text-sm text-muted-foreground">

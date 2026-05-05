@@ -20,11 +20,14 @@ export function ProblemSolution() {
           {/* THE PROBLEM CARD */}
           <div className="flex flex-col space-y-6 p-8 md:p-10 rounded-3xl border border-border bg-accent/20 relative overflow-hidden">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--color-primary)_1px,_transparent_1px)] bg-[size:24px_24px] opacity-15 pointer-events-none" />
-            <div className="w-14 h-14 rounded-2xl bg-muted flex items-center justify-center mb-2 border border-border">
-              <ShieldAlert className="w-7 h-7 text-foreground" />
+            
+            {/* Tinted the shield box red to match */}
+            <div className="w-14 h-14 rounded-2xl bg-red-500/10 flex items-center justify-center mb-2 border border-red-500/20">
+              <ShieldAlert className="w-7 h-7 text-red-500" />
             </div>
 
-            <h3 className="text-3xl font-bold text-foreground">The Problem</h3>
+            {/* CHANGED: Header is now red */}
+            <h3 className="text-3xl font-bold text-red-500">The Problem</h3>
 
             <p className="text-xl text-foreground font-medium leading-relaxed">
               Most people don't realize their life insurance only pays out after they die.
@@ -37,16 +40,29 @@ export function ProblemSolution() {
             <div className="pt-4 space-y-4 flex-grow">
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                  <XCircle className="w-6 h-6 text-foreground/60 shrink-0 mt-0.5" />
+                  {/* CHANGED: XCircle is now red */}
+                  <XCircle className="w-6 h-6 text-red-500 shrink-0 mt-0.5" />
                   <span className="text-foreground/80">The medical bills pile up.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <XCircle className="w-6 h-6 text-foreground/60 shrink-0 mt-0.5" />
+                  {/* CHANGED: XCircle is now red */}
+                  <XCircle className="w-6 h-6 text-red-500 shrink-0 mt-0.5" />
                   <span className="text-foreground/80">The paychecks stop coming in.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <XCircle className="w-6 h-6 text-foreground/60 shrink-0 mt-0.5" />
+                  {/* CHANGED: XCircle is now red */}
+                  <XCircle className="w-6 h-6 text-red-500 shrink-0 mt-0.5" />
                   <span className="text-foreground/80">Your life savings disappear.</span>
+                </li>
+                              <li className="flex items-start gap-3">
+                  {/* CHANGED: XCircle is now red */}
+                  <XCircle className="w-6 h-6 text-red-500 shrink-0 mt-0.5" />
+                  <span className="text-foreground/80">Investment Loss.</span>
+                </li>
+                              <li className="flex items-start gap-3">
+                  {/* CHANGED: XCircle is now red */}
+                  <XCircle className="w-6 h-6 text-red-500 shrink-0 mt-0.5" />
+                  <span className="text-foreground/80">Ending Your marriage.</span>
                 </li>
               </ul>
             </div>

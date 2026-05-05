@@ -16,7 +16,7 @@ export default function WholeLifePage() {
       color: "text-emerald-400",
       bg: "bg-emerald-500/10",
       border: "border-emerald-500/20",
-      image: "https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?w=1600&q=80",
+      video: "/videos/whole-life-1.mp4",
       stat: "Lifetime", statLabel: "Coverage Guaranteed",
     },
     {
@@ -26,7 +26,7 @@ export default function WholeLifePage() {
       color: "text-muted-foreground",
       bg: "bg-accent/30",
       border: "border-border",
-      image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1600&q=80",
+      video: "/videos/whole-life-2.mp4",
       stat: "Locked In", statLabel: "Premium Forever",
     },
     {
@@ -36,7 +36,7 @@ export default function WholeLifePage() {
       color: "text-teal-400",
       bg: "bg-teal-500/10",
       border: "border-teal-500/20",
-      image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1600&q=80",
+      video: "/videos/whole-life-3.mp4",
       stat: "Tax-Deferred", statLabel: "Cash Growth",
     },
     {
@@ -46,7 +46,7 @@ export default function WholeLifePage() {
       color: "text-primary",
       bg: "bg-primary/10",
       border: "border-primary/20",
-      image: "https://images.unsplash.com/photo-1579226905180-636b76d96082?w=1600&q=80",
+      video: "/videos/whole-life-4.mp4",
       stat: "Compounding", statLabel: "Dividend Growth",
     },
     {
@@ -56,7 +56,7 @@ export default function WholeLifePage() {
       color: "text-rose-400",
       bg: "bg-rose-500/10",
       border: "border-rose-500/20",
-      image: "https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=1600&q=80",
+      video: "/videos/whole-life-5.mp4",
       stat: "Early", statLabel: "Benefit Access",
     },
   ];
@@ -64,13 +64,40 @@ export default function WholeLifePage() {
   if (!isMounted) return null;
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-hidden">
+    <>
+      <style>{`
+        @keyframes animatedGradient {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        .bg-animated-gradient {
+          background-size: 200% 200%;
+          background-image: linear-gradient(90deg, hsl(var(--background)) 0%, hsl(var(--accent) / 0.15) 50%, hsl(var(--background)) 100%);
+          animation: animatedGradient 18s ease infinite;
+        }
+      `}</style>
+      <div className="min-h-screen bg-background text-foreground overflow-hidden">
 
       {/* Global dot pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--color-primary)_1.5px,_transparent_1.5px)] bg-[size:24px_24px] opacity-[0.07] pointer-events-none [filter:blur(0.5px)]" />
 
       {/* ── HERO ── */}
       <section className="relative pt-36 md:pt-48 pb-24 px-6 text-center overflow-hidden">
+        {/* Background video */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+        >
+          <source src="/videos/hero-bg.mp4" type="video/mp4" />
+        </video>
+
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-background/85 pointer-events-none" />
+
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="relative z-10 max-w-4xl mx-auto space-y-6">
@@ -120,11 +147,15 @@ export default function WholeLifePage() {
             >
               {/* Image side */}
               <div className={`relative overflow-hidden min-h-[300px] lg:min-h-full ${isEven ? "lg:order-2" : "lg:order-1"}`}>
-                <img
-                  src={step.image}
-                  alt={step.title}
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
                   className="absolute inset-0 w-full h-full object-cover object-center"
-                />
+                >
+                  <source src={step.video} type="video/mp4" />
+                </video>
                 <div className={`absolute inset-0 ${isEven
                   ? "bg-gradient-to-l from-transparent to-background/60"
                   : "bg-gradient-to-r from-transparent to-background/60"}`}
@@ -137,7 +168,7 @@ export default function WholeLifePage() {
               </div>
 
               {/* Content side */}
-              <div className={`flex flex-col justify-center p-10 md:p-16 lg:p-20 bg-background ${isEven ? "lg:order-1" : "lg:order-2"}`}>
+              <div className={`flex flex-col justify-center p-10 md:p-16 lg:p-20 bg-animated-gradient ${isEven ? "lg:order-1" : "lg:order-2"}`}>
                 <div className={`w-14 h-14 rounded-2xl ${step.bg} ${step.border} border flex items-center justify-center mb-6`}>
                   <step.icon className={`w-7 h-7 ${step.color}`} />
                 </div>
@@ -244,5 +275,6 @@ export default function WholeLifePage() {
       </section>
 
     </div>
+    </>
   );
 }

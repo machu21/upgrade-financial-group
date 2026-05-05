@@ -69,10 +69,10 @@ export function ServiceHero() {
             {/* ── CALL TO ACTION BUTTON ── */}
             <div className="mb-12">
               <Link
-                href="https://docs.google.com/forms/d/1FmI-dOFrM8LJMSAwMmo4bCN_C3LeVDEWqMhekmNIIbU/viewform?edit_requested=true" target="_blank" rel="noopener noreferrer"
+                href="#"
                 className="inline-flex items-center justify-center gap-2 text-base md:text-lg px-8 py-4 rounded-xl bg-slate-900 text-white font-bold hover:bg-black hover:-translate-y-0.5 transition-all shadow-xl shadow-slate-900/20 w-full sm:w-auto group"
               >
-                Find Out If You Qualify
+                Gift Card – Coming Soon
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               

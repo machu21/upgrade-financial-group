@@ -53,7 +53,7 @@ export function Navbar() {
         {/* Desktop CTA Button */}
         <div className="hidden md:block absolute right-6 top-1/2 -translate-y-1/2">
           <Button asChild className="shadow-lg shadow-primary/20 rounded-xl font-bold bg-primary text-primary-foreground hover:brightness-110">
-            <Link href="/contact">How to be an agent</Link>
+            <Link href="/contact">UFG Partners</Link>
           </Button>
         </div>
 
@@ -132,7 +132,7 @@ export function Navbar() {
           <Link href="/partners" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
             Be Part of the Team
           </Link>
-          <Link href="/services" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors italic">
+          <Link href="/contact" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors italic">
             and more
           </Link>
         </div>
@@ -195,7 +195,7 @@ export function Navbar() {
           <Link href="/partners" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground hover:text-primary transition-colors">
             Be Part of the Team
           </Link>
-          <Link href="/services" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground hover:text-primary transition-colors italic">
+          <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground hover:text-primary transition-colors italic">
             and more
           </Link>
 
