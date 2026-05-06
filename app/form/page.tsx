@@ -50,41 +50,41 @@ export default function QualificationQuiz() {
   };
 
   return (
-    <div className="min-h-screen pt-32 pb-24 relative overflow-hidden bg-animated-gradient flex items-center justify-center">
+    <div className="min-h-screen pt-40 pb-24 relative overflow-hidden flex items-center justify-center">
       
-      <style>{`
-        @keyframes animatedGradient {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-        .bg-animated-gradient {
-          background-size: 200% 200%;
-          background-image: linear-gradient(90deg, hsl(var(--background)) 0%, hsl(var(--primary) / 0.05) 50%, hsl(var(--background)) 100%);
-          animation: animatedGradient 15s ease infinite;
-        }
-      `}</style>
-
-      {/* Ambient Background Glows */}
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/10 rounded-full blur-[100px] pointer-events-none -z-10" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[100px] pointer-events-none -z-10" />
+      {/* 1. BACKGROUND VIDEO */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover -z-20"
+      >
+        <source src="/videos/hero-bg.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      
+      {/* 2. DARK OPACITY OVERLAY (Makes the text and white card pop) */}
+      <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm -z-10" />
 
       <div className="max-w-2xl w-full mx-auto px-6 relative z-10">
         
         {/* Header */}
         {!isSuccess && (
           <div className="text-center mb-10">
-            <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-foreground mb-4">
+            {/* CHANGED: Text to white so it contrasts with the dark video overlay */}
+            <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white mb-4">
               See If You <span className="text-primary">Qualify</span>
             </h1>
-            <p className="text-muted-foreground font-medium">
+            <p className="text-white/80 font-medium">
               Answer a few quick questions to find your personalized coverage options.
             </p>
           </div>
         )}
 
         {/* Main Quiz Card */}
-        <div className="bg-white border border-slate-200 rounded-[2rem] shadow-2xl shadow-black/10 overflow-hidden flex flex-col min-h-[500px]">
+        {/* CHANGED: Shadow opacity increased (shadow-black/40) for better contrast against video */}
+        <div className="bg-white border border-slate-200 rounded-[2rem] shadow-2xl shadow-black/40 overflow-hidden flex flex-col min-h-[500px]">
           
           {/* Top Loading Bar Decor */}
           <div className="w-full h-1.5 bg-slate-100">

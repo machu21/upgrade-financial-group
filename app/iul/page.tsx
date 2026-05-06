@@ -35,7 +35,7 @@ export default function IULPage() {
               </p>
               <div className="pt-2">
                 <Link
-                  href="https://docs.google.com/forms/u/0/d/1FmI-dOFrM8LJMSAwMmo4bCN_C3LeVDEWqMhekmNIIbU/viewform?edit_requested=true" target="_blank" rel="noopener noreferrer"
+                  href="/iul/form"
                   className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-bold hover:brightness-110 hover:scale-105 transition-all shadow-lg shadow-primary/25 text-sm"
                 >
                   Get Your Custom IUL Quote <ArrowRight className="w-4 h-4" />

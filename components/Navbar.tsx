@@ -53,7 +53,7 @@ export function Navbar() {
         {/* Desktop CTA Button */}
         <div className="hidden md:block absolute right-6 top-1/2 -translate-y-1/2">
           <Button asChild className="shadow-lg shadow-primary/20 rounded-xl font-bold bg-primary text-primary-foreground hover:brightness-110">
-            <Link href="/contact">UFG Partners</Link>
+            <Link href="/contact">Join Us</Link>
           </Button>
         </div>
 
