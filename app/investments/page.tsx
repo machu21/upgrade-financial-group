@@ -1,72 +1,16 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import {
-  ArrowRight, TrendingUp, ShieldCheck, PiggyBank, BarChart3,
-  Landmark, RefreshCw, Lock, Globe, ChevronRight, X, CheckCircle2
+  ArrowRight, ShieldCheck, PiggyBank,
+  Landmark, RefreshCw, Globe, CheckCircle2
 } from "lucide-react";
 import Link from "next/link";
 
-const CONSULTATION_LINK = "https://docs.google.com/forms/u/0/d/1FmI-dOFrM8LJMSAwMmo4bCN_C3LeVDEWqMhekmNIIbU/viewform?edit_requested=true";
 
 const strategies = [
   {
-    icon: TrendingUp,
-    title: "Fixed Annuity",
-    category: "Guaranteed Growth",
-    desc: "A straightforward, low-risk contract that pays a guaranteed interest rate on your premium for a set period — no market exposure, no surprises.",
-    color: "text-primary",
-    bg: "bg-primary/10",
-    border: "border-primary/20",
-    stat: "Guaranteed", statLabel: "Interest Rate",
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1000&q=80",
-    details: [
-      "GUARANTEED RATE OF RETURN — Your money earns a fixed, declared interest rate regardless of what the market does. No guessing, no volatility — just predictable, steady growth you can plan around.",
-      "PRINCIPAL PROTECTION — Your initial premium is fully protected. Fixed annuities are one of the safest ways to grow your savings while keeping every dollar of your principal intact.",
-      "TAX-DEFERRED GROWTH — Your interest compounds on a tax-deferred basis, meaning you don't pay taxes on the growth until you start taking withdrawals — letting your money grow faster.",
-      "GUARANTEED INCOME OPTIONS — At the end of your contract term, you can convert your annuity into a guaranteed income stream for life or a set period — giving you a reliable paycheck in retirement.",
-      "NO MARKET RISK — Unlike variable products, a fixed annuity has zero exposure to stock market swings. It's designed for savers who want certainty above all else.",
-    ],
-  },
-  {
-    icon: Lock,
-    title: "Variable Annuity",
-    category: "Market-Linked Growth",
-    desc: "Invest in sub-accounts tied to the market for higher growth potential. Ideal for long-term investors who can tolerate some risk in exchange for greater upside.",
-    color: "text-blue-400",
-    bg: "bg-blue-500/10",
-    border: "border-blue-500/20",
-    stat: "Higher", statLabel: "Growth Potential",
-    image: "https://images.unsplash.com/photo-1518458028785-8fbcd101ebb9?w=1000&q=80",
-    details: [
-      "MARKET-LINKED SUB-ACCOUNTS — Your premium is allocated across investment sub-accounts similar to mutual funds, giving you direct participation in market gains across stocks, bonds, and more.",
-      "DEATH BENEFIT GUARANTEE — Most variable annuities include a guaranteed death benefit, ensuring your beneficiaries receive at least your original premium — even if the market declined.",
-      "OPTIONAL INCOME RIDERS — Add a Guaranteed Minimum Income Benefit (GMIB) or similar rider to lock in a minimum income stream regardless of how your sub-accounts perform.",
-      "TAX-DEFERRED GROWTH — Like all annuities, your gains are not taxed until withdrawn. This gives your investments more compounding power compared to a standard taxable brokerage account.",
-      "FLEXIBLE PAYOUT OPTIONS — Choose from a lump sum, period-certain payments, or lifetime income when you're ready to access your money — tailored to your retirement needs.",
-    ],
-  },
-  {
-    icon: BarChart3,
-    title: "Indexed Annuity",
-    category: "Growth + Protection",
-    desc: "Capture a portion of market index gains — like the S&P 500 — while a 0% floor guarantees you never lose money when markets fall.",
-    color: "text-violet-400",
-    bg: "bg-violet-500/10",
-    border: "border-violet-500/20",
-    stat: "0%", statLabel: "Loss Floor",
-    image: "https://pronovapartners.com/wp-content/uploads/2019/02/800-Fixed-Indexed-Annuity-Book-of-Clients.jpg",
-    details: [
-      "INDEX-LINKED INTEREST CREDITS — Your annuity earns interest based on the performance of a market index (e.g., S&P 500) up to a cap or participation rate — giving you real upside without direct market investment.",
-      "ZERO PERCENT FLOOR — When the index drops, you earn nothing — but you lose nothing. Your principal is fully protected from negative market returns, making this a powerful middle ground between fixed and variable.",
-      "PARTICIPATION RATES & CAPS — Your contract defines how much of the index gain you receive. For example, a 80% participation rate on a 10% index gain = 8% credit to your account.",
-      "GUARANTEED LIFETIME INCOME RIDER — Add an optional income rider to convert your annuity into a guaranteed paycheck for life — without annuitizing and giving up control of your account value.",
-      "TAX-DEFERRED ACCUMULATION — All credited interest grows tax-deferred. Combined with the downside protection, this makes indexed annuities one of the most efficient retirement savings tools available.",
-    ],
-  },
-  {
     icon: PiggyBank,
-    title: "Fixed Indexed Annuity (FIA)",
+    title: "Annuity",
     category: "Best of Both Worlds",
     desc: "The most popular annuity for retirement savers — combines the safety of a fixed annuity with the growth potential of an indexed product. Zero risk, real upside.",
     color: "text-emerald-400",
@@ -127,17 +71,6 @@ const steps = [
 ];
 
 export default function InvestmentsPage() {
-   const [selectedStrategy, setSelectedStrategy] = useState<(typeof strategies)[0] | null>(null);
-
-  useEffect(() => {
-    if (selectedStrategy) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-    return () => { document.body.style.overflow = "unset"; };
-  }, [selectedStrategy]);
-
   return (
     <div className="min-h-screen bg-background text-foreground overflow-hidden">
 
@@ -207,30 +140,52 @@ export default function InvestmentsPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="max-w-4xl mx-auto">
             {strategies.map((s, i) => (
               <div
                 key={i}
-                className="group bg-accent/10 border border-border rounded-3xl p-8 hover:border-primary/40 hover:bg-accent/20 transition-all duration-300 flex flex-col cursor-pointer"
-                onClick={() => setSelectedStrategy(s)}
+                className="group bg-accent/10 border border-border rounded-3xl p-8 md:p-12 hover:border-primary/40 hover:bg-accent/20 transition-all duration-300 flex flex-col"
               >
-                <div className="flex items-start justify-between mb-6">
-                  <div className={`w-14 h-14 rounded-2xl ${s.bg} border ${s.border} flex items-center justify-center`}>
-                    <s.icon className={`w-7 h-7 ${s.color}`} />
+                <div className="flex flex-col sm:flex-row sm:items-start justify-between mb-8 gap-6">
+                  <div className="flex items-center gap-6">
+                    <div className={`w-16 h-16 rounded-2xl ${s.bg} border ${s.border} flex items-center justify-center shrink-0`}>
+                      <s.icon className={`w-8 h-8 ${s.color}`} />
+                    </div>
+                    <div>
+                      <p className={`text-xs font-bold uppercase tracking-widest ${s.color} mb-1`}>{s.category}</p>
+                      <h3 className="text-2xl md:text-3xl font-bold text-foreground transition-colors">{s.title}</h3>
+                    </div>
                   </div>
                   {/* Stat */}
-                  <div className="text-right">
-                    <p className={`text-2xl font-extrabold ${s.color} leading-none`}>{s.stat}</p>
-                    <p className="text-[10px] text-muted-foreground font-semibold uppercase tracking-wider mt-0.5">{s.statLabel}</p>
+                  <div className="sm:text-right bg-background/50 p-4 rounded-2xl border border-border">
+                    <p className={`text-2xl font-extrabold ${s.color} leading-none mb-1`}>{s.stat}</p>
+                    <p className="text-[10px] text-muted-foreground font-semibold uppercase tracking-wider">{s.statLabel}</p>
                   </div>
                 </div>
 
-                <p className={`text-xs font-bold uppercase tracking-widest ${s.color} mb-2`}>{s.category}</p>
-                <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">{s.title}</h3>
-                <p className="text-muted-foreground leading-relaxed text-sm flex-grow">{s.desc}</p>
+                <p className="text-muted-foreground leading-relaxed text-base md:text-lg mb-8">{s.desc}</p>
+                
+                <div className="space-y-4 mb-10">
+                  {s.details.map((detail, idx) => (
+                    <div key={idx} className="flex items-start gap-4">
+                      <CheckCircle2 className={`w-6 h-6 ${s.color} shrink-0 mt-0.5`} />
+                      <span className="text-foreground/80 leading-relaxed font-medium text-sm md:text-base">{detail}</span>
+                    </div>
+                  ))}
+                </div>
 
-                <div className={`mt-6 pt-4 border-t border-border flex items-center text-sm font-bold ${s.color} gap-1`}>
-                  Learn More <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <div className="pt-8 border-t border-border flex flex-col items-center gap-4">
+                  <Link
+                    href="/investments/form/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex w-full sm:w-auto items-center justify-center gap-2 text-base px-10 py-5 rounded-2xl bg-primary text-primary-foreground font-bold hover:scale-105 hover:shadow-xl hover:shadow-primary/20 transition-all active:scale-95"
+                  >
+                    Get Quote <ArrowRight className="w-5 h-5" />
+                  </Link>
+                  <p className="text-sm text-muted-foreground text-center">
+                    Get a personalized projection tailored to your retirement goals — 100% free.
+                  </p>
                 </div>
               </div>
             ))}
@@ -333,60 +288,6 @@ export default function InvestmentsPage() {
         </div>
       </section>
 
-      {/* Modal */}
-      {selectedStrategy && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 md:p-12">
-          <div
-            className="absolute inset-0 bg-black/70 backdrop-blur-sm animate-in fade-in duration-300"
-            onClick={() => setSelectedStrategy(null)}
-          />
-          <div className="relative bg-white rounded-[2rem] overflow-hidden w-full max-w-5xl max-h-[90vh] flex flex-col md:flex-row shadow-2xl animate-in fade-in zoom-in-95 duration-300">
-            <button
-              onClick={() => setSelectedStrategy(null)}
-              className="absolute top-4 right-4 z-20 p-2 bg-black/10 hover:bg-black/20 text-slate-900 rounded-full transition-colors"
-            >
-              <X className="w-6 h-6" />
-            </button>
-
-            <div className="w-full md:w-2/5 h-48 md:h-auto relative shrink-0">
-              <img src={selectedStrategy.image} alt={selectedStrategy.title} className="absolute inset-0 w-full h-full object-cover" />
-            </div>
-
-            <div className="w-full md:w-3/5 p-8 md:p-12 overflow-y-auto flex flex-col bg-white">
-              <p className="text-sm font-bold uppercase tracking-widest text-amber-600 mb-2">Annuity Details</p>
-              <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">{selectedStrategy.title}</h3>
-              <p className="text-lg text-slate-600 mb-8 leading-relaxed">{selectedStrategy.desc}</p>
-
-              <div className="mb-10 flex-grow">
-                <h4 className="text-lg font-bold text-slate-900 mb-4">What this includes:</h4>
-                <ul className="space-y-4">
-                  {selectedStrategy.details.map((detail, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-6 h-6 text-amber-600 shrink-0 mt-0.5" />
-                      <span className="text-slate-700 leading-relaxed font-medium">{detail}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="pt-6 border-t border-slate-100">
-                <p className="text-sm text-slate-500 mb-4">
-                  Not sure which annuity is right for you? Our licensed agents will walk you through your options at no cost — no pressure, no obligation.
-                </p>
-                <Link
-                  href={CONSULTATION_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 text-base px-8 py-4 rounded-xl bg-slate-900 text-white font-bold hover:bg-slate-800 transition-all shadow-lg"
-                  onClick={() => setSelectedStrategy(null)}
-                >
-                  Schedule Consultation <ArrowRight className="w-5 h-5" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

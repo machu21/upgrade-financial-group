@@ -104,20 +104,6 @@ const services = [
       "Beneficiary designation reviews and updates to ensure your accounts and policies align with your current wishes.",
     ],
   },
-  {
-    id: "credit",
-    title: "Credit Repair",
-    description:
-      "Your credit score affects everything — your ability to buy a home, qualify for better rates, and secure your financial future. At Upgrade Financial Group, we connect you with trusted credit restoration specialists who take a hands-on approach to cleaning up your credit and rebuilding your financial standing.",
-    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1000&q=80",
-    details: [
-      "CREDIT ANALYSIS & DISPUTE SERVICES — Our partners conduct a thorough review of your credit reports across all three major bureaus. Inaccurate, outdated, or unverifiable negative items are identified and formally disputed on your behalf — a process that can lead to significant score improvements over time.",
-      "PERSONALIZED RESTORATION PLAN — No two credit situations are the same. You'll receive a customized action plan based on your specific credit profile — including guidance on paying down balances, managing credit utilization, and establishing positive credit history that lenders actually want to see.",
-      "ONGOING MONITORING & SUPPORT — Credit repair isn't a one-time event. Our partners provide continuous monitoring and dedicated support so you always know where your score stands, what's changing, and what steps to take next to keep building momentum.",
-      "BETTER CREDIT = BETTER FINANCIAL OPTIONS — Improving your credit score directly impacts the rates you qualify for on mortgages, auto loans, and even life insurance premiums. Clients who work on their credit alongside their financial plan consistently access better products and save significantly more over time.",
-      "A TRUSTED REFERRAL — NOT A SIDE SERVICE — Upgrade Financial Group partners with vetted credit restoration professionals to make sure our clients have access to every tool they need for total financial wellness. From protection and wealth building to credit health — we're committed to your complete financial picture.",
-    ],
-  },
 ];
 
 export function ComprehensiveServices() {

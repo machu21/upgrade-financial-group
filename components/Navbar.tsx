@@ -98,7 +98,6 @@ export function Navbar() {
                 <Link href="/services#college" className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">College Funding</Link>
                 <Link href="/services#child" className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Child Protection</Link>
                 <Link href="/services#estate" className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Estate Planning</Link>
-                <Link href="/services#credit" className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Credit Repair</Link>
               </div>
             </div>
           </div>
@@ -117,10 +116,11 @@ export function Navbar() {
             <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
               <div className="bg-black/90 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl p-2 w-64 flex flex-col">
                 <Link href="/iul" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Indexed Universal Life</Link>
-                <Link href="/ful" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Fixed Universal Life</Link>
                 <Link href="/whole-life" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Whole Life</Link>
+                <Link href="/credit-repair" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Credit Repair</Link>
                 <Link href="/term-life" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Term Life</Link>
                 <Link href="/term-life-with-living-benefits" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Term Life With Living Benefits</Link>
+                <Link href="/final-expense" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Final Expense</Link>
                 <Link href="/investments" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Investments</Link>
               </div>
             </div>
@@ -163,7 +163,6 @@ export function Navbar() {
                 <Link href="/services#college" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">College Funding</Link>
                 <Link href="/services#child" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">Child Protection</Link>
                 <Link href="/services#estate" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">Estate Planning</Link>
-                <Link href="/services#credit" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">Credit Repair</Link>
               </div>
             )}
           </div>
@@ -182,9 +181,11 @@ export function Navbar() {
             {isProductsOpen && (
               <div className="flex flex-col items-center gap-4 mt-4 bg-white/5 w-full py-4 rounded-2xl animate-in fade-in slide-in-from-top-2">
                 <Link href="/iul" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">Indexed Universal Life</Link>
-                <Link href="/ful" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">Fixed Universal Life</Link>
                 <Link href="/whole-life" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">Whole Life</Link>
                 <Link href="/term-life" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">Term Life</Link>
+                <Link href="/term-life-with-living-benefits" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">Term Life With Living Benefits</Link>
+                <Link href="/final-expense" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">Final Expense</Link>
+                <Link href="/investments" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">Investments</Link>
               </div>
             )}
           </div>
