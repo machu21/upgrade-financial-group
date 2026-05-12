@@ -66,7 +66,7 @@ export function HowItWorks() {
         {/* Action-Oriented CTA Button */}
         <div className="flex justify-center mt-12">
           <Link 
-            href="https://docs.google.com/forms/d/1FmI-dOFrM8LJMSAwMmo4bCN_C3LeVDEWqMhekmNIIbU/edit" rel="noopener noreferrer" target="_blank"
+            href="/form"
             className="group flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-bold rounded-full shadow-lg shadow-primary/20 hover:scale-105 hover:shadow-primary/30 transition-all active:scale-95 text-lg"
           >
             Start Step 1 Today

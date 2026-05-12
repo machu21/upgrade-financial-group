@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { ArrowRight, X, CheckCircle2, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
-const CONSULTATION_LINK = "https://docs.google.com/forms/u/0/d/1FmI-dOFrM8LJMSAwMmo4bCN_C3LeVDEWqMhekmNIIbU/viewform?edit_requested=true";
+const CONSULTATION_LINK = "/form";
 
 const services = [
   {

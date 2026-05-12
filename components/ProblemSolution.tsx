@@ -120,9 +120,7 @@ export function ProblemSolution() {
 
             <div className="pt-6 mt-auto relative z-10">
               <Link
-                href="https://docs.google.com/forms/d/1FmI-dOFrM8LJMSAwMmo4bCN_C3LeVDEWqMhekmNIIbU/edit"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/form"
                 className="group flex items-center justify-center gap-2 w-full py-4 px-6 bg-primary text-primary-foreground font-bold rounded-xl shadow-lg shadow-primary/20 hover:scale-[1.02] hover:shadow-primary/30 transition-all active:scale-95"
               >
                 Get Protected Today

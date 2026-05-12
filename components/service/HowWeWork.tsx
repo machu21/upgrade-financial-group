@@ -90,7 +90,7 @@ export function HowWeWork() {
             </p>
             <div className="pt-4">
               <Link 
-                href="https://docs.google.com/forms/u/0/d/1FmI-dOFrM8LJMSAwMmo4bCN_C3LeVDEWqMhekmNIIbU/viewform?edit_requested=true" target="_blank" rel="noopener noreferrer"
+                href="/form"
                 className="group inline-flex items-center justify-center gap-2 text-lg px-8 py-4 rounded-xl bg-background text-foreground font-bold hover:scale-105 transition-all shadow-xl"
               >
                 Get Your Free Consultation
