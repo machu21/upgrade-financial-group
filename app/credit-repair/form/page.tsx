@@ -11,13 +11,16 @@ import {
   User,
   Phone,
   Star,
+  AlertCircle
 } from "lucide-react";
+import { supabase } from "@/lib/supabase"; // Make sure this path matches your project setup
 
 export default function CreditRepairQuiz() {
   const router = useRouter();
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const [formData, setFormData] = useState({
     fixedCredit: false,
@@ -52,15 +55,42 @@ export default function CreditRepairQuiz() {
   };
 
   const handleNext = () => setStep((prev) => prev + 1);
-  const handleBack = () => setStep((prev) => prev - 1);
+  const handleBack = () => {
+    setErrorMessage(""); // Clear any errors when navigating back
+    setStep((prev) => prev - 1);
+  };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
+    setErrorMessage(""); // Clear previous errors
+    
+    try {
+      const { error } = await supabase
+        .from('credit_repair_requests')
+        .insert([
+          {
+            fixed_credit: formData.fixedCredit,
+            first_name: formData.firstName,
+            last_name: formData.lastName,
+            email: formData.email,
+            birthdate: formData.birthdate,
+            gender: formData.gender,
+            smoker: formData.smoker,
+            has_insurance: formData.hasInsurance,
+            consent: formData.consent
+          }
+        ]);
+
+      if (error) throw error;
+      
       setIsSuccess(true);
-    }, 1500);
+    } catch (error: any) {
+      console.error('Error submitting form:', error.message);
+      setErrorMessage("Something went wrong. Please try again or contact us directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -109,6 +139,14 @@ export default function CreditRepairQuiz() {
           <div className="p-8 md:p-12 flex flex-col flex-grow relative">
             {!isSuccess ? (
               <>
+                {/* Error Display */}
+                {errorMessage && step === 2 && (
+                  <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-center gap-3 text-red-700 animate-in fade-in">
+                    <AlertCircle className="w-5 h-5 shrink-0" />
+                    <p className="text-sm font-medium">{errorMessage}</p>
+                  </div>
+                )}
+
                 {/* ── STEP 1: Fix My Credit ── */}
                 {step === 1 && (
                   <div className="animate-in fade-in slide-in-from-right-4 duration-500 flex flex-col h-full">

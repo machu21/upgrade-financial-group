@@ -10,13 +10,16 @@ import {
   CalendarDays, 
   Activity, 
   FileText,
-  Loader2
+  Loader2,
+  AlertCircle
 } from "lucide-react";
+import { supabase } from "@/lib/supabase"; // Adjust based on your setup
 
 export default function QualificationQuiz() {
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -36,17 +39,41 @@ export default function QualificationQuiz() {
   const isStep4Valid = formData.consent;
 
   const handleNext = () => setStep((prev) => prev + 1);
-  const handleBack = () => setStep((prev) => prev - 1);
+  const handleBack = () => {
+    setErrorMessage(""); // Clear errors when going back
+    setStep((prev) => prev - 1);
+  };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrorMessage("");
     
-    // Simulate API submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const { error } = await supabase
+        .from('qualifications')
+        .insert([
+          {
+            first_name: formData.firstName,
+            last_name: formData.lastName,
+            email: formData.email,
+            birthday: formData.birthday,
+            gender: formData.gender,
+            has_insurance: formData.hasInsurance,
+            smoker: formData.smoker,
+            consent: formData.consent
+          }
+        ]);
+
+      if (error) throw error;
+
       setIsSuccess(true);
-    }, 1500);
+    } catch (error: any) {
+      console.error('Error submitting quiz:', error.message);
+      setErrorMessage("Something went wrong. Please try again or contact us directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -98,6 +125,14 @@ export default function QualificationQuiz() {
             
             {!isSuccess ? (
               <>
+                {/* Error Display inside the content area for Step 5 */}
+                {errorMessage && step === 5 && (
+                  <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-center gap-3 text-red-700 animate-in fade-in">
+                    <AlertCircle className="w-5 h-5 shrink-0" />
+                    <p className="text-sm font-medium">{errorMessage}</p>
+                  </div>
+                )}
+
                 {/* STEP 1: Basic Info */}
                 {step === 1 && (
                   <div className="animate-in fade-in slide-in-from-right-4 duration-500 flex flex-col h-full">

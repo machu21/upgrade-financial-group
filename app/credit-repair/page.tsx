@@ -112,7 +112,7 @@ export default function CreditRepairPage() {
               </p>
               <div className="pt-2 flex flex-col sm:flex-row justify-center gap-4">
                 <Link
-                  href="https://docs.google.com/forms/u/0/d/1FmI-dOFrM8LJMSAwMmo4bCN_C3LeVDEWqMhekmNIIbU/viewform?edit_requested=true" target="_blank" rel="noopener noreferrer"
+                  href="/credit-repair/form"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-bold rounded-full hover:scale-105 transition-all shadow-lg shadow-primary/20"
                 >
                   Schedule Consultation <ArrowRight className="w-5 h-5" />

@@ -134,7 +134,7 @@ export default function IULPage() {
                 </p>
               </div>
               <Link
-                href="https://docs.google.com/forms/d/1FmI-dOFrM8LJMSAwMmo4bCN_C3LeVDEWqMhekmNIIbU/viewform?edit_requested=true" target="_blank" rel="noopener noreferrer"
+                href="/iul/form"
                 className="mt-8 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white text-primary font-bold text-sm hover:brightness-95 hover:scale-105 transition-all shadow-lg"
               >
                 Start Now <ArrowRight className="w-4 h-4" />
@@ -281,7 +281,7 @@ export default function IULPage() {
               An IUL isn't one-size-fits-all — it's built around your goals. It's best for those maxing out their 401(k)s, seeking tax-free retirement strategies, or wanting lifelong protection with serious cash accumulation. Speak with one of our licensed agents to see exactly how a policy can be designed for your situation.
             </p>
             <Link
-              href="https://docs.google.com/forms/u/0/d/1FmI-dOFrM8LJMSAwMmo4bCN_C3LeVDEWqMhekmNIIbU/viewform?edit_requested=true" target="_blank" rel="noopener noreferrer"
+              href="/iul/form"
               className="inline-flex items-center justify-center gap-2 text-lg px-8 py-4 rounded-xl bg-foreground text-background font-bold hover:opacity-90 transition-all"
             >
               Talk to an Expert <ArrowRight className="w-5 h-5" />

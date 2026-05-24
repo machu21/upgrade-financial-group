@@ -264,7 +264,7 @@ export default function WholeLifePage() {
                 Find out if a Whole Life policy is the right fit for your family and financial legacy. Our experts will design a custom illustration for you, completely free.
               </p>
               <Link
-                href="https://docs.google.com/forms/u/0/d/1FmI-dOFrM8LJMSAwMmo4bCN_C3LeVDEWqMhekmNIIbU/viewform?edit_requested=true" target="_blank" rel="noopener noreferrer"
+                href="/whole-life/form"
                 className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-primary text-primary-foreground font-bold text-lg hover:brightness-110 hover:scale-105 hover:shadow-xl hover:shadow-primary/20 transition-all active:scale-95"
               >
                 Get Your Free Whole Life Quote <ArrowRight className="w-5 h-5" />

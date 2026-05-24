@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, MapPin, Phone, ShieldCheck, ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
+import { Mail, MapPin, Phone, ShieldCheck, ArrowRight, CheckCircle2, Loader2, AlertCircle } from "lucide-react";
+import { supabase } from "@/lib/supabase"; // Adjust this import path based on your folder structure
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -12,17 +13,35 @@ export default function ContactPage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrorMessage(""); // Clear any previous errors
     
-    // Simulate network request/API call
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const { error } = await supabase
+        .from('contacts')
+        .insert([
+          { 
+            name: formData.name, 
+            email: formData.email, 
+            phone: formData.phone, 
+            message: formData.message 
+          }
+        ]);
+
+      if (error) throw error;
+
       setIsSubmitted(true);
       setFormData({ name: "", email: "", phone: "", message: "" }); // Reset form
-    }, 1500);
+    } catch (error: any) {
+      console.error('Error submitting form:', error.message);
+      setErrorMessage("Something went wrong. Please try again or contact us directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -120,7 +139,6 @@ export default function ContactPage() {
 
           {/* Right Column: Contact Form */}
           <div className="lg:col-span-7 h-full w-full">
-            {/* CHANGED: bg-white instead of bg-background, added slate borders for crispness */}
             <div className="w-full h-auto min-h-[600px] bg-white border border-slate-200 rounded-3xl shadow-2xl shadow-black/20 overflow-hidden relative group flex flex-col">
               
               {/* Subtle top loading bar effect */}
@@ -128,9 +146,16 @@ export default function ContactPage() {
 
               {!isSubmitted ? (
                 <form onSubmit={handleSubmit} className="p-8 md:p-12 flex flex-col flex-grow animate-in fade-in duration-500">
-                  {/* CHANGED: Forced text to slate-900 so it's always dark on the white background */}
                   <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">Send us a message</h3>
                   
+                  {/* Error Message Display */}
+                  {errorMessage && (
+                    <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-center gap-3 text-red-700">
+                      <AlertCircle className="w-5 h-5 shrink-0" />
+                      <p className="text-sm font-medium">{errorMessage}</p>
+                    </div>
+                  )}
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-slate-700">Full Name</label>
@@ -140,7 +165,6 @@ export default function ContactPage() {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="John Doe"
-                        // CHANGED: Inputs are now slate-50 with slate-200 borders
                         className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all"
                       />
                     </div>

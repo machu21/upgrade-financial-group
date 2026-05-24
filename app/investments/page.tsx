@@ -271,7 +271,7 @@ export default function InvestmentsPage() {
               </p>
               <div className="pt-2 flex flex-col sm:flex-row justify-center gap-4">
                 <Link
-                  href="https://docs.google.com/forms/d/1FmI-dOFrM8LJMSAwMmo4bCN_C3LeVDEWqMhekmNIIbU/edit" target="_blank" rel="noopener noreferrer"
+                  href="/form"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-bold rounded-full hover:scale-105 transition-all shadow-lg shadow-primary/20"
                 >
                   Get My Free Strategy Session <ArrowRight className="w-5 h-5" />

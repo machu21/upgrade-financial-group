@@ -12,12 +12,15 @@ import {
   Pencil,
   BarChart3,
   Landmark,
+  AlertCircle
 } from "lucide-react";
+import { supabase } from "@/lib/supabase"; // Adjust based on your setup
 
 export default function AnnuityQuiz() {
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const [formData, setFormData] = useState({
     // Step 1 — Indexed Growth Annuity
@@ -99,15 +102,66 @@ export default function AnnuityQuiz() {
   };
 
   const handleNext = () => setStep((prev) => prev + 1);
-  const handleBack = () => setStep((prev) => prev - 1);
+  const handleBack = () => {
+    setErrorMessage(""); // Clear error when navigating back
+    setStep((prev) => prev - 1);
+  };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
+    setErrorMessage("");
+
+    // Calculate final numeric values based on whether custom inputs were used
+    const finalIndexedGrowthAmount = formData.indexedGrowthCustom 
+      ? parseInt(formData.indexedGrowthCustom.replace(/\D/g, "")) || formData.indexedGrowthAmount 
+      : formData.indexedGrowthAmount;
+
+    const finalIndexedIncomeAmount = formData.indexedIncomeCustom 
+      ? parseInt(formData.indexedIncomeCustom.replace(/\D/g, "")) || formData.indexedIncomeAmount 
+      : formData.indexedIncomeAmount;
+
+    const finalFpdaGrowthAmount = formData.fpdaGrowthCustom 
+      ? parseInt(formData.fpdaGrowthCustom.replace(/\D/g, "")) || formData.fpdaGrowthAmount 
+      : formData.fpdaGrowthAmount;
+
+    const finalFpdaIncomeAmount = formData.fpdaIncomeCustom 
+      ? parseInt(formData.fpdaIncomeCustom.replace(/\D/g, "")) || formData.fpdaIncomeAmount 
+      : formData.fpdaIncomeAmount;
+
+    try {
+      const { error } = await supabase
+        .from('annuity_requests')
+        .insert([
+          {
+            indexed_growth_selected: formData.indexedGrowthSelected,
+            indexed_growth_amount: finalIndexedGrowthAmount,
+            indexed_income_selected: formData.indexedIncomeSelected,
+            indexed_income_amount: finalIndexedIncomeAmount,
+            fpda_growth_selected: formData.fpdaGrowthSelected,
+            fpda_growth_amount: finalFpdaGrowthAmount,
+            fpda_income_selected: formData.fpdaIncomeSelected,
+            fpda_income_amount: finalFpdaIncomeAmount,
+            first_name: formData.firstName,
+            last_name: formData.lastName,
+            email: formData.email,
+            birthdate: formData.birthdate,
+            gender: formData.gender,
+            smoker: formData.smoker,
+            has_insurance: formData.hasInsurance,
+            consent: formData.consent
+          }
+        ]);
+
+      if (error) throw error;
+
       setIsSuccess(true);
-    }, 1500);
+    } catch (error: any) {
+      console.error('Error submitting form:', error.message);
+      setErrorMessage("Something went wrong. Please try again or contact us directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   // Reusable slider+custom input block for $25k–$2M range
@@ -268,6 +322,13 @@ export default function AnnuityQuiz() {
           <div className="p-8 md:p-12 flex flex-col flex-grow relative">
             {!isSuccess ? (
               <>
+                {/* Error Display for Step 5 */}
+                {errorMessage && step === 5 && (
+                  <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-center gap-3 text-red-700 animate-in fade-in">
+                    <AlertCircle className="w-5 h-5 shrink-0" />
+                    <p className="text-sm font-medium">{errorMessage}</p>
+                  </div>
+                )}
 
                 {/* ── STEP 1: Indexed Growth Annuity ── */}
                 {step === 1 && (
