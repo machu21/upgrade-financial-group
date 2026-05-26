@@ -149,7 +149,7 @@ export function Navbar() {
           <Link href="/be-part-of-the-team" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
             Be Part of the Team
           </Link>
-          <Link href="/partners" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors italic">
+          <Link href="/partners" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
             Our Partners
           </Link>
         </div>
@@ -231,8 +231,8 @@ export function Navbar() {
           <Link href="/be-part-of-the-team" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground hover:text-primary transition-colors">
             Be Part of the Team
           </Link>
-          <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground hover:text-primary transition-colors italic">
-            and more
+          <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground hover:text-primary transition-colors">
+            Our Partners
           </Link>
 
           <Button asChild className="w-[80%] max-w-sm mt-4 shadow-lg shadow-primary/20 rounded-xl font-bold bg-primary text-primary-foreground py-6 text-lg">

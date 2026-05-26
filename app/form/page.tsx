@@ -25,6 +25,7 @@ export default function QualificationQuiz() {
     firstName: "",
     lastName: "",
     email: "",
+    message: "", // <-- Added message field
     birthday: "",
     gender: "",
     hasInsurance: "",
@@ -33,6 +34,7 @@ export default function QualificationQuiz() {
   });
 
   // Validation logic for each step
+  // Message is optional, so we don't require it in validation
   const isStep1Valid = formData.firstName.trim() && formData.lastName.trim() && formData.email.trim();
   const isStep2Valid = formData.birthday && formData.gender;
   const isStep3Valid = formData.hasInsurance && formData.smoker;
@@ -57,6 +59,7 @@ export default function QualificationQuiz() {
             first_name: formData.firstName,
             last_name: formData.lastName,
             email: formData.email,
+            message: formData.message, // <-- Added message to Supabase payload
             birthday: formData.birthday,
             gender: formData.gender,
             has_insurance: formData.hasInsurance,
@@ -99,7 +102,6 @@ export default function QualificationQuiz() {
         {/* Header */}
         {!isSuccess && (
           <div className="text-center mb-10">
-            {/* CHANGED: Text to white so it contrasts with the dark video overlay */}
             <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white mb-4">
               See If You <span className="text-primary">Qualify</span>
             </h1>
@@ -110,7 +112,6 @@ export default function QualificationQuiz() {
         )}
 
         {/* Main Quiz Card */}
-        {/* CHANGED: Shadow opacity increased (shadow-black/40) for better contrast against video */}
         <div className="bg-white border border-slate-200 rounded-[2rem] shadow-2xl shadow-black/40 overflow-hidden flex flex-col min-h-[500px]">
           
           {/* Top Loading Bar Decor */}
@@ -174,6 +175,17 @@ export default function QualificationQuiz() {
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all outline-none"
                           placeholder="john@example.com"
+                        />
+                      </div>
+                      {/* ADDED: Message Textarea */}
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium text-slate-700">How can we help? (Optional)</label>
+                        <textarea
+                          value={formData.message}
+                          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                          className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all outline-none resize-none"
+                          placeholder="Tell us a bit about your situation..."
+                          rows={3}
                         />
                       </div>
                     </div>
@@ -342,6 +354,11 @@ export default function QualificationQuiz() {
                         <div>
                           <p className="text-slate-500 mb-1">Smoker</p>
                           <p className="font-semibold text-slate-900">{formData.smoker}</p>
+                        </div>
+                        {/* ADDED: Display message in review */}
+                        <div className="col-span-2 mt-2">
+                          <p className="text-slate-500 mb-1">Message</p>
+                          <p className="font-semibold text-slate-900">{formData.message || "None provided"}</p>
                         </div>
                       </div>
                     </div>

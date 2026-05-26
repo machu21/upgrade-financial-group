@@ -76,7 +76,7 @@ export default function RealEstatePage() {
   ];
 
   return (
-    <div className="min-h-screen pt-32 pb-24 relative overflow-hidden flex flex-col items-center">
+    <div className="min-h-screen pt-40 pb-24 relative overflow-hidden flex flex-col items-center">
       
       {/* 1. BACKGROUND VIDEO */}
       <video
@@ -107,22 +107,14 @@ export default function RealEstatePage() {
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground leading-[1.1]">
-              Scale Your Wholesale <br />
-              <span className="text-primary">Real Estate Engine</span>
+              Legacy Property  <br />
+              <span className="text-primary">Investment</span>
             </h1>
             
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-medium max-w-lg">
-              Stop manually tracking leads. From distressed seller acquisitions to cash buyer dispositions, we build the automated workflows that close deals faster.
+              Start building your future with a minimum monthly investment designed to help you move closer to acquiring your own property or land, while protecting your family through smart financial planning. 
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 text-base px-8 py-4 rounded-xl bg-primary text-primary-foreground font-bold hover:brightness-110 hover:-translate-y-0.5 transition-all shadow-xl shadow-primary/20"
-              >
-                Schedule a System Walkthrough <ArrowRight className="h-5 w-5" />
-              </Link>
-            </div>
           </div>
 
           {/* Conceptual Image/Graphic */}
@@ -132,18 +124,7 @@ export default function RealEstatePage() {
               alt="Modern Real Estate Office" 
               className="absolute inset-0 w-full h-full object-cover"
             />
-            {/* Overlay Glass Card */}
-            <div className="absolute bottom-6 left-6 right-6 bg-background/90 backdrop-blur-xl p-6 rounded-2xl border border-border shadow-xl">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center shrink-0">
-                  <CheckCircle2 className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm font-bold text-foreground">Contract Executed</p>
-                  <p className="text-xs text-muted-foreground font-medium">Disposition workflow triggered automatically.</p>
-                </div>
-              </div>
-            </div>
+
           </div>
         </div>
 

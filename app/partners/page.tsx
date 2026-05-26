@@ -71,15 +71,15 @@ export default function PartnersPage() {
             <div className="w-16 h-1 bg-primary rounded-full mx-auto" />
           </div>
           
-          {/* Scalable Grid for Logos */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {/* Centered Flexbox for Logos */}
+          <div className="flex flex-wrap justify-center gap-6">
             
             {/* Capital Holdings Link */}
             <a 
               href="https://capitalholdingsinc.com/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="bg-accent/20 border border-border rounded-2xl p-8 flex items-center justify-center hover:border-primary/50 hover:bg-accent/40 backdrop-blur-sm transition-all group h-32 shadow-lg"
+              className="w-full max-w-sm bg-accent/20 border border-border rounded-2xl p-8 flex items-center justify-center hover:border-primary/50 hover:bg-accent/40 backdrop-blur-sm transition-all group h-32 shadow-lg"
             >
               <img 
                 src="https://i0.wp.com/capitalholdingsinc.com/wp-content/uploads/2026/01/cropped-CHIwLogoTypeReversed1.png?fit=1444%2C289&ssl=1" 
