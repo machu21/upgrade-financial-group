@@ -9,6 +9,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 export function Navbar() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
+  const [isInvestmentsOpen, setIsInvestmentsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [navVisible, setNavVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -121,7 +122,23 @@ export function Navbar() {
                 <Link href="/term-life" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Term Life</Link>
                 <Link href="/term-life-with-living-benefits" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Term Life With Living Benefits</Link>
                 <Link href="/final-expense" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Final Expense</Link>
-                <Link href="/investments" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Investments</Link>
+                
+                {/* DESKTOP NESTED DROPDOWN: Investments */}
+                <div className="relative group/invest">
+                  <button className="w-full px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors flex items-center justify-between">
+                    Investments
+                    <ChevronDown className="w-4 h-4 -rotate-90 group-hover/invest:rotate-0 transition-transform duration-300" />
+                  </button>
+
+                  {/* Investments Sub-panel */}
+                  <div className="absolute top-0 left-full pl-2 opacity-0 invisible group-hover/invest:opacity-100 group-hover/invest:visible transition-all duration-300">
+                    <div className="bg-black/90 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl p-2 w-56 flex flex-col">
+                      <Link href="/investments/annuity" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Annuity</Link>
+                      <Link href="/investments/real-estate" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Real Estate</Link>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
@@ -129,11 +146,11 @@ export function Navbar() {
           <Link href="/about" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
             About Us
           </Link>
-          <Link href="/partners" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+          <Link href="/be-part-of-the-team" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
             Be Part of the Team
           </Link>
-          <Link href="/contact" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors italic">
-            and more
+          <Link href="/partners" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors italic">
+            Our Partners
           </Link>
         </div>
 
@@ -185,7 +202,25 @@ export function Navbar() {
                 <Link href="/term-life" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">Term Life</Link>
                 <Link href="/term-life-with-living-benefits" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">Term Life With Living Benefits</Link>
                 <Link href="/final-expense" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">Final Expense</Link>
-                <Link href="/investments" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">Investments</Link>
+                
+                {/* MOBILE NESTED DROPDOWN: Investments */}
+                <div className="w-full flex flex-col items-center mt-2">
+                  <button
+                    onClick={() => setIsInvestmentsOpen(!isInvestmentsOpen)}
+                    className="flex items-center gap-2 text-base text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    Investments
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isInvestmentsOpen ? "rotate-180 text-primary" : ""}`} />
+                  </button>
+
+                  {isInvestmentsOpen && (
+                    <div className="flex flex-col items-center gap-4 mt-4 bg-black/20 w-[90%] py-4 rounded-xl animate-in fade-in slide-in-from-top-2">
+                      <Link href="/investments/annuity" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">Annuity</Link>
+                      <Link href="/investments/real-estate" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">Properties Real Estate</Link>
+                    </div>
+                  )}
+                </div>
+
               </div>
             )}
           </div>
@@ -193,7 +228,7 @@ export function Navbar() {
           <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground hover:text-primary transition-colors">
             About Us
           </Link>
-          <Link href="/partners" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground hover:text-primary transition-colors">
+          <Link href="/be-part-of-the-team" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground hover:text-primary transition-colors">
             Be Part of the Team
           </Link>
           <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground hover:text-primary transition-colors italic">

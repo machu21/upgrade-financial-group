@@ -176,9 +176,7 @@ export default function InvestmentsPage() {
 
                 <div className="pt-8 border-t border-border flex flex-col items-center gap-4">
                   <Link
-                    href="/investments/form/"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/investments/annuity/form/"
                     className="inline-flex w-full sm:w-auto items-center justify-center gap-2 text-base px-10 py-5 rounded-2xl bg-primary text-primary-foreground font-bold hover:scale-105 hover:shadow-xl hover:shadow-primary/20 transition-all active:scale-95"
                   >
                     Get Quote <ArrowRight className="w-5 h-5" />
