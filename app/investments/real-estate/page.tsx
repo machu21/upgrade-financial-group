@@ -9,7 +9,6 @@ import {
   Zap, 
   CheckCircle2, 
   Workflow,
-  PhoneForwarded,
   Loader2,
   AlertCircle
 } from "lucide-react";
@@ -55,24 +54,24 @@ export default function RealEstatePage() {
 
   const features = [
     {
-      icon: <Workflow className="w-6 h-6 text-primary" />,
-      title: "Automated Acquisitions",
-      description: "Custom GoHighLevel workflows that instantly route motivated seller leads, trigger SMS follow-ups, and keep your pipeline full without manual data entry."
+      icon: <Building2 className="w-6 h-6 text-primary" />,
+      title: "Strategic Property Investments",
+      description: "Partner with industry-leading real estate firms to diversify your portfolio and secure tangible assets that appreciate over time."
     },
     {
       icon: <TrendingUp className="w-6 h-6 text-primary" />,
-      title: "High-Velocity Dispositions",
-      description: "Blast out contracts and property comps to your cash buyers list in seconds. Our automated disposition engines close deals faster."
+      title: "Wealth Accumulation",
+      description: "Leverage real estate investments as part of a comprehensive financial plan to accelerate your wealth building and secure your family's future."
     },
     {
       icon: <Users className="w-6 h-6 text-primary" />,
-      title: "FAR Agents CRM Platform",
-      description: "A complete, white-labeled ecosystem built specifically for wholesale real estate teams to track KPIs, manage VAs, and scale operations."
+      title: "Expert Network Access",
+      description: "Gain access to a vetted ecosystem of real estate professionals, from acquisition specialists to property managers, all dedicated to your success."
     },
     {
-      icon: <PhoneForwarded className="w-6 h-6 text-primary" />,
-      title: "Seamless API Bridging",
-      description: "Connect your lead sources directly to your CRM with custom API bridges, ensuring zero lead leakage and immediate response times."
+      icon: <Workflow className="w-6 h-6 text-primary" />,
+      title: "Seamless Integration",
+      description: "We bridge the gap between life insurance protection and real estate investing, offering a unified strategy for generational wealth."
     }
   ];
 
@@ -132,9 +131,9 @@ export default function RealEstatePage() {
         {/* FEATURES GRID */}
         <div className="mb-24">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-4">Built for High-Volume Teams</h2>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-4">Diversify with Real Estate</h2>
             <p className="text-muted-foreground font-medium text-lg">
-              Everything your acquisition specialists and disposition managers need to operate at peak efficiency.
+              Comprehensive investment strategies designed to build tangible wealth and secure your legacy.
             </p>
           </div>
 
@@ -190,7 +189,7 @@ export default function RealEstatePage() {
                   <div>
                     <h3 className="text-2xl font-bold text-foreground mb-2">Become an Affiliate</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Partner with FAR Agents and Upgrade Financial Group to unlock exclusive automation benefits.
+                      Partner with Capital Holdings, Inc. and Upgrade Financial Group to unlock exclusive real estate investment opportunities.
                     </p>
                   </div>
                   
@@ -287,10 +286,10 @@ export default function RealEstatePage() {
               <Building2 className="w-10 h-10 text-primary" />
             </div>
             <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-6 tracking-tight">
-              Ready to automate your real estate operations?
+              Ready to expand your investment portfolio?
             </h2>
             <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
-              Stop letting leads slip through the cracks. Let's build a wholesale machine that works for you 24/7.
+              Take the next step in your financial journey. Let's build a comprehensive wealth strategy that includes premium real estate opportunities.
             </p>
             <Link
               href="/contact"
