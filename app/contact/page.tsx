@@ -9,7 +9,9 @@ export default function ContactPage() {
     name: "",
     email: "",
     phone: "",
+    zip_code: "",
     message: "",
+    
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -27,7 +29,8 @@ export default function ContactPage() {
           { 
             name: formData.name, 
             email: formData.email, 
-            phone: formData.phone, 
+            phone: formData.phone,
+            zip_code: formData.zip_code,
             message: formData.message 
           }
         ]);
@@ -35,7 +38,7 @@ export default function ContactPage() {
       if (error) throw error;
 
       setIsSubmitted(true);
-      setFormData({ name: "", email: "", phone: "", message: "" }); // Reset form
+      setFormData({ name: "", email: "", phone: "", zip_code: "", message: "" }); 
     } catch (error: any) {
       console.error('Error submitting form:', error.message);
       setErrorMessage("Something went wrong. Please try again or contact us directly.");
@@ -181,16 +184,29 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  <div className="space-y-2 mb-6">
-                    <label className="text-sm font-medium text-slate-700">Email Address</label>
-                    <input
-                      required
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="john@example.com"
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all"
-                    />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-slate-700">Email Address</label>
+                      <input
+                        required
+                        type="email"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        placeholder="john@example.com"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-slate-700">Zip Code</label>
+                      <input
+                        required
+                        type="text"
+                        value={formData.zip_code}
+                        onChange={(e) => setFormData({ ...formData, zip_code: e.target.value })}
+                        placeholder="12345"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all"
+                      />
+                    </div>
                   </div>
 
                   <div className="space-y-2 mb-8 flex-grow">

@@ -1,7 +1,9 @@
 "use client";
 
-import { ArrowRight, Search, ShieldCheck, Clock, TrendingUp, Award } from "lucide-react";
+import { useState } from "react";
+import { ArrowRight, Search, ShieldCheck, Clock, TrendingUp, Award, Loader2, AlertCircle, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
+import { supabase } from "@/lib/supabase"; // Make sure this path matches your setup
 
 const details = [
   {
@@ -32,6 +34,42 @@ const details = [
 ];
 
 export default function CreditRepairPage() {
+  // State for the Affiliate Form
+  const [affiliateForm, setAffiliateForm] = useState({ name: "", email: "", phone: "", company: "", zipCode: "" });
+  const [isAffiliateSubmitting, setIsAffiliateSubmitting] = useState(false);
+  const [isAffiliateSuccess, setIsAffiliateSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleAffiliateSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsAffiliateSubmitting(true);
+    setErrorMessage(""); // Clear previous errors
+    
+    try {
+      const { error } = await supabase
+        .from('mcl_affiliates')
+        .insert([
+          {
+            name: affiliateForm.name,
+            email: affiliateForm.email,
+            phone: affiliateForm.phone,
+            company: affiliateForm.company,
+            zip_code: affiliateForm.zipCode
+          }
+        ]);
+
+      if (error) throw error;
+
+      setIsAffiliateSuccess(true);
+      setAffiliateForm({ name: "", email: "", phone: "", company: "", zipCode: "" }); // Reset form
+    } catch (error: any) {
+      console.error('Error submitting form:', error.message);
+      setErrorMessage("Something went wrong. Please try again or contact us directly.");
+    } finally {
+      setIsAffiliateSubmitting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground overflow-hidden">
       {/* Global dot pattern */}
@@ -92,6 +130,130 @@ export default function CreditRepairPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── STRATEGIC PARTNERS & AFFILIATE FORM ── */}
+      <section className="py-24 px-6 relative z-10">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-accent/20 border border-border rounded-[3rem] p-8 md:p-12 lg:p-16 relative overflow-hidden shadow-2xl shadow-black/20">
+            
+            {/* Background ambient light for this specific card */}
+            <div className="absolute top-0 right-0 w-72 h-72 bg-primary/5 rounded-full blur-[80px] pointer-events-none" />
+
+            {/* Left: Partners Info */}
+            <div className="space-y-8 z-10">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-4 tracking-tight">Our Strategic Partners</h2>
+                <p className="text-muted-foreground text-lg leading-relaxed">
+                  We collaborate with industry leaders to provide unparalleled value. Join our network and scale your operations with us.
+                </p>
+              </div>
+              
+              <div className="space-y-4">
+                <p className="text-sm font-bold uppercase tracking-widest text-primary">Current Partner</p>
+                <div className="bg-background/50 border border-border rounded-2xl p-8 flex items-center justify-center max-w-sm backdrop-blur-sm shadow-inner group">
+                  <img 
+                    src="/images/mcl.png" 
+                    alt="MCL Financial Services" 
+                    className="w-full h-auto max-h-24 object-contain opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Affiliate Form */}
+            <div className="bg-background border border-border rounded-3xl p-8 md:p-10 shadow-xl relative z-10">
+              {!isAffiliateSuccess ? (
+                <form onSubmit={handleAffiliateSubmit} className="space-y-6 animate-in fade-in duration-500">
+                  <div>
+                    <h3 className="text-2xl font-bold text-foreground mb-2">Become an Affiliate</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      Partner with MCL Financial Services and Upgrade Financial Group to unlock exclusive benefits.
+                    </p>
+                  </div>
+                  
+                  {/* Error Display */}
+                  {errorMessage && (
+                    <div className="p-4 bg-red-50 border border-red-200 rounded-xl flex items-center gap-3 text-red-700 animate-in fade-in">
+                      <AlertCircle className="w-5 h-5 shrink-0" />
+                      <p className="text-sm font-medium">{errorMessage}</p>
+                    </div>
+                  )}
+
+                  <div className="space-y-4">
+                    <input
+                      required
+                      type="text"
+                      placeholder="Full Name"
+                      value={affiliateForm.name}
+                      onChange={(e) => setAffiliateForm({...affiliateForm, name: e.target.value})}
+                      className="w-full bg-accent/30 border border-border rounded-xl px-4 py-3.5 text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                    />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <input
+                        required
+                        type="email"
+                        placeholder="Email Address"
+                        value={affiliateForm.email}
+                        onChange={(e) => setAffiliateForm({...affiliateForm, email: e.target.value})}
+                        className="w-full bg-accent/30 border border-border rounded-xl px-4 py-3.5 text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                      />
+                      <input
+                        required
+                        type="tel"
+                        placeholder="Phone Number"
+                        value={affiliateForm.phone}
+                        onChange={(e) => setAffiliateForm({...affiliateForm, phone: e.target.value})}
+                        className="w-full bg-accent/30 border border-border rounded-xl px-4 py-3.5 text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                      />
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <input
+                        required
+                        type="text"
+                        placeholder="Company / Agency Name"
+                        value={affiliateForm.company}
+                        onChange={(e) => setAffiliateForm({...affiliateForm, company: e.target.value})}
+                        className="w-full bg-accent/30 border border-border rounded-xl px-4 py-3.5 text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                      />
+                      <input
+                        required
+                        type="text"
+                        placeholder="Zip Code"
+                        value={affiliateForm.zipCode}
+                        onChange={(e) => setAffiliateForm({...affiliateForm, zipCode: e.target.value})}
+                        className="w-full bg-accent/30 border border-border rounded-xl px-4 py-3.5 text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                      />
+                    </div>
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={isAffiliateSubmitting}
+                    className="w-full py-4 bg-primary text-primary-foreground font-bold rounded-xl shadow-lg shadow-primary/20 hover:brightness-110 transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                  >
+                    {isAffiliateSubmitting ? (
+                      <><Loader2 className="w-5 h-5 animate-spin" /> Processing...</>
+                    ) : (
+                      <>Apply for Partnership <ArrowRight className="w-5 h-5" /></>
+                    )}
+                  </button>
+                </form>
+              ) : (
+                <div className="flex flex-col items-center justify-center h-full text-center py-12 animate-in fade-in zoom-in-95 duration-500">
+                  <div className="w-20 h-20 bg-emerald-500/10 border-2 border-emerald-500/20 rounded-full flex items-center justify-center mb-6">
+                    <CheckCircle2 className="w-10 h-10 text-emerald-500" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-foreground mb-3">Application Received!</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Thank you for your interest. Our partnership team will review your details and reach out to you shortly.
+                  </p>
+                </div>
+              )}
+            </div>
+            
           </div>
         </div>
       </section>

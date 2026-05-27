@@ -18,7 +18,7 @@ import { supabase } from "@/lib/supabase"; // Make sure this path matches your s
 
 export default function RealEstatePage() {
   // State for the Affiliate Form
-  const [affiliateForm, setAffiliateForm] = useState({ name: "", email: "", phone: "", company: "" });
+  const [affiliateForm, setAffiliateForm] = useState({ name: "", email: "", phone: "", company: "", zipCode: "" });
   const [isAffiliateSubmitting, setIsAffiliateSubmitting] = useState(false);
   const [isAffiliateSuccess, setIsAffiliateSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -36,14 +36,15 @@ export default function RealEstatePage() {
             name: affiliateForm.name,
             email: affiliateForm.email,
             phone: affiliateForm.phone,
-            company: affiliateForm.company
+            company: affiliateForm.company,
+            zip_code: affiliateForm.zipCode
           }
         ]);
 
       if (error) throw error;
 
       setIsAffiliateSuccess(true);
-      setAffiliateForm({ name: "", email: "", phone: "", company: "" }); // Reset form
+      setAffiliateForm({ name: "", email: "", phone: "", company: "", zipCode: "" }); // Reset form
     } catch (error: any) {
       console.error('Error submitting form:', error.message);
       setErrorMessage("Something went wrong. Please try again or contact us directly.");
@@ -228,14 +229,24 @@ export default function RealEstatePage() {
                         className="w-full bg-accent/30 border border-border rounded-xl px-4 py-3.5 text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
                       />
                     </div>
-                    <input
-                      required
-                      type="text"
-                      placeholder="Company / Agency Name"
-                      value={affiliateForm.company}
-                      onChange={(e) => setAffiliateForm({...affiliateForm, company: e.target.value})}
-                      className="w-full bg-accent/30 border border-border rounded-xl px-4 py-3.5 text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
-                    />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <input
+                        required
+                        type="text"
+                        placeholder="Company / Agency Name"
+                        value={affiliateForm.company}
+                        onChange={(e) => setAffiliateForm({...affiliateForm, company: e.target.value})}
+                        className="w-full bg-accent/30 border border-border rounded-xl px-4 py-3.5 text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                      />
+                      <input
+                        required
+                        type="text"
+                        placeholder="Zip Code"
+                        value={affiliateForm.zipCode}
+                        onChange={(e) => setAffiliateForm({...affiliateForm, zipCode: e.target.value})}
+                        className="w-full bg-accent/30 border border-border rounded-xl px-4 py-3.5 text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                      />
+                    </div>
                   </div>
 
                   <button

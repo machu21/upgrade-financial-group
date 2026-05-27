@@ -32,6 +32,7 @@ export default function IulQuiz() {
     firstName: "",
     lastName: "",
     email: "",
+    zip_code: "",
     birthdate: "",
     gender: "",
     smoker: "",
@@ -60,6 +61,7 @@ export default function IulQuiz() {
     formData.firstName.trim() !== "" &&
     formData.lastName.trim() !== "" &&
     formData.email.trim() !== "" &&
+    formData.zip_code.trim() !== "" &&
     formData.birthdate !== "" &&
     formData.gender !== "" &&
     formData.smoker !== "" &&
@@ -98,6 +100,7 @@ export default function IulQuiz() {
             first_name: formData.firstName,
             last_name: formData.lastName,
             email: formData.email,
+            zip_code: formData.zip_code,
             birthdate: formData.birthdate,
             gender: formData.gender,
             smoker: formData.smoker,
@@ -523,20 +526,36 @@ export default function IulQuiz() {
                         </div>
                       </div>
 
-                      {/* Email */}
-                      <div className="space-y-2">
-                        <label className="text-sm font-medium text-slate-700">
-                          Email Address
-                        </label>
-                        <input
-                          type="email"
-                          value={formData.email}
-                          onChange={(e) =>
-                            setFormData({ ...formData, email: e.target.value })
-                          }
-                          className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all outline-none"
-                          placeholder="john@example.com"
-                        />
+                      {/* Email & Zip Code */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="space-y-2">
+                          <label className="text-sm font-medium text-slate-700">
+                            Email Address
+                          </label>
+                          <input
+                            type="email"
+                            value={formData.email}
+                            onChange={(e) =>
+                              setFormData({ ...formData, email: e.target.value })
+                            }
+                            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all outline-none"
+                            placeholder="john@example.com"
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <label className="text-sm font-medium text-slate-700">
+                            Zip Code
+                          </label>
+                          <input
+                            type="text"
+                            value={formData.zip_code}
+                            onChange={(e) =>
+                              setFormData({ ...formData, zip_code: e.target.value })
+                            }
+                            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all outline-none"
+                            placeholder="12345"
+                          />
+                        </div>
                       </div>
 
                       {/* Date of Birth */}

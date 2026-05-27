@@ -1,19 +1,46 @@
 "use client";
 
 import { useState } from "react";
-import { Baby, Briefcase, Calculator, Landmark, ShieldHalf, Star, ArrowRight, CheckCircle2, User, Mail, MessageSquare, Send, X } from "lucide-react";
+import { Baby, Briefcase, Calculator, Landmark, ShieldHalf, Star, ArrowRight, CheckCircle2, User, Mail, MessageSquare, Send, X, MapPin, Loader2, AlertCircle, Phone } from "lucide-react";
 import Link from "next/link";
+import { supabase } from "@/lib/supabase";
 
 export function WhyUpgrade() {
   const [showForm, setShowForm] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const [focused, setFocused] = useState<string | null>(null);
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "", zip_code: "", message: "" });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form payload ready for automation:", formData);
-    setIsSubmitted(true);
+    setIsSubmitting(true);
+    setErrorMessage("");
+
+    try {
+      const { error } = await supabase
+        .from('contacts')
+        .insert([
+          {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            zip_code: formData.zip_code,
+            message: formData.message || "Joined the crusade via Why Upgrade form."
+          }
+        ]);
+
+      if (error) throw error;
+
+      setIsSubmitted(true);
+      setFormData({ name: "", email: "", phone: "", zip_code: "", message: "" });
+    } catch (error: any) {
+      console.error('Error submitting form:', error.message);
+      setErrorMessage("Something went wrong. Please try again or contact us directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const audiences = [
@@ -54,6 +81,8 @@ export function WhyUpgrade() {
   const fields = [
     { key: "name", label: "Full Name", placeholder: "e.g. Jane Smith", type: "text", icon: User, required: true },
     { key: "email", label: "Email Address", placeholder: "e.g. jane@email.com", type: "email", icon: Mail, required: true },
+    { key: "phone", label: "Phone Number", placeholder: "e.g. (555) 000-0000", type: "tel", icon: Phone, required: true },
+    { key: "zip_code", label: "Zip Code", placeholder: "e.g. 12345", type: "text", icon: MapPin, required: true },
   ];
 
   return (
@@ -116,7 +145,15 @@ export function WhyUpgrade() {
                       </div>
 
                       <form onSubmit={handleSubmit} className="p-6 space-y-4">
-                        {/* Name & Email fields */}
+                        {/* Error Display */}
+                        {errorMessage && (
+                          <div className="p-4 bg-red-50 border border-red-200 rounded-xl flex items-center gap-3 text-red-700 animate-in fade-in">
+                            <AlertCircle className="w-4 h-4 shrink-0" />
+                            <p className="text-sm font-medium">{errorMessage}</p>
+                          </div>
+                        )}
+
+                        {/* Dynamic fields mapping */}
                         {fields.map((field) => (
                           <div key={field.key} className="space-y-1.5">
                             <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider flex items-center gap-1.5">
@@ -168,11 +205,14 @@ export function WhyUpgrade() {
                         {/* Submit */}
                         <button
                           type="submit"
-                          disabled={!formData.name || !formData.email}
+                          disabled={isSubmitting || !formData.name || !formData.email || !formData.phone || !formData.zip_code}
                           className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-primary text-primary-foreground font-bold text-sm hover:brightness-110 hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 shadow-md shadow-primary/20"
                         >
-                          <Send className="w-4 h-4" />
-                          Send Message
+                          {isSubmitting ? (
+                            <><Loader2 className="w-4 h-4 animate-spin" /> Sending...</>
+                          ) : (
+                            <><Send className="w-4 h-4" /> Send Message</>
+                          )}
                         </button>
 
                         <p className="text-center text-xs text-muted-foreground/60">
