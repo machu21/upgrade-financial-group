@@ -34,16 +34,15 @@ const US_STATES = [
   "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
 ];
 
-// Updated to accept validation and error handling
-const RealPayPalIntegration = ({ 
-  totalDue, 
-  selectedStates, 
+const RealPayPalIntegration = ({
+  totalDue,
+  selectedStates,
   onSuccess,
   isFormValid,
   onError
-}: { 
-  totalDue: number, 
-  selectedStates: string[], 
+}: {
+  totalDue: number,
+  selectedStates: string[],
   onSuccess: () => Promise<void>,
   isFormValid: boolean,
   onError: (msg: string) => void
@@ -53,8 +52,7 @@ const RealPayPalIntegration = ({
       <div className="animate-in fade-in duration-300 w-full relative z-20">
         <PayPalButtons
           style={{ layout: "vertical", color: "gold", shape: "rect", label: "pay" }}
-          
-          // 1. Prevent clicking if form isn't filled
+
           onClick={(data, actions) => {
             if (!isFormValid) {
               onError("Please fill out all Personal Details completely before proceeding to payment.");
@@ -69,31 +67,54 @@ const RealPayPalIntegration = ({
           }}
 
           createOrder={async (data, actions) => {
-            // Call our secure backend to create the order
-            const response = await fetch("/api/paypal/create-order", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ totalDue, selectedStates })
-            });
-            const order = await response.json();
-            return order.id; // Return the ID to the PayPal script
+            try {
+              const response = await fetch("/api/paypal/create-order", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ totalDue, selectedStates })
+              });
+
+              const order = await response.json();
+
+              // CRITICAL FIX: If the API fails, throw an error to prevent a page crash
+              if (!response.ok || !order.id) {
+                throw new Error(order.error || "Could not generate Order ID from backend.");
+              }
+
+              return order.id;
+            } catch (error) {
+              console.error("PayPal createOrder error:", error);
+              onError("Our payment processor is temporarily unavailable. Please try again in a moment.");
+              // Rejecting the promise safely aborts the PayPal popup without crashing React
+              return Promise.reject(error);
+            }
           }}
 
           onApprove={async (data, actions) => {
-            // Call our secure backend to capture the funds
-            const response = await fetch("/api/paypal/capture-order", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ orderID: data.orderID })
-            });
-            const captureData = await response.json();
+            try {
+              const response = await fetch("/api/paypal/capture-order", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ orderID: data.orderID })
+              });
 
-            // 2. Only trigger success (and DB Insert) if payment is COMPLETED
-            if (captureData.status === "COMPLETED") {
-              await onSuccess(); 
-            } else {
-              onError("Payment could not be completed at this time.");
+              const captureData = await response.json();
+
+              if (captureData.status === "COMPLETED") {
+                await onSuccess();
+              } else {
+                onError("Payment was declined or could not be completed at this time.");
+              }
+            } catch (error) {
+              console.error("PayPal captureOrder error:", error);
+              onError("There was an issue finalizing your payment. Please contact support.");
             }
+          }}
+
+          // ADDED: Catch errors that happen inside the PayPal popup itself
+          onError={(err) => {
+            console.error("PayPal native error:", err);
+            onError("The payment window encountered an unexpected error. Please try again.");
           }}
         />
       </div>
@@ -124,11 +145,11 @@ export default function MembershipPaymentPage() {
   const totalDue = BASE_FEE + (selectedStates.length * STATE_FEE);
 
   // Form Validation
-  const isFormValid = formData.firstName.trim() !== "" && 
-                      formData.lastName.trim() !== "" && 
-                      formData.email.trim() !== "" && 
-                      formData.phone.trim() !== "" &&
-                      formData.zipCode.trim() !== "";
+  const isFormValid = formData.firstName.trim() !== "" &&
+    formData.lastName.trim() !== "" &&
+    formData.email.trim() !== "" &&
+    formData.phone.trim() !== "" &&
+    formData.zipCode.trim() !== "";
 
   // Handlers for State Selection
   const handleAddState = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -164,7 +185,7 @@ export default function MembershipPaymentPage() {
         ]);
 
       if (error) throw error;
-      
+
       setIsSuccess(true); // Finally, show success screen
     } catch (error: any) {
       console.error("Database error after payment:", error);
