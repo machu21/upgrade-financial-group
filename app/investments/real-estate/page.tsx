@@ -187,7 +187,7 @@ export default function RealEstatePage() {
               {!isAffiliateSuccess ? (
                 <form onSubmit={handleAffiliateSubmit} className="space-y-6 animate-in fade-in duration-500">
                   <div>
-                    <h3 className="text-2xl font-bold text-foreground mb-2">Become an Affiliate</h3>
+                    <h3 className="text-2xl font-bold text-foreground mb-2">Want to own a land?</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       Partner with Capital Holdings, Inc. and Upgrade Financial Group to unlock exclusive real estate investment opportunities.
                     </p>
@@ -256,7 +256,7 @@ export default function RealEstatePage() {
                     {isAffiliateSubmitting ? (
                       <><Loader2 className="w-5 h-5 animate-spin" /> Processing...</>
                     ) : (
-                      <>Apply for Partnership <ArrowRight className="w-5 h-5" /></>
+                      <>Start Building Your Dream <ArrowRight className="w-5 h-5" /></>
                     )}
                   </button>
                 </form>
