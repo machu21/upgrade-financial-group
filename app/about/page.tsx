@@ -121,9 +121,7 @@ export default function AboutPage() {
                 </p>
                 <div className="pt-2">
                   <Link
-                    href="https://docs.google.com/forms/d/1FmI-dOFrM8LJMSAwMmo4bCN_C3LeVDEWqMhekmNIIbU/edit"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/form"
                     className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-primary text-primary-foreground font-bold text-lg hover:brightness-110 hover:scale-105 hover:shadow-xl hover:shadow-primary/20 transition-all active:scale-95"
                   >
                     Schedule Your Free Consultation <ArrowRight className="w-5 h-5" />

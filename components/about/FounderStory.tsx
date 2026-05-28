@@ -63,9 +63,7 @@ export function FounderStory() {
             </p>
 
             <Link
-              href="https://docs.google.com/forms/d/1FmI-dOFrM8LJMSAwMmo4bCN_C3LeVDEWqMhekmNIIbU/viewform?edit"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/form"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-bold text-sm hover:brightness-110 hover:scale-105 transition-all shadow-lg shadow-primary/20 w-fit"
             >
               Join the Mission <ArrowRight className="w-4 h-4" />
