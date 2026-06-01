@@ -38,7 +38,7 @@ export function Navbar() {
           <span className="text-[10px] md:text-[11px] font-medium text-muted-foreground">
             {"Need help? "}
             <a href="tel:7148543451" className="text-primary hover:underline ml-0.5">
-              {"(714) 854-3451"}
+              {"71459764UP "}
             </a>
           </span>
         </div>

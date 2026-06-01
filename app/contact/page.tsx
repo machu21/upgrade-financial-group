@@ -98,7 +98,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground font-medium mb-1">Call or Text Us</p>
-                      <p className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">(714) 854-3451</p>
+                      <p className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">71459764UP</p>
                     </div>
                   </a>
                 </li>
