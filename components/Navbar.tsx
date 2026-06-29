@@ -121,7 +121,7 @@ export function Navbar() {
                 <Link href="/credit-repair" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Credit Repair</Link>
                 <Link href="/term-life" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Term Life</Link>
                 <Link href="/term-life-with-living-benefits" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Term Life With Living Benefits</Link>
-                <Link href="/final-expense" className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-white/5 rounded-xl transition-colors">Final Expense</Link>
+                
                 
                 {/* DESKTOP NESTED DROPDOWN: Investments */}
                 <div className="relative group/invest">
@@ -201,7 +201,7 @@ export function Navbar() {
                 <Link href="/whole-life" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">Whole Life</Link>
                 <Link href="/term-life" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">Term Life</Link>
                 <Link href="/term-life-with-living-benefits" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">Term Life With Living Benefits</Link>
-                <Link href="/final-expense" onClick={() => setMobileMenuOpen(false)} className="text-base text-muted-foreground hover:text-primary">Final Expense</Link>
+                
                 
                 {/* MOBILE NESTED DROPDOWN: Investments */}
                 <div className="w-full flex flex-col items-center mt-2">

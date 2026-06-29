@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -47,6 +48,7 @@ export default function AnnuityQuiz() {
     firstName: "",
     lastName: "",
     email: "",
+    phone: "",
     zip_code: "",
     birthdate: "",
     gender: "",
@@ -85,6 +87,7 @@ export default function AnnuityQuiz() {
     formData.firstName.trim() !== "" &&
     formData.lastName.trim() !== "" &&
     formData.email.trim() !== "" &&
+    formData.phone.trim() !== "" &&
     formData.zip_code.trim() !== "" &&
     formData.birthdate !== "" &&
     formData.gender !== "" &&
@@ -147,6 +150,7 @@ export default function AnnuityQuiz() {
             first_name: formData.firstName,
             last_name: formData.lastName,
             email: formData.email,
+            phone: formData.phone,
             zip_code: formData.zip_code,
             birthdate: formData.birthdate,
             gender: formData.gender,
@@ -390,7 +394,7 @@ export default function AnnuityQuiz() {
                           label="Investment Amount"
                           sliderMin={25000}
                           sliderMax={2000000}
-                          sliderStep={25000}
+                          sliderStep={1}
                           minLabel="Min: $25,000"
                           maxLabel="Max: $2,000,000"
                           baseValue={formData.indexedGrowthAmount}
@@ -468,7 +472,7 @@ export default function AnnuityQuiz() {
                           label="Investment Amount"
                           sliderMin={25000}
                           sliderMax={2000000}
-                          sliderStep={25000}
+                          sliderStep={1}
                           minLabel="Min: $25,000"
                           maxLabel="Max: $2,000,000"
                           baseValue={formData.indexedIncomeAmount}
@@ -546,7 +550,7 @@ export default function AnnuityQuiz() {
                           label="Initial Contribution"
                           sliderMin={100}
                           sliderMax={100000}
-                          sliderStep={100}
+                          sliderStep={1}
                           minLabel="Min: $100"
                           maxLabel="$100,000+"
                           baseValue={formData.fpdaGrowthAmount}
@@ -624,7 +628,7 @@ export default function AnnuityQuiz() {
                           label="Initial Contribution"
                           sliderMin={100}
                           sliderMax={100000}
-                          sliderStep={100}
+                          sliderStep={1}
                           minLabel="Min: $100"
                           maxLabel="$100,000+"
                           baseValue={formData.fpdaIncomeAmount}
@@ -691,7 +695,7 @@ export default function AnnuityQuiz() {
                         </div>
                       </div>
 
-                      {/* Email & Zip Code */}
+                      {/* Email & Phone */}
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="space-y-2">
                           <label className="text-sm font-medium text-slate-700">
@@ -709,6 +713,24 @@ export default function AnnuityQuiz() {
                         </div>
                         <div className="space-y-2">
                           <label className="text-sm font-medium text-slate-700">
+                            Phone Number
+                          </label>
+                          <input
+                            type="tel"
+                            value={formData.phone}
+                            onChange={(e) =>
+                              setFormData({ ...formData, phone: e.target.value })
+                            }
+                            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all outline-none"
+                            placeholder="(555) 123-4567"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Zip Code & Date of Birth */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="space-y-2">
+                          <label className="text-sm font-medium text-slate-700">
                             Zip Code
                           </label>
                           <input
@@ -721,21 +743,19 @@ export default function AnnuityQuiz() {
                             placeholder="12345"
                           />
                         </div>
-                      </div>
-
-                      {/* Date of Birth */}
-                      <div className="space-y-2">
-                        <label className="text-sm font-medium text-slate-700">
-                          Date of Birth
-                        </label>
-                        <input
-                          type="date"
-                          value={formData.birthdate}
-                          onChange={(e) =>
-                            setFormData({ ...formData, birthdate: e.target.value })
-                          }
-                          className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all outline-none"
-                        />
+                        <div className="space-y-2">
+                          <label className="text-sm font-medium text-slate-700">
+                            Date of Birth
+                          </label>
+                          <input
+                            type="date"
+                            value={formData.birthdate}
+                            onChange={(e) =>
+                              setFormData({ ...formData, birthdate: e.target.value })
+                            }
+                            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all outline-none"
+                          />
+                        </div>
                       </div>
 
                       {/* Gender & Smoker */}

@@ -30,6 +30,7 @@ export default function WholeLifeQuiz() {
     firstName: "",
     lastName: "",
     email: "",
+    phone: "",
     zip_code: "",
     birthdate: "",
     gender: "",
@@ -40,6 +41,13 @@ export default function WholeLifeQuiz() {
 
   const formatCurrency = (value: number) =>
     new Intl.NumberFormat("en-US").format(value);
+
+  const formatPhone = (value: string) => {
+    const digits = value.replace(/\D/g, "").slice(0, 10);
+    if (digits.length <= 3) return digits;
+    if (digits.length <= 6) return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+    return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+  };
 
   // Step validation
   const isStep1Valid = formData.coverageType !== "";
@@ -53,6 +61,7 @@ export default function WholeLifeQuiz() {
     formData.firstName.trim() !== "" &&
     formData.lastName.trim() !== "" &&
     formData.email.trim() !== "" &&
+    formData.phone.replace(/\D/g, "").length === 10 &&
     formData.zip_code.trim() !== "" &&
     formData.birthdate !== "" &&
     formData.gender !== "" &&
@@ -101,6 +110,7 @@ export default function WholeLifeQuiz() {
             first_name: formData.firstName,
             last_name: formData.lastName,
             email: formData.email,
+            phone: formData.phone.replace(/\D/g, ""),
             zip_code: formData.zip_code,
             birthdate: formData.birthdate,
             gender: formData.gender,
@@ -482,7 +492,7 @@ export default function WholeLifeQuiz() {
                         </div>
                       </div>
 
-                      {/* Email & Zip Code */}
+                      {/* Email & Phone */}
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="space-y-2">
                           <label className="text-sm font-medium text-slate-700">
@@ -500,18 +510,38 @@ export default function WholeLifeQuiz() {
                         </div>
                         <div className="space-y-2">
                           <label className="text-sm font-medium text-slate-700">
-                            Zip Code
+                            Phone Number
                           </label>
                           <input
-                            type="text"
-                            value={formData.zip_code}
+                            type="tel"
+                            value={formData.phone}
                             onChange={(e) =>
-                              setFormData({ ...formData, zip_code: e.target.value })
+                              setFormData({
+                                ...formData,
+                                phone: formatPhone(e.target.value),
+                              })
                             }
                             className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all outline-none"
-                            placeholder="12345"
+                            placeholder="(555) 000-0000"
+                            maxLength={14}
                           />
                         </div>
+                      </div>
+
+                      {/* Zip Code */}
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium text-slate-700">
+                          Zip Code
+                        </label>
+                        <input
+                          type="text"
+                          value={formData.zip_code}
+                          onChange={(e) =>
+                            setFormData({ ...formData, zip_code: e.target.value })
+                          }
+                          className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all outline-none"
+                          placeholder="12345"
+                        />
                       </div>
 
                       {/* Date of Birth */}

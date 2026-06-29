@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { 
-  ArrowRight, 
-  ArrowLeft, 
-  CheckCircle2, 
-  ShieldCheck, 
-  User, 
-  CalendarDays, 
-  Activity, 
+import {
+  ArrowRight,
+  ArrowLeft,
+  CheckCircle2,
+  ShieldCheck,
+  User,
+  CalendarDays,
+  Activity,
   FileText,
   Loader2,
   AlertCircle
@@ -25,7 +25,8 @@ export default function QualificationQuiz() {
     firstName: "",
     lastName: "",
     email: "",
-    message: "", // <-- Added message field
+    phone: "",
+    message: "",
     birthday: "",
     gender: "",
     hasInsurance: "",
@@ -35,7 +36,7 @@ export default function QualificationQuiz() {
 
   // Validation logic for each step
   // Message is optional, so we don't require it in validation
-  const isStep1Valid = formData.firstName.trim() && formData.lastName.trim() && formData.email.trim();
+  const isStep1Valid = formData.firstName.trim() && formData.lastName.trim() && formData.email.trim() && formData.phone.trim() !== "";
   const isStep2Valid = formData.birthday && formData.gender;
   const isStep3Valid = formData.hasInsurance && formData.smoker;
   const isStep4Valid = formData.consent;
@@ -50,7 +51,7 @@ export default function QualificationQuiz() {
     e.preventDefault();
     setIsSubmitting(true);
     setErrorMessage("");
-    
+
     try {
       const { error } = await supabase
         .from('qualifications')
@@ -59,7 +60,8 @@ export default function QualificationQuiz() {
             first_name: formData.firstName,
             last_name: formData.lastName,
             email: formData.email,
-            message: formData.message, // <-- Added message to Supabase payload
+            message: formData.message,
+            phone: formData.phone,
             birthday: formData.birthday,
             gender: formData.gender,
             has_insurance: formData.hasInsurance,
@@ -81,7 +83,7 @@ export default function QualificationQuiz() {
 
   return (
     <div className="min-h-screen pt-40 pb-24 relative overflow-hidden flex items-center justify-center">
-      
+
       {/* 1. BACKGROUND VIDEO */}
       <video
         autoPlay
@@ -93,12 +95,12 @@ export default function QualificationQuiz() {
         <source src="/videos/hero-bg.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      
+
       {/* 2. DARK OPACITY OVERLAY (Makes the text and white card pop) */}
       <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm -z-10" />
 
       <div className="max-w-2xl w-full mx-auto px-6 relative z-10">
-        
+
         {/* Header */}
         {!isSuccess && (
           <div className="text-center mb-10">
@@ -113,17 +115,17 @@ export default function QualificationQuiz() {
 
         {/* Main Quiz Card */}
         <div className="bg-white border border-slate-200 rounded-[2rem] shadow-2xl shadow-black/40 overflow-hidden flex flex-col min-h-[500px]">
-          
+
           {/* Top Loading Bar Decor */}
           <div className="w-full h-1.5 bg-slate-100">
-            <div 
+            <div
               className="h-full bg-primary transition-all duration-500 ease-out"
               style={{ width: isSuccess ? "100%" : `${(step / 5) * 100}%` }}
             />
           </div>
 
           <div className="p-8 md:p-12 flex flex-col flex-grow relative">
-            
+
             {!isSuccess ? (
               <>
                 {/* Error Display inside the content area for Step 5 */}
@@ -177,6 +179,16 @@ export default function QualificationQuiz() {
                           placeholder="john@example.com"
                         />
                       </div>
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium text-slate-700">Phone Number</label>
+                        <input
+                          type="tel"
+                          value={formData.phone}
+                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all outline-none"
+                          placeholder="(555) 000-0000"
+                        />
+                      </div>
                       {/* ADDED: Message Textarea */}
                       <div className="space-y-2">
                         <label className="text-sm font-medium text-slate-700">How can we help? (Optional)</label>
@@ -212,7 +224,7 @@ export default function QualificationQuiz() {
                           className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all outline-none"
                         />
                       </div>
-                      
+
                       <div className="space-y-3">
                         <label className="text-sm font-medium text-slate-700">Gender</label>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -220,11 +232,10 @@ export default function QualificationQuiz() {
                             <button
                               key={option}
                               onClick={() => setFormData({ ...formData, gender: option })}
-                              className={`py-3.5 px-4 rounded-xl border text-sm font-semibold transition-all ${
-                                formData.gender === option 
-                                  ? "bg-primary text-primary-foreground border-primary shadow-md" 
-                                  : "bg-slate-50 text-slate-600 border-slate-200 hover:border-primary/30 hover:bg-slate-100"
-                              }`}
+                              className={`py-3.5 px-4 rounded-xl border text-sm font-semibold transition-all ${formData.gender === option
+                                ? "bg-primary text-primary-foreground border-primary shadow-md"
+                                : "bg-slate-50 text-slate-600 border-slate-200 hover:border-primary/30 hover:bg-slate-100"
+                                }`}
                             >
                               {option}
                             </button>
@@ -253,18 +264,17 @@ export default function QualificationQuiz() {
                             <button
                               key={`ins-${option}`}
                               onClick={() => setFormData({ ...formData, hasInsurance: option })}
-                              className={`py-4 px-6 rounded-xl border-2 text-base font-bold transition-all ${
-                                formData.hasInsurance === option 
-                                  ? "bg-primary/5 border-primary text-primary shadow-sm" 
-                                  : "bg-white text-slate-600 border-slate-200 hover:border-slate-300 hover:bg-slate-50"
-                              }`}
+                              className={`py-4 px-6 rounded-xl border-2 text-base font-bold transition-all ${formData.hasInsurance === option
+                                ? "bg-primary/5 border-primary text-primary shadow-sm"
+                                : "bg-white text-slate-600 border-slate-200 hover:border-slate-300 hover:bg-slate-50"
+                                }`}
                             >
                               {option}
                             </button>
                           ))}
                         </div>
                       </div>
-                      
+
                       <div className="space-y-3">
                         <label className="text-sm font-medium text-slate-700">Are you a smoker?</label>
                         <div className="grid grid-cols-2 gap-4">
@@ -272,11 +282,10 @@ export default function QualificationQuiz() {
                             <button
                               key={`smoke-${option}`}
                               onClick={() => setFormData({ ...formData, smoker: option })}
-                              className={`py-4 px-6 rounded-xl border-2 text-base font-bold transition-all ${
-                                formData.smoker === option 
-                                  ? "bg-primary/5 border-primary text-primary shadow-sm" 
-                                  : "bg-white text-slate-600 border-slate-200 hover:border-slate-300 hover:bg-slate-50"
-                              }`}
+                              className={`py-4 px-6 rounded-xl border-2 text-base font-bold transition-all ${formData.smoker === option
+                                ? "bg-primary/5 border-primary text-primary shadow-sm"
+                                : "bg-white text-slate-600 border-slate-200 hover:border-slate-300 hover:bg-slate-50"
+                                }`}
                             >
                               {option}
                             </button>
@@ -340,6 +349,10 @@ export default function QualificationQuiz() {
                           <p className="font-semibold text-slate-900 break-all">{formData.email}</p>
                         </div>
                         <div>
+                          <p className="text-slate-500 mb-1">Phone</p>
+                          <p className="font-semibold text-slate-900 break-all">{formData.phone}</p>
+                        </div>
+                        <div>
                           <p className="text-slate-500 mb-1">Date of Birth</p>
                           <p className="font-semibold text-slate-900">{formData.birthday}</p>
                         </div>
@@ -380,8 +393,8 @@ export default function QualificationQuiz() {
 
                   <div className="flex gap-1.5 absolute left-1/2 -translate-x-1/2">
                     {[1, 2, 3, 4, 5].map((idx) => (
-                      <div 
-                        key={idx} 
+                      <div
+                        key={idx}
                         className={`w-2 h-2 rounded-full transition-colors duration-300 ${idx <= step ? "bg-primary" : "bg-slate-200"}`}
                       />
                     ))}

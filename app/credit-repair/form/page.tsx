@@ -27,6 +27,7 @@ export default function CreditRepairQuiz() {
     firstName: "",
     lastName: "",
     email: "",
+    phone: "",
     zip_code: "",
     birthdate: "",
     gender: "",
@@ -41,6 +42,7 @@ export default function CreditRepairQuiz() {
     formData.firstName.trim() !== "" &&
     formData.lastName.trim() !== "" &&
     formData.email.trim() !== "" &&
+    formData.phone.trim() !== "" &&
     formData.zip_code.trim() !== "" &&
     formData.birthdate !== "" &&
     formData.gender !== "" &&
@@ -66,7 +68,7 @@ export default function CreditRepairQuiz() {
     e.preventDefault();
     setIsSubmitting(true);
     setErrorMessage(""); // Clear previous errors
-    
+
     try {
       const { error } = await supabase
         .from('credit_repair_requests')
@@ -76,6 +78,7 @@ export default function CreditRepairQuiz() {
             first_name: formData.firstName,
             last_name: formData.lastName,
             email: formData.email,
+            phone: formData.phone,
             zip_code: formData.zip_code,
             birthdate: formData.birthdate,
             gender: formData.gender,
@@ -86,7 +89,7 @@ export default function CreditRepairQuiz() {
         ]);
 
       if (error) throw error;
-      
+
       setIsSuccess(true);
     } catch (error: any) {
       console.error('Error submitting form:', error.message);
@@ -213,11 +216,10 @@ export default function CreditRepairQuiz() {
                           fixedCredit: !formData.fixedCredit,
                         })
                       }
-                      className={`w-full p-6 rounded-2xl border-2 text-lg font-bold transition-all text-left flex items-center justify-between ${
-                        formData.fixedCredit
+                      className={`w-full p-6 rounded-2xl border-2 text-lg font-bold transition-all text-left flex items-center justify-between ${formData.fixedCredit
                           ? "bg-primary/5 border-primary text-primary shadow-sm"
                           : "bg-white text-slate-600 border-slate-200 hover:border-slate-300 hover:bg-slate-50"
-                      }`}
+                        }`}
                     >
                       <span>
                         {formData.fixedCredit
@@ -282,7 +284,7 @@ export default function CreditRepairQuiz() {
                         </div>
                       </div>
 
-                      {/* Email & Zip Code */}
+                      {/* Email, Phone and Zip Code */}
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="space-y-2">
                           <label className="text-sm font-medium text-slate-700">
@@ -296,6 +298,20 @@ export default function CreditRepairQuiz() {
                             }
                             className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all outline-none"
                             placeholder="john@example.com"
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <label className="text-sm font-medium text-slate-700">
+                            Phone Number
+                          </label>
+                          <input
+                            type="tel"
+                            value={formData.phone}
+                            onChange={(e) =>
+                              setFormData({ ...formData, phone: e.target.value })
+                            }
+                            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all outline-none"
+                            placeholder="(555) 000-0000"
                           />
                         </div>
                         <div className="space-y-2">
@@ -460,9 +476,8 @@ export default function CreditRepairQuiz() {
                     {Array.from({ length: totalSteps }).map((_, idx) => (
                       <div
                         key={idx}
-                        className={`w-2 h-2 rounded-full transition-colors duration-300 ${
-                          idx + 1 <= step ? "bg-primary" : "bg-slate-200"
-                        }`}
+                        className={`w-2 h-2 rounded-full transition-colors duration-300 ${idx + 1 <= step ? "bg-primary" : "bg-slate-200"
+                          }`}
                       />
                     ))}
                   </div>
