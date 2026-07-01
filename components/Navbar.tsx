@@ -54,7 +54,7 @@ export function Navbar() {
         {/* Desktop CTA Button */}
         <div className="hidden md:block absolute right-6 top-1/2 -translate-y-1/2">
           <Button asChild className="shadow-lg shadow-primary/20 rounded-xl font-bold bg-primary text-primary-foreground hover:brightness-110">
-            <Link href="/contact">Join Us</Link>
+            <Link href="/contact">Become an agent</Link>
           </Button>
         </div>
 
@@ -146,8 +146,8 @@ export function Navbar() {
           <Link href="/about" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
             About Us
           </Link>
-          <Link href="/be-part-of-the-team" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-            Be Part of the Team
+          <Link href="/get-licensed-and-contracted" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+            Get Licensed & Contracted
           </Link>
           <Link href="/partners" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
             Our Partners
@@ -228,8 +228,8 @@ export function Navbar() {
           <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground hover:text-primary transition-colors">
             About Us
           </Link>
-          <Link href="/be-part-of-the-team" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground hover:text-primary transition-colors">
-            Be Part of the Team
+          <Link href="/get-licensed-and-contracted" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground hover:text-primary transition-colors">
+            Get Licensed & Contracted
           </Link>
           <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground hover:text-primary transition-colors">
             Our Partners

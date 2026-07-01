@@ -13,7 +13,7 @@ export default function WhyChooseUs() {
     {
       icon: ShieldCheck,
       title: "No Hidden Agendas",
-      description: "We work for you. We partner with A-rated, trusted carriers like National Life Group to find the perfect fit.",
+      description: "Our agents work for you, not a carrier. As independent contractors, they’re individually appointed with A-rated, trusted carriers like National Life Group — giving you access to the right fit instead of a one-size-fits-all sales pitch.",
       color: "text-emerald-400",
       bg: "bg-emerald-500/10",
       border: "border-emerald-500/20",

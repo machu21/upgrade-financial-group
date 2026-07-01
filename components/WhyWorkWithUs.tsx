@@ -23,7 +23,7 @@ export function WhyWorkWithUs() {
     {
       icon: Award,
       title: "Trusted Carriers",
-      description: "We work exclusively with A-rated carriers like National Life Group, Nationwide, and Mutual of Omaha.",
+      description: "Our independently licensed agents are individually appointed with A-rated carriers only,including National Life Group, Nationwide, and Mutual of Omaha.",
       color: "text-primary",
       bg: "bg-primary/10",
       border: "border-primary/20",

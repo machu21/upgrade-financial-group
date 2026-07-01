@@ -61,8 +61,11 @@ export function Hero() {
             </h1>
 
             <p className="text-lg md:text-xl text-foreground/80 max-w-2xl leading-relaxed drop-shadow-md">
-              Protect your family, your income, your investments, and your future, without waiting until it’s too late. Our partners provide access to living benefits when you need them most, including coverage for Terminal Illness, Chronic Illness, Long-Term Care, Critical Illness, Critical Injury, Alzheimer’s/Dementia, and Lifetime Income Retirement.
-            </p>
+              Protect your family, your income, your investments, and your future, without waiting until it’s
+too late. Our network of independently licensed agents works with carrier partners that
+provide access to living benefits when you need them most, including coverage for Terminal
+Illness, Chronic Illness, Long-Term Care, Critical Illness, Critical Injury,
+Alzheimer’s/Dementia, and Lifetime Income Retirement. </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Link

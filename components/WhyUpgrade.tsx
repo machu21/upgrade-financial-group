@@ -226,7 +226,8 @@ export function WhyUpgrade() {
                     onClick={() => setShowForm(true)}
                     className="text-primary font-semibold hover:underline bg-transparent border-none p-0 cursor-pointer text-lg"
                   >
-                    Join him in his crusade.
+                    If this mission resonates with you, learn more about becoming an independently licensed
+agent with our network.
                   </button>
                 )}
               </div>

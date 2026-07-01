@@ -40,14 +40,17 @@ export default function AboutPage() {
 
           <div className="relative z-10 max-w-4xl mx-auto space-y-6">
             <span className="inline-block py-1.5 px-4 rounded-full bg-primary/10 text-primary font-bold text-xs tracking-widest uppercase border border-primary/20">
-              About Upgrade Financial Services
+              About Upgrade Financial Group
             </span>
             <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-foreground leading-[1.05]">
               Life Insurance Should <br />
               <span className="text-primary">Serve the Living.</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-              At Upgrade Financial Services, we believe your life insurance should do more than pay out after you're gone. It should protect you now — when you're facing a health crisis, when the bills are piling up, when you need it most.
+              Upgrade Financial Group is a network of independently licensed insurance agents who
+believe your life insurance should do more than pay out after you’re gone. As independent
+contractors, our agents aren’t tied to a single carrier’s agenda — they’re focused on finding
+the right coverage for you, when you need it most.
             </p>
 
             {/* Stat pills */}

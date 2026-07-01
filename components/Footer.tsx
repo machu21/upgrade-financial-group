@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -13,7 +14,7 @@ export function Footer() {
 
       <div className="max-w-7xl mx-auto px-6">
 
-        {/* Top Grid Section (Now exactly 3 columns) */}
+        {/* Top Grid Section (Exactly 3 columns) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-8 mb-20">
 
           {/* Column 1: Brand */}
@@ -28,7 +29,9 @@ export function Footer() {
               />
             </Link>
             <p className="text-sm text-muted-foreground/80 leading-relaxed pr-4">
-              Smart protection and investment solutions. We specialize in living benefits life insurance, ensuring your family is protected for life today and tomorrow.
+              Upgrade Financial Group connects you with independently licensed insurance professionals
+who specialize in living benefits life insurance — helping protect your family for life today
+and tomorrow.
             </p>
           </div>
 
@@ -42,19 +45,19 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-              <Link href="/services" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                Our Services
-              </Link>
+                <Link href="/services" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  Our Services
+                </Link>
               </li>
               <li>
-              <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                About Us
-              </Link>
+                <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  About Us
+                </Link>
               </li>
               <li>
-              <Link href="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                Free Consultation
-              </Link>
+                <Link href="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  Free Consultation
+                </Link>
               </li>
             </ul>
           </div>
@@ -91,10 +94,21 @@ export function Footer() {
         </div>
 
         {/* Separator */}
-        <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent mb-6" />
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent mb-8" />
+
+        {/* LEGAL DISCLOSURE SECTION */}
+        <div className="mb-8 max-w-7xl mx-auto text-center md:text-left">
+          <p className="text-[11px] md:text-xs leading-relaxed text-muted-foreground/50 font-normal italic">
+            Upgrade Financial Group is a marketing name, not a licensed insurance agency. The 
+            professionals affiliated with Upgrade Financial Group are independently licensed insurance 
+            agents and independent contractors, individually licensed and appointed with the carriers 
+            referenced on this site. They are not employees of Upgrade Financial Group, and Upgrade 
+            Financial Group does not itself sell, underwrite, or service insurance products.
+          </p>
+        </div>
 
         {/* Bottom Section: Privacy Policy & Copyright */}
-        <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-4 text-center md:text-left">
+        <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-4 text-center md:text-left border-t border-border/10 pt-6">
           <p className="text-xs font-medium text-muted-foreground/60 shrink-0">
             © {new Date().getFullYear()} Upgrade Financial Group. All Rights Reserved.
           </p>
@@ -112,3 +126,4 @@ export function Footer() {
     </footer>
   );
 }
+
