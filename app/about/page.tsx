@@ -58,7 +58,7 @@ the right coverage for you, when you need it most.
               {[
                 { val: "Living", label: "Benefits Focused" },
                 { val: "A-Rated", label: "Carrier Partners" },
-                { val: "10–88", label: "Ages Covered" },
+                { val: "10-90", label: "Ages Covered" },
               ].map((s, i) => (
                 <div key={i} className="flex items-center gap-2 bg-accent/40 backdrop-blur-sm border border-border rounded-full px-4 py-2">
                   <span className="text-sm font-extrabold text-foreground">{s.val}</span>
@@ -76,7 +76,7 @@ the right coverage for you, when you need it most.
               {/* Image */}
               <div className="relative min-h-[320px]">
                 <img
-                  src="https://us.images.westend61.de/0002059029pw/cheerful-african-family-with-a-mother-and-father-holding-their-young-son-and-daughter-smiling-in-a-lush-park-everyone-is-looking-directly-at-the-camera-ADSF68301.jpg"
+                  src="https://img.magnific.com/premium-photo/happy-family-dog-portrait-park-relax-smile-while-bonding-nature-calm-cheerful-happy-black-family-love-with-girl-pet-parents-enjoying-quality-time-forest_590464-101313.jpg?semt=ais_hybrid&w=740&q=80"
                   alt="Family protected"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
