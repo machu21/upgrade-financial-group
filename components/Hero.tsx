@@ -137,7 +137,7 @@ Alzheimer’s/Dementia, and Lifetime Income Retirement. </p>
                     <span className="w-1/2">Feature</span>
                     <div className="w-1/2 flex justify-between text-center">
                       <span className="w-1/2">Traditional</span>
-                      <span className="w-1/2 text-amber-600 font-extrabold drop-shadow-sm">Living Benefits</span>
+                      <span className="w-1/2 text-emerald-600 font-extrabold drop-shadow-sm">Living Benefits</span>
                     </div>
                   </div>
 
@@ -165,11 +165,11 @@ Alzheimer’s/Dementia, and Lifetime Income Retirement. </p>
                         {/* Living Benefits Column */}
                         <div className="w-1/2 flex flex-col items-center justify-center">
                           {feature.living ? (
-                            <CheckCircle2 className="w-5 h-5 text-amber-600 stroke-[3px] scale-110 drop-shadow-md" />
+                            <CheckCircle2 className="w-5 h-5 text-emerald-600 stroke-[3px] scale-110 drop-shadow-md" />
                           ) : (
                             <XCircle className="w-5 h-5 text-red-300" />
                           )}
-                          {feature.noteLiving && <span className="text-[9px] text-amber-700 font-bold mt-1 leading-none">{feature.noteLiving}</span>}
+                          {feature.noteLiving && <span className="text-[9px] text-black font-bold mt-1 leading-none">{feature.noteLiving}</span>}
                         </div>
                       </div>
                     </div>

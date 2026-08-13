@@ -88,19 +88,7 @@ export default function PartnersPage() {
               />
             </a>
 
-            {/* MCL Financial Services Link */}
-            <a 
-              href="https://www.mclfinancialservices.com/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="w-full max-w-sm bg-accent/20 border border-border rounded-2xl p-8 flex items-center justify-center hover:border-primary/50 hover:bg-accent/40 backdrop-blur-sm transition-all group h-32 shadow-lg"
-            >
-              <img 
-                src="/images/mcl.png" 
-                alt="MCL Financial Services" 
-                className="w-full h-full object-contain opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300 brightness-125"
-              />
-            </a>
+
 
           </div>
         </div>
